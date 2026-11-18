@@ -34,6 +34,13 @@ public record Remediation(Category category, String advice) {
      */
     public static Remediation advise(VersionDecision decision, boolean inPrimary, String fixVersion, boolean allFixable,
                                      boolean lineChange, List<String> alternatives, String module, List<String> introducers) {
+        return advise(decision, inPrimary, fixVersion, allFixable, lineChange, alternatives, module, introducers, false);
+    }
+
+    /** maven=true면 수정 방법을 pom.xml 기준(dependencyManagement, 부모 POM 속성)으로 안내한다. */
+    public static Remediation advise(VersionDecision decision, boolean inPrimary, String fixVersion, boolean allFixable,
+                                     boolean lineChange, List<String> alternatives, String module, List<String> introducers,
+                                     boolean maven) {
         if (!inPrimary) {
             return new Remediation(Category.TEST_ONLY, "배포 클래스패스에 없음(테스트 범위). 게이트 대상에서 제외하고 보고만 한다.");
         }
@@ -61,11 +68,16 @@ public record Remediation(Category category, String advice) {
                 yield new Remediation(Category.UPDATE_DIRECT, "직접 선언 버전을 " + fixVersion + " 이상으로 올린다." + partial + notes);
             }
             case DIRECT -> new Remediation(Category.UPDATE_DIRECT, "직접 선언 버전을 " + fixVersion + " 이상으로 올린다." + notes);
-            case BOM_MANAGED -> new Remediation(Category.UPGRADE_PLATFORM,
-                    "Spring Boot BOM이 관리하는 버전이다. " + fixVersion + " 이상을 관리하는 Spring Boot로 올리거나, "
+            case BOM_MANAGED -> new Remediation(Category.UPGRADE_PLATFORM, maven
+                    ? "dependencyManagement(부모 POM·BOM import)가 관리하는 버전이다. " + fixVersion + " 이상을 관리하는 부모 POM·BOM으로 올리거나, "
+                            + "부모가 제공하는 버전 속성(<properties>)이나 <dependencyManagement> 항목으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)." + notes
+                    : "Spring Boot BOM이 관리하는 버전이다. " + fixVersion + " 이상을 관리하는 Spring Boot로 올리거나, "
                             + "BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)." + notes);
-            default -> new Remediation(Category.CONSTRAIN_TRANSITIVE,
-                    "전이 의존성이다. 유입자(" + String.join(", ", introducers) + ")를 올리거나, "
+            default -> new Remediation(Category.CONSTRAIN_TRANSITIVE, maven
+                    ? "전이 의존성이다. 유입자(" + String.join(", ", introducers) + ")를 올리거나, <dependencyManagement>에 "
+                            + module + ":" + fixVersion + "을 선언해 고정한다. Maven은 nearest-wins라 다른 경로에서 더 높은 버전을 요청해도 "
+                            + "자동으로 올라가지 않는다." + notes
+                    : "전이 의존성이다. 유입자(" + String.join(", ", introducers) + ")를 올리거나, "
                             + "constraints { implementation('" + module + ":" + fixVersion + "') } 로 하한을 지정한다." + notes);
         };
     }

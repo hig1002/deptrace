@@ -29,7 +29,8 @@ import picocli.CommandLine.Parameters;
 
 @Command(name = "deptrace", mixinStandardHelpOptions = true, version = "deptrace 0.1.0",
         description = "Gradle 의존성 해석 결과와 OSV 취약점 정보를 결합해 유입 경로·버전 결정 원인·수정 지점을 알려준다.",
-        subcommands = {Main.Explain.class, Main.Analyze.class, Main.NvdGaps.class, Main.Licenses.class, Main.Sbom.class, Main.Diff.class})
+        subcommands = {Main.MavenExport.class, Main.Explain.class, Main.Analyze.class, Main.NvdGaps.class, Main.Licenses.class,
+                Main.Sbom.class, Main.Diff.class})
 public final class Main {
 
     public static void main(String[] args) {
@@ -40,6 +41,57 @@ public final class Main {
             return 2;
         });
         System.exit(cli.execute(args));
+    }
+
+    @Command(name = "maven-export", description = "Maven 프로젝트의 해석 결과(dependency:tree -Dverbose)를 DepTrace 그래프로 내보낸다.")
+    static final class MavenExport implements Callable<Integer> {
+
+        /** 버전 고정: verbose 트리 형식이 플러그인 버전마다 다를 수 있다. */
+        static final String TREE_GOAL = "org.apache.maven.plugins:maven-dependency-plugin:3.9.0:tree";
+
+        @Option(names = "--project", defaultValue = ".", description = "pom.xml이 있는 디렉터리")
+        Path project;
+
+        @Option(names = "--mvn", description = "Maven 실행 파일. 기본값: 프로젝트의 mvnw, 없으면 PATH의 mvn")
+        String mvn;
+
+        @Option(names = "--tree", description = "이미 만든 트리 파일 (mvn dependency:tree -Dverbose -DoutputFile=...). 주면 Maven을 실행하지 않는다")
+        Path tree;
+
+        @Option(names = "--out", description = "출력 디렉터리. 기본값: <project>/target/deptrace")
+        Path out;
+
+        @Override
+        public Integer call() throws Exception {
+            Path dir = project.toAbsolutePath().normalize();
+            Path pom = dir.resolve("pom.xml");
+            String treeText;
+            if (tree != null) {
+                treeText = Files.readString(tree);
+            } else {
+                Path tmp = Files.createTempFile("deptrace-tree", ".txt");
+                String exe = mvn != null ? mvn : Files.isExecutable(dir.resolve("mvnw")) ? dir.resolve("mvnw").toString() : "mvn";
+                Process p = new ProcessBuilder(exe, "-q", "-B", TREE_GOAL, "-Dverbose", "-DoutputFile=" + tmp.toAbsolutePath())
+                        .directory(dir.toFile()).redirectErrorStream(true).start();
+                String log = new String(p.getInputStream().readAllBytes());
+                if (p.waitFor() != 0) {
+                    throw new IllegalStateException("Maven 실행 실패 (" + exe + "):\n" + log);
+                }
+                treeText = Files.readString(tmp);
+                Files.deleteIfExists(tmp);
+            }
+            var declared = Files.exists(pom) ? deptrace.maven.PomDeclarations.parse(Files.readString(pom))
+                    : List.<deptrace.maven.MavenTreeParser.Declared>of();
+            Path target = out != null ? out : dir.resolve("target").resolve("deptrace");
+            Files.createDirectories(target);
+            for (var export : deptrace.maven.MavenTreeParser.parse(treeText, declared, null)) {
+                Path file = target.resolve(export.configuration().replace(':', '-') + ".json");
+                Json.write(file, export);
+                long components = export.nodes().keySet().stream().filter(id -> !id.startsWith("root project")).count();
+                System.out.printf("%s: 구성요소 %d개 → %s%n", export.configuration(), components, file);
+            }
+            return 0;
+        }
     }
 
     @Command(name = "explain", description = "구성요소 하나의 버전 결정 원인과 유입 경로를 보여준다 (오프라인).")
@@ -66,7 +118,7 @@ public final class Main {
             VersionDecision d = VersionDecisionClassifier.classify(graph, node);
             List<PathTracer.Introduction> intro = PathTracer.introductions(graph, node.id());
             System.out.println(node.id() + "  [" + graph.configuration() + "]");
-            System.out.println("  선택 사유(Gradle): " + String.join(", ", node.causes()));
+            System.out.println("  선택 사유(" + (graph.data().isMaven() ? "Maven" : "Gradle") + "): " + String.join(", ", node.causes()));
             System.out.println("  요청 버전: " + (d.requestedVersions().isEmpty() ? "-" : String.join(", ", d.requestedVersions()))
                     + "  직접 선언: " + (d.declared() == null ? "-" : d.declared())
                     + "  BOM 관리: " + (d.managed() == null ? "-" : d.managed()));

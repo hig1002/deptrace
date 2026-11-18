@@ -68,6 +68,14 @@ public final class GraphFixture {
 
     public ResolvedGraph build() {
         return ResolvedGraph.of(new GraphExport("deptrace-graph/1", ":", "app", "com.example", "1.0.0", configuration, "8.14.3", ROOT,
-                declared, managed, nodes, edges));
+                declared, managed, nodes, edges, buildTool));
+    }
+
+    private String buildTool;
+
+    /** Maven 해석 결과로 만든 그래프처럼 표시한다 (설명·조치 문구가 Maven 기준이 된다). */
+    public GraphFixture maven() {
+        this.buildTool = "maven";
+        return this;
     }
 }

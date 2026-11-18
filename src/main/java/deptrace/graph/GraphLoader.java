@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public final class GraphLoader {
 
     /** 결과 판정의 기준 구성. bootJar에 실제로 들어가는 구성이 우선이다. */
-    private static final List<String> PRIMARY_PREFERENCE = List.of("productionRuntimeClasspath", "runtimeClasspath");
+    private static final List<String> PRIMARY_PREFERENCE = List.of("productionRuntimeClasspath", "runtimeClasspath", "maven:runtime");
 
     private final ObjectMapper json = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

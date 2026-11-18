@@ -120,7 +120,7 @@ public final class Analyzer {
 
         List<String> introducers = introductions.stream().map(PathTracer.Introduction::introducer).toList();
         Remediation remediation = Remediation.advise(decision, inPrimary, effectiveFix, allFixable, lineChange,
-                alternatives, c.module(), introducers.stream().limit(3).toList());
+                alternatives, c.module(), introducers.stream().limit(3).toList(), graph.data() != null && graph.data().isMaven());
 
         return new Finding(c.toString(), c.module(), c.version(), inPrimary, configs, maxSeverity, list,
                 decision.kind().name(), decision.explanation(), decision.downgraded(),
