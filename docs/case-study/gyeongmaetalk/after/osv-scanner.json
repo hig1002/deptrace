@@ -1,0 +1,2684 @@
+{
+  "results": [
+    {
+      "source": {
+        "path": "gradle.lockfile",
+        "type": "lockfile"
+      },
+      "packages": [
+        {
+          "package": {
+            "name": "com.querydsl:querydsl-apt",
+            "version": "5.0.0",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/com.querydsl/querydsl-apt@5.0.0"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-6q3q-6v5j-h6vg"
+              ],
+              "aliases": [
+                "CVE-2024-49203",
+                "GHSA-6q3q-6v5j-h6vg"
+              ],
+              "max_severity": "8.8"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0.M1"
+                        },
+                        {
+                          "fixed": "6.10.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0",
+                    "6.0.0.M1",
+                    "6.0.0.M2",
+                    "6.0.0.M3",
+                    "6.0.0.RC1",
+                    "6.0.1",
+                    "6.0.2",
+                    "6.0.3",
+                    "6.1",
+                    "6.10",
+                    "6.2",
+                    "6.2.1",
+                    "6.3",
+                    "6.4",
+                    "6.5",
+                    "6.6",
+                    "6.7",
+                    "6.8",
+                    "6.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0.M1"
+                        },
+                        {
+                          "fixed": "6.10.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0",
+                    "6.0.0.M1",
+                    "6.0.0.M2",
+                    "6.0.0.M3",
+                    "6.0.0.RC1",
+                    "6.0.1",
+                    "6.0.2",
+                    "6.0.3",
+                    "6.1",
+                    "6.10",
+                    "6.2",
+                    "6.2.1",
+                    "6.3",
+                    "6.4",
+                    "6.5",
+                    "6.6",
+                    "6.7",
+                    "6.8",
+                    "6.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "5.6.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.0.1",
+                    "5.1",
+                    "5.1.1",
+                    "5.2",
+                    "5.3",
+                    "5.4",
+                    "5.5",
+                    "5.6"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "5.6.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.0.1",
+                    "5.1",
+                    "5.1.1",
+                    "5.2",
+                    "5.3",
+                    "5.4",
+                    "5.5",
+                    "5.6"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "com.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/com.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "last_affected": "5.1.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "4.0.0",
+                    "4.0.1",
+                    "4.0.2",
+                    "4.0.3",
+                    "4.0.4",
+                    "4.0.5",
+                    "4.0.6",
+                    "4.0.7",
+                    "4.0.8",
+                    "4.0.9",
+                    "4.1.0",
+                    "4.1.1",
+                    "4.1.2",
+                    "4.1.3",
+                    "4.1.4",
+                    "4.2.0",
+                    "4.2.1",
+                    "4.2.2",
+                    "4.3.0",
+                    "4.3.1",
+                    "4.4.0",
+                    "5.0.0",
+                    "5.0.0.M1",
+                    "5.1.0"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "com.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/com.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "last_affected": "5.1.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "4.0.0",
+                    "4.0.1",
+                    "4.0.2",
+                    "4.0.3",
+                    "4.0.4",
+                    "4.0.5",
+                    "4.0.6",
+                    "4.0.7",
+                    "4.0.8",
+                    "4.0.9",
+                    "4.1.0",
+                    "4.1.1",
+                    "4.1.2",
+                    "4.1.3",
+                    "4.1.4",
+                    "4.2.0",
+                    "4.2.1",
+                    "4.2.2",
+                    "4.3.0",
+                    "4.3.1",
+                    "4.4.0",
+                    "5.0.0",
+                    "5.0.0.M1",
+                    "5.1.0"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2024-49203"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-89"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2024-11-27T19:00:53Z",
+                "nvd_published_at": null,
+                "severity": "HIGH"
+              },
+              "details": "### Summary\nThe order by method enables injecting HQL queries. This may cause blind HQL injection, which could lead to leakage of sensitive information, and potentially also Denial Of Service. This vulnerability is present since the original querydsl repository(https://github.com/querydsl/querydsl) where it was assigned preliminary CVE identifier **CVE-2024-49203**.\n\n### Details\nVulnerable code may look as follows:\n```\n@GetMapping\npublic List\u003cTest\u003e getProducts(@RequestParam(\"orderBy\") String orderBy) {\n    JPAQuery\u003cTest\u003e query = new JPAQuery\u003cTest\u003e(entityManager).from(test);\n    PathBuilder\u003cTest\u003e pathBuilder = new PathBuilder\u003c\u003e(Test.class, \"test\");\n\n    OrderSpecifier order = new OrderSpecifier(Order.ASC, pathBuilder.get(orderBy));\n    JPAQuery\u003cTest\u003e orderedQuery = query.orderBy(order);\n    return orderedQuery.fetch();\n}\n```\nWhere vulnerability is either caused by ```pathBuilder.get(orderBy)``` or the ```orderBy(order)``` method itself, based on where the security checks are expected.\n\n### PoC\nFull POC code is available in repository:\nhttps://github.com/CSIRTTrizna/CVE-2024-49203/\nWhen we take a look at source code shown in Details section the functionality is as follows:\n\n1) Create JPAQuery object instance:\n```\nJPAQuery\u003cTest\u003e query = new JPAQuery\u003cTest\u003e(entityManager).from(test);\n```\n\n2) Create OrderSpecifier object instance:\n```\nPathBuilder\u003cTest\u003e pathBuilder = new PathBuilder\u003c\u003e(Test.class, \"test\");\nOrderSpecifier order = new OrderSpecifier(Order.ASC, pathBuilder.get(orderBy));\n```\nWhere orderBy variable is user provided input.\n\n3) order and run the query\n```\nJPAQuery\u003cTest\u003e orderedQuery = query.orderBy(order);\norderedQuery.fetch();\n```\n\nWhen user goes to URL \n```/products?orderBy=name+INTERSECT+SELECT+t+FROM+Test+t+WHERE+(SELECT+cast(pg_sleep(10) AS text))='2'+ORDER+BY+t.id```\nThe generated query will look something like this:\n```\nselect test                                                                                                                                     \nfrom Test test\norder by test.name INTERSECT SELECT t FROM Test t WHERE (SELECT cast(pg_sleep(10) AS text))='2' ORDER BY t.id asc\n```\n\n#### Environment\n\nLibrary versions used in proof of concept to reproduce the vulnerability:\n```\nquerydsl-jpa: 6.8.0\nquerydsl-apt: 6.8.0\nhibernate-core: 6.1.1.Final\njakarta.persistence-api: 3.1.0\npostgresql: 42.7.4\n```\n\n### Impact\nThe vulnerability is HQL injection, so anyone using source code similar to one provided in details is exposed to potentional information leakage and denial of service.",
+              "id": "GHSA-6q3q-6v5j-h6vg",
+              "modified": "2025-10-13T12:05:11.220536Z",
+              "published": "2024-11-27T19:00:53Z",
+              "references": [
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/security/advisories/GHSA-6q3q-6v5j-h6vg"
+                },
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-49203"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/querydsl/querydsl/issues/3757"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/CSIRTTrizna/CVE-2024-49203"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/OpenFeign/querydsl"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/releases/tag/5.6.1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/releases/tag/6.10.1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_5_1_0"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://www.csirt.sk/querydsl-java-library-vulnerability-permits-sql-hql-injection.html"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:L",
+                  "type": "CVSS_V3"
+                },
+                {
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:L/SC:N/SI:N/SA:N",
+                  "type": "CVSS_V4"
+                }
+              ],
+              "summary": "Querydsl vulnerable to HQL injection through orderBy"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "com.querydsl:querydsl-jpa",
+            "version": "5.0.0",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/com.querydsl/querydsl-jpa@5.0.0"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-6q3q-6v5j-h6vg"
+              ],
+              "aliases": [
+                "CVE-2024-49203",
+                "GHSA-6q3q-6v5j-h6vg"
+              ],
+              "max_severity": "8.8"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0.M1"
+                        },
+                        {
+                          "fixed": "6.10.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0",
+                    "6.0.0.M1",
+                    "6.0.0.M2",
+                    "6.0.0.M3",
+                    "6.0.0.RC1",
+                    "6.0.1",
+                    "6.0.2",
+                    "6.0.3",
+                    "6.1",
+                    "6.10",
+                    "6.2",
+                    "6.2.1",
+                    "6.3",
+                    "6.4",
+                    "6.5",
+                    "6.6",
+                    "6.7",
+                    "6.8",
+                    "6.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0.M1"
+                        },
+                        {
+                          "fixed": "6.10.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0",
+                    "6.0.0.M1",
+                    "6.0.0.M2",
+                    "6.0.0.M3",
+                    "6.0.0.RC1",
+                    "6.0.1",
+                    "6.0.2",
+                    "6.0.3",
+                    "6.1",
+                    "6.10",
+                    "6.2",
+                    "6.2.1",
+                    "6.3",
+                    "6.4",
+                    "6.5",
+                    "6.6",
+                    "6.7",
+                    "6.8",
+                    "6.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "5.6.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.0.1",
+                    "5.1",
+                    "5.1.1",
+                    "5.2",
+                    "5.3",
+                    "5.4",
+                    "5.5",
+                    "5.6"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.github.openfeign.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/io.github.openfeign.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "5.6.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.0.1",
+                    "5.1",
+                    "5.1.1",
+                    "5.2",
+                    "5.3",
+                    "5.4",
+                    "5.5",
+                    "5.6"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "com.querydsl:querydsl-jpa",
+                    "purl": "pkg:maven/com.querydsl/querydsl-jpa"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "last_affected": "5.1.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "4.0.0",
+                    "4.0.1",
+                    "4.0.2",
+                    "4.0.3",
+                    "4.0.4",
+                    "4.0.5",
+                    "4.0.6",
+                    "4.0.7",
+                    "4.0.8",
+                    "4.0.9",
+                    "4.1.0",
+                    "4.1.1",
+                    "4.1.2",
+                    "4.1.3",
+                    "4.1.4",
+                    "4.2.0",
+                    "4.2.1",
+                    "4.2.2",
+                    "4.3.0",
+                    "4.3.1",
+                    "4.4.0",
+                    "5.0.0",
+                    "5.0.0.M1",
+                    "5.1.0"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/11/GHSA-6q3q-6v5j-h6vg/GHSA-6q3q-6v5j-h6vg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "com.querydsl:querydsl-apt",
+                    "purl": "pkg:maven/com.querydsl/querydsl-apt"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "last_affected": "5.1.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "4.0.0",
+                    "4.0.1",
+                    "4.0.2",
+                    "4.0.3",
+                    "4.0.4",
+                    "4.0.5",
+                    "4.0.6",
+                    "4.0.7",
+                    "4.0.8",
+                    "4.0.9",
+                    "4.1.0",
+                    "4.1.1",
+                    "4.1.2",
+                    "4.1.3",
+                    "4.1.4",
+                    "4.2.0",
+                    "4.2.1",
+                    "4.2.2",
+                    "4.3.0",
+                    "4.3.1",
+                    "4.4.0",
+                    "5.0.0",
+                    "5.0.0.M1",
+                    "5.1.0"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2024-49203"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-89"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2024-11-27T19:00:53Z",
+                "nvd_published_at": null,
+                "severity": "HIGH"
+              },
+              "details": "### Summary\nThe order by method enables injecting HQL queries. This may cause blind HQL injection, which could lead to leakage of sensitive information, and potentially also Denial Of Service. This vulnerability is present since the original querydsl repository(https://github.com/querydsl/querydsl) where it was assigned preliminary CVE identifier **CVE-2024-49203**.\n\n### Details\nVulnerable code may look as follows:\n```\n@GetMapping\npublic List\u003cTest\u003e getProducts(@RequestParam(\"orderBy\") String orderBy) {\n    JPAQuery\u003cTest\u003e query = new JPAQuery\u003cTest\u003e(entityManager).from(test);\n    PathBuilder\u003cTest\u003e pathBuilder = new PathBuilder\u003c\u003e(Test.class, \"test\");\n\n    OrderSpecifier order = new OrderSpecifier(Order.ASC, pathBuilder.get(orderBy));\n    JPAQuery\u003cTest\u003e orderedQuery = query.orderBy(order);\n    return orderedQuery.fetch();\n}\n```\nWhere vulnerability is either caused by ```pathBuilder.get(orderBy)``` or the ```orderBy(order)``` method itself, based on where the security checks are expected.\n\n### PoC\nFull POC code is available in repository:\nhttps://github.com/CSIRTTrizna/CVE-2024-49203/\nWhen we take a look at source code shown in Details section the functionality is as follows:\n\n1) Create JPAQuery object instance:\n```\nJPAQuery\u003cTest\u003e query = new JPAQuery\u003cTest\u003e(entityManager).from(test);\n```\n\n2) Create OrderSpecifier object instance:\n```\nPathBuilder\u003cTest\u003e pathBuilder = new PathBuilder\u003c\u003e(Test.class, \"test\");\nOrderSpecifier order = new OrderSpecifier(Order.ASC, pathBuilder.get(orderBy));\n```\nWhere orderBy variable is user provided input.\n\n3) order and run the query\n```\nJPAQuery\u003cTest\u003e orderedQuery = query.orderBy(order);\norderedQuery.fetch();\n```\n\nWhen user goes to URL \n```/products?orderBy=name+INTERSECT+SELECT+t+FROM+Test+t+WHERE+(SELECT+cast(pg_sleep(10) AS text))='2'+ORDER+BY+t.id```\nThe generated query will look something like this:\n```\nselect test                                                                                                                                     \nfrom Test test\norder by test.name INTERSECT SELECT t FROM Test t WHERE (SELECT cast(pg_sleep(10) AS text))='2' ORDER BY t.id asc\n```\n\n#### Environment\n\nLibrary versions used in proof of concept to reproduce the vulnerability:\n```\nquerydsl-jpa: 6.8.0\nquerydsl-apt: 6.8.0\nhibernate-core: 6.1.1.Final\njakarta.persistence-api: 3.1.0\npostgresql: 42.7.4\n```\n\n### Impact\nThe vulnerability is HQL injection, so anyone using source code similar to one provided in details is exposed to potentional information leakage and denial of service.",
+              "id": "GHSA-6q3q-6v5j-h6vg",
+              "modified": "2025-10-13T12:05:11.220536Z",
+              "published": "2024-11-27T19:00:53Z",
+              "references": [
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/security/advisories/GHSA-6q3q-6v5j-h6vg"
+                },
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-49203"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/querydsl/querydsl/issues/3757"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/CSIRTTrizna/CVE-2024-49203"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/OpenFeign/querydsl"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/releases/tag/5.6.1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/OpenFeign/querydsl/releases/tag/6.10.1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_5_1_0"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://www.csirt.sk/querydsl-java-library-vulnerability-permits-sql-hql-injection.html"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:L",
+                  "type": "CVSS_V3"
+                },
+                {
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:L/SC:N/SI:N/SA:N",
+                  "type": "CVSS_V4"
+                }
+              ],
+              "summary": "Querydsl vulnerable to HQL injection through orderBy"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "io.opentelemetry:opentelemetry-api",
+            "version": "1.49.0",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/io.opentelemetry/opentelemetry-api@1.49.0"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-rcgg-9c38-7xpx"
+              ],
+              "aliases": [
+                "CVE-2026-45292",
+                "GHSA-rcgg-9c38-7xpx"
+              ],
+              "max_severity": "5.3"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 1.61.0",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/05/GHSA-rcgg-9c38-7xpx/GHSA-rcgg-9c38-7xpx.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.opentelemetry:opentelemetry-api",
+                    "purl": "pkg:maven/io.opentelemetry/opentelemetry-api"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "1.62.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "0.10.0",
+                    "0.11.0",
+                    "0.12.0",
+                    "0.13.0",
+                    "0.13.1",
+                    "0.14.0",
+                    "0.14.1",
+                    "0.15.0",
+                    "0.16.0",
+                    "0.17.0",
+                    "0.17.1",
+                    "0.2.0",
+                    "0.2.1",
+                    "0.2.4",
+                    "0.3.0",
+                    "0.4.0",
+                    "0.4.1",
+                    "0.5.0",
+                    "0.6.0",
+                    "0.7.0",
+                    "0.7.1",
+                    "0.8.0",
+                    "0.9.0",
+                    "0.9.1",
+                    "1.0.0",
+                    "1.0.1",
+                    "1.1.0",
+                    "1.10.0",
+                    "1.10.0-rc.1",
+                    "1.10.0-rc.2",
+                    "1.10.1",
+                    "1.11.0",
+                    "1.12.0",
+                    "1.13.0",
+                    "1.14.0",
+                    "1.15.0",
+                    "1.16.0",
+                    "1.17.0",
+                    "1.18.0",
+                    "1.19.0",
+                    "1.2.0",
+                    "1.20.0",
+                    "1.20.1",
+                    "1.21.0",
+                    "1.22.0",
+                    "1.23.0",
+                    "1.23.1",
+                    "1.24.0",
+                    "1.25.0",
+                    "1.26.0",
+                    "1.27.0",
+                    "1.28.0",
+                    "1.29.0",
+                    "1.3.0",
+                    "1.30.0",
+                    "1.30.1",
+                    "1.31.0",
+                    "1.32.0",
+                    "1.33.0",
+                    "1.34.0",
+                    "1.34.1",
+                    "1.35.0",
+                    "1.36.0",
+                    "1.37.0",
+                    "1.38.0",
+                    "1.39.0",
+                    "1.4.0",
+                    "1.4.1",
+                    "1.40.0",
+                    "1.41.0",
+                    "1.42.0",
+                    "1.42.1",
+                    "1.43.0",
+                    "1.44.0",
+                    "1.44.1",
+                    "1.45.0",
+                    "1.46.0",
+                    "1.47.0",
+                    "1.48.0",
+                    "1.49.0",
+                    "1.5.0",
+                    "1.50.0",
+                    "1.51.0",
+                    "1.52.0",
+                    "1.53.0",
+                    "1.54.0",
+                    "1.54.1",
+                    "1.55.0",
+                    "1.56.0",
+                    "1.57.0",
+                    "1.58.0",
+                    "1.59.0",
+                    "1.6.0",
+                    "1.60.0",
+                    "1.60.1",
+                    "1.61.0",
+                    "1.7.0",
+                    "1.7.1",
+                    "1.9.0",
+                    "1.9.1"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 1.61.0",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/05/GHSA-rcgg-9c38-7xpx/GHSA-rcgg-9c38-7xpx.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "io.opentelemetry:opentelemetry-extension-trace-propagators",
+                    "purl": "pkg:maven/io.opentelemetry/opentelemetry-extension-trace-propagators"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "fixed": "1.62.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "0.10.0",
+                    "0.11.0",
+                    "0.12.0",
+                    "0.13.0",
+                    "0.13.1",
+                    "0.14.0",
+                    "0.14.1",
+                    "0.15.0",
+                    "0.16.0",
+                    "0.17.0",
+                    "0.17.1",
+                    "0.6.0",
+                    "0.7.0",
+                    "0.7.1",
+                    "0.8.0",
+                    "0.9.1",
+                    "1.0.0",
+                    "1.0.1",
+                    "1.1.0",
+                    "1.10.0",
+                    "1.10.0-rc.1",
+                    "1.10.0-rc.2",
+                    "1.10.1",
+                    "1.11.0",
+                    "1.12.0",
+                    "1.13.0",
+                    "1.14.0",
+                    "1.15.0",
+                    "1.16.0",
+                    "1.17.0",
+                    "1.18.0",
+                    "1.19.0",
+                    "1.2.0",
+                    "1.20.0",
+                    "1.20.1",
+                    "1.21.0",
+                    "1.22.0",
+                    "1.23.0",
+                    "1.23.1",
+                    "1.24.0",
+                    "1.25.0",
+                    "1.26.0",
+                    "1.27.0",
+                    "1.28.0",
+                    "1.29.0",
+                    "1.3.0",
+                    "1.30.0",
+                    "1.30.1",
+                    "1.31.0",
+                    "1.32.0",
+                    "1.33.0",
+                    "1.34.0",
+                    "1.34.1",
+                    "1.35.0",
+                    "1.36.0",
+                    "1.37.0",
+                    "1.38.0",
+                    "1.39.0",
+                    "1.4.0",
+                    "1.4.1",
+                    "1.40.0",
+                    "1.41.0",
+                    "1.42.0",
+                    "1.42.1",
+                    "1.43.0",
+                    "1.44.0",
+                    "1.44.1",
+                    "1.45.0",
+                    "1.46.0",
+                    "1.47.0",
+                    "1.48.0",
+                    "1.49.0",
+                    "1.5.0",
+                    "1.50.0",
+                    "1.51.0",
+                    "1.52.0",
+                    "1.53.0",
+                    "1.54.0",
+                    "1.54.1",
+                    "1.55.0",
+                    "1.56.0",
+                    "1.57.0",
+                    "1.58.0",
+                    "1.59.0",
+                    "1.6.0",
+                    "1.60.0",
+                    "1.60.1",
+                    "1.61.0",
+                    "1.7.0",
+                    "1.7.1",
+                    "1.9.0",
+                    "1.9.1"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-45292"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-770"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-05-14T16:36:04Z",
+                "nvd_published_at": "2026-05-28T17:16:32Z",
+                "severity": "MODERATE"
+              },
+              "details": "## Overview\n\nA vulnerability affects the baggage propagation implementation in\n`opentelemetry-api` and `opentelemetry-extension-trace-propagators`. Parsing oversized baggage\ncauses unbounded memory allocation and CPU consumption. Because baggage is automatically\nre-injected into every outgoing request, the effect can fan out to downstream services that\nnever received the original malicious request.\n\n## Technical Details\n\n- `W3CBaggagePropagator` did not enforce any limit on the total size or entry count of the\n  `baggage` header. The parser iterated character-by-character through the entire value\n  regardless of length.\n- `JaegerPropagator` and `OtTracePropagator` had the same gap in their respective baggage\n  extraction paths.\n- The W3C Baggage specification recommends a maximum of 8,192 bytes and 180 entries; none of\n  these limits were enforced.\n\n## Impact\n\nThe practical availability impact for most deployments is limited. Every major Java HTTP server\nenforces its own header size limit (Tomcat, Jetty, Netty, Vert.x, and gRPC-Java all default to\n8 KiB), constraining what an external attacker can deliver before the application is reached.\nThe risk is higher when transport-layer limits are absent — e.g., a compromised internal service\ncommunicating over a non-HTTP or custom transport.\n\n## Remediation\n\nUpdate to version 1.62.0 or later ([#8380](https://github.com/open-telemetry/opentelemetry-java/pull/8380)).\nThe fix enforces limits consistent with the W3C Baggage specification at the propagator level:\n\n- Maximum total baggage size: 8,192 bytes across all `baggage` header values\n- Maximum number of entries: 64\n\nHeaders that would exceed either limit are dropped at the point the limit is reached;\nalready-extracted valid entries are retained.\n\n## Workarounds\n\nEnsure HTTP header size limits are configured at the server or gateway level. Most Java HTTP\nservers enforce an 8 KiB header limit by default, which mitigates external attack vectors\nindependently of this fix.\n\n## References\n\n- [W3C Baggage Specification §Limits](https://www.w3.org/TR/baggage/#limits)",
+              "id": "GHSA-rcgg-9c38-7xpx",
+              "modified": "2026-06-09T02:15:07.364273115Z",
+              "published": "2026-05-14T16:36:04Z",
+              "references": [
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/open-telemetry/opentelemetry-java/security/advisories/GHSA-rcgg-9c38-7xpx"
+                },
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45292"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/open-telemetry/opentelemetry-java/pull/8380"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/open-telemetry/opentelemetry-java/commit/03837d3c1763bc35464aea1078671e2ef2336a5f"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/open-telemetry/opentelemetry-java"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/open-telemetry/opentelemetry-java/releases/tag/v1.62.0"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.apache.commons:commons-lang3",
+            "version": "3.17.0",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/org.apache.commons/commons-lang3@3.17.0"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-j288-q9x7-2f5v"
+              ],
+              "aliases": [
+                "CVE-2025-48924",
+                "GHSA-j288-q9x7-2f5v"
+              ],
+              "max_severity": "6.5"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2025/07/GHSA-j288-q9x7-2f5v/GHSA-j288-q9x7-2f5v.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.apache.commons:commons-lang3",
+                    "purl": "pkg:maven/org.apache.commons/commons-lang3"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "3.0"
+                        },
+                        {
+                          "fixed": "3.18.0"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "3.0",
+                    "3.0.1",
+                    "3.1",
+                    "3.10",
+                    "3.11",
+                    "3.12.0",
+                    "3.13.0",
+                    "3.14.0",
+                    "3.15.0",
+                    "3.16.0",
+                    "3.17.0",
+                    "3.2",
+                    "3.2.1",
+                    "3.3",
+                    "3.3.1",
+                    "3.3.2",
+                    "3.4",
+                    "3.5",
+                    "3.6",
+                    "3.7",
+                    "3.8",
+                    "3.8.1",
+                    "3.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2025/07/GHSA-j288-q9x7-2f5v/GHSA-j288-q9x7-2f5v.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "commons-lang:commons-lang",
+                    "purl": "pkg:maven/commons-lang/commons-lang"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "2.0"
+                        },
+                        {
+                          "last_affected": "2.6"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "2.0",
+                    "2.1",
+                    "2.2",
+                    "2.3",
+                    "2.4",
+                    "2.5",
+                    "2.6"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2025-48924"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-674"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2025-07-12T00:48:03Z",
+                "nvd_published_at": "2025-07-11T15:15:24Z",
+                "severity": "MODERATE"
+              },
+              "details": "Uncontrolled Recursion vulnerability in Apache Commons Lang.\n\nThis issue affects Apache Commons Lang: Starting with commons-lang:commons-lang 2.0 to 2.6, and, from org.apache.commons:commons-lang3 3.0 before 3.18.0.\n\nThe methods ClassUtils.getClass(...) can throw StackOverflowError on very long inputs. Because an Error is usually not handled by applications and libraries, a StackOverflowError could cause an application to stop.\n\nUsers are recommended to upgrade to version 3.18.0, which fixes the issue.",
+              "id": "GHSA-j288-q9x7-2f5v",
+              "modified": "2026-09-10T03:50:26.176912270Z",
+              "published": "2025-07-11T15:31:37Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48924"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/commons-lang/commit/b424803abdb2bec818e4fbcb251ce031c22aca53"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/apache/commons-lang"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://lists.apache.org/thread/bgv0lpswokgol11tloxnjfzdl7yrc1g1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://lists.debian.org/debian-lts-announce/2025/08/msg00000.html"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://lists.debian.org/debian-lts-announce/2025/08/msg00026.html"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://lists.debian.org/debian-lts-announce/2025/09/msg00032.html"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://lists.debian.org/debian-lts-announce/2025/09/msg00036.html"
+                },
+                {
+                  "type": "WEB",
+                  "url": "http://www.openwall.com/lists/oss-security/2025/07/11/1"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.apache.logging.log4j:log4j-api",
+            "version": "2.24.3",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.24.3"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-qv9r-c865-cp47"
+              ],
+              "aliases": [
+                "CVE-2026-49844",
+                "GHSA-qv9r-c865-cp47"
+              ],
+              "max_severity": "6.3"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/07/GHSA-qv9r-c865-cp47/GHSA-qv9r-c865-cp47.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.apache.logging.log4j:log4j-api",
+                    "purl": "pkg:maven/org.apache.logging.log4j/log4j-api"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "2.13.1"
+                        },
+                        {
+                          "fixed": "2.25.5"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "2.13.1",
+                    "2.13.2",
+                    "2.13.3",
+                    "2.14.0",
+                    "2.14.1",
+                    "2.15.0",
+                    "2.16.0",
+                    "2.17.0",
+                    "2.17.1",
+                    "2.17.2",
+                    "2.18.0",
+                    "2.19.0",
+                    "2.20.0",
+                    "2.21.0",
+                    "2.21.1",
+                    "2.22.0",
+                    "2.22.1",
+                    "2.23.0",
+                    "2.23.1",
+                    "2.24.0",
+                    "2.24.1",
+                    "2.24.2",
+                    "2.24.3",
+                    "2.25.0",
+                    "2.25.1",
+                    "2.25.2",
+                    "2.25.3",
+                    "2.25.4"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/07/GHSA-qv9r-c865-cp47/GHSA-qv9r-c865-cp47.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.apache.logging.log4j:log4j-api",
+                    "purl": "pkg:maven/org.apache.logging.log4j/log4j-api"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "2.26.0"
+                        },
+                        {
+                          "fixed": "2.26.1"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "2.26.0"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-49844"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-116"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-08-13T18:28:30Z",
+                "nvd_published_at": "2026-07-10T22:16:42Z",
+                "severity": "MODERATE"
+              },
+              "details": "Improper encoding of non-finite floating-point values during MapMessage JSON serialization in Apache Log4j API produces output that is not valid JSON. This issue affects Apache Log4j API versions 2.13.1 through 2.25.4 and version 2.26.0.\n\nThe fix for CVE-2026-34481 did not cover all code paths: when a MapMessage contains a non-finite IEEE 754 value (NaN, Infinity, or -Infinity), MapMessage.asJson() emits the corresponding bare token. RFC 8259 does not permit these tokens, so a conformant parser rejects the resulting document.\n\nThe defect is reachable only when both of the following conditions hold:\n\n  *  The application uses the  message resolver https://logging.apache.org/log4j/2.x/manual/json-template-layout.html#event-template-resolver-message  of JsonTemplateLayout or any other layout that relies on MapMessage.asJson() or MapMessage.getFormattedMessage(new String[]{\"JSON\"}).\n  *  The application logs a MapMessage that contains an attacker-controlled floating-point value.\n\n\nAn attacker who can supply a non-finite value can cause the affected layout to emit malformed JSON, which may corrupt the enclosing log record or disrupt downstream log ingestion and parsing.\n\nUsers are advised to upgrade to Apache Log4j API 2.25.5 or 2.26.1, both of which emit RFC 8259-compliant JSON for non-finite values.",
+              "id": "GHSA-qv9r-c865-cp47",
+              "modified": "2026-09-10T03:50:52.972700022Z",
+              "published": "2026-07-11T00:31:48Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49844"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/logging-log4j2/pull/4163"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/logging-log4j2/commit/19edb23e162d6c728a8c2221a240037d389ed300"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/logging-log4j2/commit/feadf8eb0b4acb6ddfa4c0ab2bbc6d88b8e12d82"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/apache/logging-log4j2"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/logging-log4j2/releases/tag/rel/2.25.5"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/apache/logging-log4j2/releases/tag/rel/2.26.1"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://logging.apache.org/cyclonedx/vdr.xml"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://logging.apache.org/log4j/2.x/manual/json-template-layout.html#event-template-resolver-message"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://logging.apache.org/security.html#CVE-2026-49844"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:N/SI:L/SA:N",
+                  "type": "CVSS_V4"
+                }
+              ],
+              "summary": "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.springframework:spring-webflux",
+            "version": "6.2.19",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/org.springframework/spring-webflux@6.2.19"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-9qf2-26p9-2q2q"
+              ],
+              "aliases": [
+                "CVE-2026-47892",
+                "GHSA-9qf2-26p9-2q2q"
+              ],
+              "max_severity": "9.8"
+            },
+            {
+              "ids": [
+                "GHSA-j9f9-w8pj-32f8"
+              ],
+              "aliases": [
+                "CVE-2026-47890",
+                "GHSA-j9f9-w8pj-32f8"
+              ],
+              "max_severity": "9.8"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "5.2.5.RELEASE"
+                        },
+                        {
+                          "last_affected": "5.2.25.RELEASE"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.2.10.RELEASE",
+                    "5.2.11.RELEASE",
+                    "5.2.12.RELEASE",
+                    "5.2.13.RELEASE",
+                    "5.2.14.RELEASE",
+                    "5.2.15.RELEASE",
+                    "5.2.16.RELEASE",
+                    "5.2.17.RELEASE",
+                    "5.2.18.RELEASE",
+                    "5.2.19.RELEASE",
+                    "5.2.20.RELEASE",
+                    "5.2.21.RELEASE",
+                    "5.2.22.RELEASE",
+                    "5.2.23.RELEASE",
+                    "5.2.24.RELEASE",
+                    "5.2.25.RELEASE",
+                    "5.2.5.RELEASE",
+                    "5.2.6.RELEASE",
+                    "5.2.7.RELEASE",
+                    "5.2.8.RELEASE",
+                    "5.2.9.RELEASE"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "5.3.0"
+                        },
+                        {
+                          "last_affected": "5.3.49"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.3.0",
+                    "5.3.1",
+                    "5.3.10",
+                    "5.3.11",
+                    "5.3.12",
+                    "5.3.13",
+                    "5.3.14",
+                    "5.3.15",
+                    "5.3.16",
+                    "5.3.17",
+                    "5.3.18",
+                    "5.3.19",
+                    "5.3.2",
+                    "5.3.20",
+                    "5.3.21",
+                    "5.3.22",
+                    "5.3.23",
+                    "5.3.24",
+                    "5.3.25",
+                    "5.3.26",
+                    "5.3.27",
+                    "5.3.28",
+                    "5.3.29",
+                    "5.3.3",
+                    "5.3.30",
+                    "5.3.31",
+                    "5.3.32",
+                    "5.3.33",
+                    "5.3.34",
+                    "5.3.35",
+                    "5.3.36",
+                    "5.3.37",
+                    "5.3.38",
+                    "5.3.39",
+                    "5.3.4",
+                    "5.3.5",
+                    "5.3.6",
+                    "5.3.7",
+                    "5.3.8",
+                    "5.3.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0"
+                        },
+                        {
+                          "last_affected": "6.0.30"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0.0",
+                    "6.0.1",
+                    "6.0.10",
+                    "6.0.11",
+                    "6.0.12",
+                    "6.0.13",
+                    "6.0.14",
+                    "6.0.15",
+                    "6.0.16",
+                    "6.0.17",
+                    "6.0.18",
+                    "6.0.19",
+                    "6.0.2",
+                    "6.0.20",
+                    "6.0.21",
+                    "6.0.22",
+                    "6.0.23",
+                    "6.0.3",
+                    "6.0.4",
+                    "6.0.5",
+                    "6.0.6",
+                    "6.0.7",
+                    "6.0.8",
+                    "6.0.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.1.0"
+                        },
+                        {
+                          "last_affected": "6.1.28"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.1.0",
+                    "6.1.1",
+                    "6.1.10",
+                    "6.1.11",
+                    "6.1.12",
+                    "6.1.13",
+                    "6.1.14",
+                    "6.1.15",
+                    "6.1.16",
+                    "6.1.17",
+                    "6.1.18",
+                    "6.1.19",
+                    "6.1.2",
+                    "6.1.20",
+                    "6.1.21",
+                    "6.1.3",
+                    "6.1.4",
+                    "6.1.5",
+                    "6.1.6",
+                    "6.1.7",
+                    "6.1.8",
+                    "6.1.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-9qf2-26p9-2q2q/GHSA-9qf2-26p9-2q2q.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-47892"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-863"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-10-07T13:20:45Z",
+                "nvd_published_at": "2026-08-27T06:17:20Z",
+                "severity": "CRITICAL"
+              },
+              "details": "A WebFlux application using functional endpoints and deployed with DispatcherServlet may be vulnerable to a header predicate bypass in a pre-flight request.\nSpring Framework 7.0.0 - 7.0.8\nSpring Framework 6.2.0 - 6.2.19\nSpring Framework 6.1.0 - 6.1.28\nSpring Framework 6.0.0 - 6.0.30\nSpring Framework 5.3.0 - 5.3.49\nSpring Framework 5.2.5.RELEASE - 5.2.25.RELEASE",
+              "id": "GHSA-9qf2-26p9-2q2q",
+              "modified": "2026-10-07T13:30:04.846318405Z",
+              "published": "2026-08-27T06:31:34Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47892"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/spring-projects/spring-framework"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://spring.io/security/cve-2026-47892"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "Spring Framework Header Predicate Bypass in WebFlux Functional Endpoints"
+            },
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-47890"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-93"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-10-07T13:20:36Z",
+                "nvd_published_at": "2026-08-27T06:17:20Z",
+                "severity": "CRITICAL"
+              },
+              "details": "Spring MVC and WebFlux applications are vulnerable to stream corruption when using Server-Sent Events (SSE) with view fragments.\nSpring Framework 7.0.0 - 7.0.8\nSpring Framework 6.2.0 - 6.2.19",
+              "id": "GHSA-j9f9-w8pj-32f8",
+              "modified": "2026-10-07T13:30:04.802772884Z",
+              "published": "2026-08-27T06:31:34Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47890"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/spring-projects/spring-framework"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://spring.io/security/cve-2026-47890"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.springframework:spring-webmvc",
+            "version": "6.2.19",
+            "ecosystem": "Maven",
+            "purl": "pkg:maven/org.springframework/spring-webmvc@6.2.19"
+          },
+          "groups": [
+            {
+              "ids": [
+                "GHSA-j9f9-w8pj-32f8"
+              ],
+              "aliases": [
+                "CVE-2026-47890",
+                "GHSA-j9f9-w8pj-32f8"
+              ],
+              "max_severity": "9.8"
+            },
+            {
+              "ids": [
+                "GHSA-pc63-qcmh-9cmg"
+              ],
+              "aliases": [
+                "CVE-2026-47884",
+                "GHSA-pc63-qcmh-9cmg"
+              ],
+              "max_severity": "9.8"
+            }
+          ],
+          "vulnerabilities": [
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webflux",
+                    "purl": "pkg:maven/org.springframework/spring-webflux"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-j9f9-w8pj-32f8/GHSA-j9f9-w8pj-32f8.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-47890"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-93"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-10-07T13:20:36Z",
+                "nvd_published_at": "2026-08-27T06:17:20Z",
+                "severity": "CRITICAL"
+              },
+              "details": "Spring MVC and WebFlux applications are vulnerable to stream corruption when using Server-Sent Events (SSE) with view fragments.\nSpring Framework 7.0.0 - 7.0.8\nSpring Framework 6.2.0 - 6.2.19",
+              "id": "GHSA-j9f9-w8pj-32f8",
+              "modified": "2026-10-07T13:30:04.802772884Z",
+              "published": "2026-08-27T06:31:34Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47890"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/spring-projects/spring-framework"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://spring.io/security/cve-2026-47890"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "Spring Framework Server Sent Event stream corruption while rendering fragments"
+            },
+            {
+              "affected": [
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "0"
+                        },
+                        {
+                          "last_affected": "5.2.25.RELEASE"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "1.0",
+                    "1.0-rc1",
+                    "1.0.1",
+                    "1.1",
+                    "1.1-rc1",
+                    "1.1-rc2",
+                    "1.1.1",
+                    "1.1.2",
+                    "1.1.3",
+                    "1.1.4",
+                    "1.1.5",
+                    "1.2",
+                    "1.2-rc1",
+                    "1.2-rc2",
+                    "1.2.1",
+                    "1.2.2",
+                    "1.2.3",
+                    "1.2.4",
+                    "1.2.5",
+                    "1.2.6",
+                    "1.2.7",
+                    "1.2.8",
+                    "1.2.9",
+                    "2.0",
+                    "2.0-m1",
+                    "2.0-m2",
+                    "2.0-m3",
+                    "2.0-m4",
+                    "2.0-m5",
+                    "2.0-rc1",
+                    "2.0-rc2",
+                    "2.0.1",
+                    "2.0.2",
+                    "2.0.3",
+                    "2.0.4",
+                    "2.0.5",
+                    "2.0.6",
+                    "2.0.7",
+                    "2.0.8",
+                    "2.5",
+                    "2.5.1",
+                    "2.5.2",
+                    "2.5.3",
+                    "2.5.4",
+                    "2.5.5",
+                    "2.5.6",
+                    "2.5.6.SEC01",
+                    "2.5.6.SEC02",
+                    "2.5.6.SEC03",
+                    "3.0.0.RELEASE",
+                    "3.0.1.RELEASE",
+                    "3.0.2.RELEASE",
+                    "3.0.3.RELEASE",
+                    "3.0.4.RELEASE",
+                    "3.0.5.RELEASE",
+                    "3.0.6.RELEASE",
+                    "3.0.7.RELEASE",
+                    "3.1.0.RELEASE",
+                    "3.1.1.RELEASE",
+                    "3.1.2.RELEASE",
+                    "3.1.3.RELEASE",
+                    "3.1.4.RELEASE",
+                    "3.2.0.RELEASE",
+                    "3.2.1.RELEASE",
+                    "3.2.10.RELEASE",
+                    "3.2.11.RELEASE",
+                    "3.2.12.RELEASE",
+                    "3.2.13.RELEASE",
+                    "3.2.14.RELEASE",
+                    "3.2.15.RELEASE",
+                    "3.2.16.RELEASE",
+                    "3.2.17.RELEASE",
+                    "3.2.18.RELEASE",
+                    "3.2.2.RELEASE",
+                    "3.2.3.RELEASE",
+                    "3.2.4.RELEASE",
+                    "3.2.5.RELEASE",
+                    "3.2.6.RELEASE",
+                    "3.2.7.RELEASE",
+                    "3.2.8.RELEASE",
+                    "3.2.9.RELEASE",
+                    "4.0.0.RELEASE",
+                    "4.0.1.RELEASE",
+                    "4.0.2.RELEASE",
+                    "4.0.3.RELEASE",
+                    "4.0.4.RELEASE",
+                    "4.0.5.RELEASE",
+                    "4.0.6.RELEASE",
+                    "4.0.7.RELEASE",
+                    "4.0.8.RELEASE",
+                    "4.0.9.RELEASE",
+                    "4.1.0.RELEASE",
+                    "4.1.1.RELEASE",
+                    "4.1.2.RELEASE",
+                    "4.1.3.RELEASE",
+                    "4.1.4.RELEASE",
+                    "4.1.5.RELEASE",
+                    "4.1.6.RELEASE",
+                    "4.1.7.RELEASE",
+                    "4.1.8.RELEASE",
+                    "4.1.9.RELEASE",
+                    "4.2.0.RELEASE",
+                    "4.2.1.RELEASE",
+                    "4.2.2.RELEASE",
+                    "4.2.3.RELEASE",
+                    "4.2.4.RELEASE",
+                    "4.2.5.RELEASE",
+                    "4.2.6.RELEASE",
+                    "4.2.7.RELEASE",
+                    "4.2.8.RELEASE",
+                    "4.2.9.RELEASE",
+                    "4.3.0.RELEASE",
+                    "4.3.1.RELEASE",
+                    "4.3.10.RELEASE",
+                    "4.3.11.RELEASE",
+                    "4.3.12.RELEASE",
+                    "4.3.13.RELEASE",
+                    "4.3.14.RELEASE",
+                    "4.3.15.RELEASE",
+                    "4.3.16.RELEASE",
+                    "4.3.17.RELEASE",
+                    "4.3.18.RELEASE",
+                    "4.3.19.RELEASE",
+                    "4.3.2.RELEASE",
+                    "4.3.20.RELEASE",
+                    "4.3.21.RELEASE",
+                    "4.3.22.RELEASE",
+                    "4.3.23.RELEASE",
+                    "4.3.24.RELEASE",
+                    "4.3.25.RELEASE",
+                    "4.3.26.RELEASE",
+                    "4.3.27.RELEASE",
+                    "4.3.28.RELEASE",
+                    "4.3.29.RELEASE",
+                    "4.3.3.RELEASE",
+                    "4.3.30.RELEASE",
+                    "4.3.4.RELEASE",
+                    "4.3.5.RELEASE",
+                    "4.3.6.RELEASE",
+                    "4.3.7.RELEASE",
+                    "4.3.8.RELEASE",
+                    "4.3.9.RELEASE",
+                    "5.0.0.RELEASE",
+                    "5.0.1.RELEASE",
+                    "5.0.10.RELEASE",
+                    "5.0.11.RELEASE",
+                    "5.0.12.RELEASE",
+                    "5.0.13.RELEASE",
+                    "5.0.14.RELEASE",
+                    "5.0.15.RELEASE",
+                    "5.0.16.RELEASE",
+                    "5.0.17.RELEASE",
+                    "5.0.18.RELEASE",
+                    "5.0.19.RELEASE",
+                    "5.0.2.RELEASE",
+                    "5.0.20.RELEASE",
+                    "5.0.3.RELEASE",
+                    "5.0.4.RELEASE",
+                    "5.0.5.RELEASE",
+                    "5.0.6.RELEASE",
+                    "5.0.7.RELEASE",
+                    "5.0.8.RELEASE",
+                    "5.0.9.RELEASE",
+                    "5.1.0.RELEASE",
+                    "5.1.1.RELEASE",
+                    "5.1.10.RELEASE",
+                    "5.1.11.RELEASE",
+                    "5.1.12.RELEASE",
+                    "5.1.13.RELEASE",
+                    "5.1.14.RELEASE",
+                    "5.1.15.RELEASE",
+                    "5.1.16.RELEASE",
+                    "5.1.17.RELEASE",
+                    "5.1.18.RELEASE",
+                    "5.1.19.RELEASE",
+                    "5.1.2.RELEASE",
+                    "5.1.20.RELEASE",
+                    "5.1.3.RELEASE",
+                    "5.1.4.RELEASE",
+                    "5.1.5.RELEASE",
+                    "5.1.6.RELEASE",
+                    "5.1.7.RELEASE",
+                    "5.1.8.RELEASE",
+                    "5.1.9.RELEASE",
+                    "5.2.0.RELEASE",
+                    "5.2.1.RELEASE",
+                    "5.2.10.RELEASE",
+                    "5.2.11.RELEASE",
+                    "5.2.12.RELEASE",
+                    "5.2.13.RELEASE",
+                    "5.2.14.RELEASE",
+                    "5.2.15.RELEASE",
+                    "5.2.16.RELEASE",
+                    "5.2.17.RELEASE",
+                    "5.2.18.RELEASE",
+                    "5.2.19.RELEASE",
+                    "5.2.2.RELEASE",
+                    "5.2.20.RELEASE",
+                    "5.2.21.RELEASE",
+                    "5.2.22.RELEASE",
+                    "5.2.23.RELEASE",
+                    "5.2.24.RELEASE",
+                    "5.2.25.RELEASE",
+                    "5.2.3.RELEASE",
+                    "5.2.4.RELEASE",
+                    "5.2.5.RELEASE",
+                    "5.2.6.RELEASE",
+                    "5.2.7.RELEASE",
+                    "5.2.8.RELEASE",
+                    "5.2.9.RELEASE"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "5.3.0"
+                        },
+                        {
+                          "last_affected": "5.3.49"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "5.3.0",
+                    "5.3.1",
+                    "5.3.10",
+                    "5.3.11",
+                    "5.3.12",
+                    "5.3.13",
+                    "5.3.14",
+                    "5.3.15",
+                    "5.3.16",
+                    "5.3.17",
+                    "5.3.18",
+                    "5.3.19",
+                    "5.3.2",
+                    "5.3.20",
+                    "5.3.21",
+                    "5.3.22",
+                    "5.3.23",
+                    "5.3.24",
+                    "5.3.25",
+                    "5.3.26",
+                    "5.3.27",
+                    "5.3.28",
+                    "5.3.29",
+                    "5.3.3",
+                    "5.3.30",
+                    "5.3.31",
+                    "5.3.32",
+                    "5.3.33",
+                    "5.3.34",
+                    "5.3.35",
+                    "5.3.36",
+                    "5.3.37",
+                    "5.3.38",
+                    "5.3.39",
+                    "5.3.4",
+                    "5.3.5",
+                    "5.3.6",
+                    "5.3.7",
+                    "5.3.8",
+                    "5.3.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.0.0"
+                        },
+                        {
+                          "last_affected": "6.0.30"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.0.0",
+                    "6.0.1",
+                    "6.0.10",
+                    "6.0.11",
+                    "6.0.12",
+                    "6.0.13",
+                    "6.0.14",
+                    "6.0.15",
+                    "6.0.16",
+                    "6.0.17",
+                    "6.0.18",
+                    "6.0.19",
+                    "6.0.2",
+                    "6.0.20",
+                    "6.0.21",
+                    "6.0.22",
+                    "6.0.23",
+                    "6.0.3",
+                    "6.0.4",
+                    "6.0.5",
+                    "6.0.6",
+                    "6.0.7",
+                    "6.0.8",
+                    "6.0.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.1.0"
+                        },
+                        {
+                          "last_affected": "6.1.28"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.1.0",
+                    "6.1.1",
+                    "6.1.10",
+                    "6.1.11",
+                    "6.1.12",
+                    "6.1.13",
+                    "6.1.14",
+                    "6.1.15",
+                    "6.1.16",
+                    "6.1.17",
+                    "6.1.18",
+                    "6.1.19",
+                    "6.1.2",
+                    "6.1.20",
+                    "6.1.21",
+                    "6.1.3",
+                    "6.1.4",
+                    "6.1.5",
+                    "6.1.6",
+                    "6.1.7",
+                    "6.1.8",
+                    "6.1.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "6.2.0"
+                        },
+                        {
+                          "last_affected": "6.2.19"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "6.2.0",
+                    "6.2.1",
+                    "6.2.10",
+                    "6.2.11",
+                    "6.2.12",
+                    "6.2.13",
+                    "6.2.14",
+                    "6.2.15",
+                    "6.2.16",
+                    "6.2.17",
+                    "6.2.18",
+                    "6.2.19",
+                    "6.2.2",
+                    "6.2.3",
+                    "6.2.4",
+                    "6.2.5",
+                    "6.2.6",
+                    "6.2.7",
+                    "6.2.8",
+                    "6.2.9"
+                  ]
+                },
+                {
+                  "database_specific": {
+                    "last_known_affected_version_range": "\u003c= 7.0.8",
+                    "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/08/GHSA-pc63-qcmh-9cmg/GHSA-pc63-qcmh-9cmg.json"
+                  },
+                  "package": {
+                    "ecosystem": "Maven",
+                    "name": "org.springframework:spring-webmvc",
+                    "purl": "pkg:maven/org.springframework/spring-webmvc"
+                  },
+                  "ranges": [
+                    {
+                      "events": [
+                        {
+                          "introduced": "7.0.0"
+                        },
+                        {
+                          "fixed": "7.0.9"
+                        }
+                      ],
+                      "type": "ECOSYSTEM"
+                    }
+                  ],
+                  "versions": [
+                    "7.0.0",
+                    "7.0.1",
+                    "7.0.2",
+                    "7.0.3",
+                    "7.0.4",
+                    "7.0.5",
+                    "7.0.6",
+                    "7.0.7",
+                    "7.0.8"
+                  ]
+                }
+              ],
+              "aliases": [
+                "CVE-2026-47884"
+              ],
+              "database_specific": {
+                "cwe_ids": [
+                  "CWE-22"
+                ],
+                "github_reviewed": true,
+                "github_reviewed_at": "2026-10-05T23:20:58Z",
+                "nvd_published_at": "2026-08-27T06:17:18Z",
+                "severity": "CRITICAL"
+              },
+              "details": "Use of XsltView in a Spring MVC application can result in SSRF and RCE attack if the application has an \"/**\" mapping that results in view rendering, and where the view name is not explicitly specified.\nSpring Framework 7.0.0 - 7.0.8\nSpring Framework 6.2.0 - 6.2.19\nSpring Framework 6.1.0 - 6.1.28\nSpring Framework 6.0.0 - 6.0.30\nSpring Framework 5.3.0 - 5.3.49\nSpring Framework 5.2.25.RELEASE and earlier",
+              "id": "GHSA-pc63-qcmh-9cmg",
+              "modified": "2026-10-05T23:30:04.884745277Z",
+              "published": "2026-08-27T06:31:34Z",
+              "references": [
+                {
+                  "type": "ADVISORY",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47884"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://github.com/spring-projects/spring-framework/commit/692dbc9160de3b5de50ccedeee014716d0cedb7b"
+                },
+                {
+                  "type": "PACKAGE",
+                  "url": "https://github.com/spring-projects/spring-framework"
+                },
+                {
+                  "type": "WEB",
+                  "url": "https://spring.io/security/cve-2026-47884"
+                }
+              ],
+              "schema_version": "1.9.0",
+              "severity": [
+                {
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                  "type": "CVSS_V3"
+                }
+              ],
+              "summary": "Spring Framework Improper Path Limitation in XsltView"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "experimental_config": {
+    "licenses": {
+      "summary": false,
+      "allowlist": null
+    }
+  }
+}

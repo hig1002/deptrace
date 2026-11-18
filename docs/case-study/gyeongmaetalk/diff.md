@@ -1,0 +1,268 @@
+# DepTrace 전후 비교 (배포 클래스패스)
+
+| 항목 | 수정 전 | 수정 후 |
+|---|---|---|
+| 취약 구성요소 | 41 | 6 |
+| 고유 취약점 (심각도별) | CRITICAL 13, HIGH 58, MODERATE 64, LOW 17 | CRITICAL 3, HIGH 1, MODERATE 3 |
+
+- 해결된 (모듈, 취약점): 158
+- 새로 생긴 (모듈, 취약점): 3
+- 남은 (모듈, 취약점): 5
+
+## 구성요소 변화
+
+- 상향 180, 하향 0, 추가 41, 제거 18
+
+- ↑ ch.qos.logback:logback-classic 1.5.11 → 1.5.34
+- ↑ ch.qos.logback:logback-core 1.5.11 → 1.5.34
+- ↑ com.fasterxml.jackson.core:jackson-annotations 2.17.2 → 2.21
+- ↑ com.fasterxml.jackson.core:jackson-core 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson.core:jackson-databind 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson.dataformat:jackson-dataformat-yaml 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson.datatype:jackson-datatype-jdk8 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson.datatype:jackson-datatype-jsr310 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson.module:jackson-module-parameter-names 2.17.2 → 2.21.7
+- ↑ com.fasterxml.jackson:jackson-bom 2.17.2 → 2.21.7
+- ↑ com.fasterxml:classmate 1.7.0 → 1.7.3
+- ↑ com.google.api-client:google-api-client-gson 2.0.0 → 2.7.2
+- ↑ com.google.api.grpc:gapic-google-cloud-storage-v2 2.14.0-alpha → 2.73.0
+- ↑ com.google.api.grpc:grpc-google-cloud-storage-v2 2.14.0-alpha → 2.73.0
+- ↑ com.google.api.grpc:proto-google-cloud-firestore-v1 3.7.0 → 3.47.0
+- ↑ com.google.api.grpc:proto-google-cloud-storage-v2 2.14.0-alpha → 2.73.0
+- ↑ com.google.api.grpc:proto-google-common-protos 2.9.6 → 2.76.0
+- ↑ com.google.api.grpc:proto-google-iam-v1 1.6.4 → 1.71.0
+- ↑ com.google.api:api-common 2.2.1 → 2.68.0
+- ↑ com.google.api:gax 2.19.4 → 2.85.0
+- ↑ com.google.api:gax-grpc 2.19.4 → 2.85.0
+- ↑ com.google.api:gax-httpjson 0.104.4 → 2.85.0
+- ↑ com.google.apis:google-api-services-storage v1-rev20220705-2.0.0 → v1-rev20260524-2.0.0
+- ↑ com.google.auth:google-auth-library-credentials 1.30.0 → 1.52.0
+- ↑ com.google.auth:google-auth-library-oauth2-http 1.30.0 → 1.52.0
+- ↑ com.google.cloud:google-cloud-core 2.8.22 → 2.75.0
+- ↑ com.google.cloud:google-cloud-core-grpc 2.8.22 → 2.75.0
+- ↑ com.google.cloud:google-cloud-core-http 2.8.22 → 2.75.0
+- ↑ com.google.cloud:google-cloud-firestore 3.7.0 → 3.47.0
+- ↑ com.google.cloud:google-cloud-storage 2.14.0 → 2.73.0
+- ↑ com.google.cloud:proto-google-cloud-firestore-bundle-v1 3.7.0 → 3.47.0
+- ↑ com.google.code.gson:gson 2.10.1 → 2.13.2
+- ↑ com.google.errorprone:error_prone_annotations 2.36.0 → 2.50.0
+- ↑ com.google.firebase:firebase-admin 9.1.1 → 9.11.0
+- ↑ com.google.guava:failureaccess 1.0.2 → 1.0.3
+- ↑ com.google.guava:guava 33.3.1-android → 33.6.0-jre
+- ↑ com.google.http-client:google-http-client 1.45.2 → 2.2.0
+- ↑ com.google.http-client:google-http-client-apache-v2 1.45.2 → 2.2.0
+- ↑ com.google.http-client:google-http-client-appengine 1.42.2 → 2.2.0
+- ↑ com.google.http-client:google-http-client-gson 1.45.2 → 2.2.0
+- ↑ com.google.http-client:google-http-client-jackson2 1.42.2 → 2.2.0
+- ↑ com.google.j2objc:j2objc-annotations 3.0.0 → 3.1
+- ↑ com.google.oauth-client:google-oauth-client 1.36.0 → 1.39.0
+- ↑ com.google.protobuf:protobuf-java 3.25.1 → 4.33.6
+- ↑ com.google.protobuf:protobuf-java-util 3.21.8 → 4.33.6
+- ↑ com.google.re2j:re2j 1.6 → 1.8
+- ↑ com.mysql:mysql-connector-j 8.3.0 → 9.7.0
+- ↑ com.nimbusds:nimbus-jose-jwt 9.37 → 10.9.1
+- ↑ com.nimbusds:oauth2-oidc-sdk 9.43.4 → 9.43.6
+- ↑ com.zaxxer:HikariCP 5.1.0 → 6.3.3
+- ↑ commons-codec:commons-codec 1.16.1 → 1.18.0
+- ↑ io.grpc:grpc-alts 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-api 1.68.2 → 1.83.0
+- ↑ io.grpc:grpc-auth 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-context 1.68.2 → 1.83.0
+- ↑ io.grpc:grpc-core 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-googleapis 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-grpclb 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-netty-shaded 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-protobuf 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-protobuf-lite 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-services 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-stub 1.50.1 → 1.83.0
+- ↑ io.grpc:grpc-xds 1.50.1 → 1.83.0
+- ↑ io.lettuce:lettuce-core 6.3.2.RELEASE → 6.6.0.RELEASE
+- ↑ io.micrometer:micrometer-commons 1.13.6 → 1.15.12
+- ↑ io.micrometer:micrometer-core 1.13.6 → 1.15.12
+- ↑ io.micrometer:micrometer-jakarta9 1.13.6 → 1.15.12
+- ↑ io.micrometer:micrometer-observation 1.13.6 → 1.15.12
+- ↑ io.micrometer:micrometer-registry-prometheus 1.13.6 → 1.15.12
+- ↑ io.netty:netty-buffer 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-codec 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-codec-dns 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-codec-http 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-codec-http2 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-codec-socks 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-common 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-handler 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-handler-proxy 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-resolver 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-resolver-dns 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-resolver-dns-classes-macos 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-resolver-dns-native-macos 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-transport 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-transport-classes-epoll 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-transport-native-epoll 4.1.114.Final → 4.1.137.Final
+- ↑ io.netty:netty-transport-native-unix-common 4.1.114.Final → 4.1.137.Final
+- ↑ io.perfmark:perfmark-api 0.25.0 → 0.27.0
+- ↑ io.projectreactor.netty:reactor-netty-core 1.1.23 → 1.2.18
+- ↑ io.projectreactor.netty:reactor-netty-http 1.1.23 → 1.2.18
+- ↑ io.projectreactor:reactor-core 3.6.11 → 3.7.19
+- ↑ io.prometheus:prometheus-metrics-config 1.2.1 → 1.3.10
+- ↑ io.prometheus:prometheus-metrics-core 1.2.1 → 1.3.10
+- ↑ io.prometheus:prometheus-metrics-exposition-formats 1.2.1 → 1.3.10
+- ↑ io.prometheus:prometheus-metrics-model 1.2.1 → 1.3.10
+- ↑ io.prometheus:prometheus-metrics-tracer-common 1.2.1 → 1.3.10
+- ↑ io.smallrye:jandex 3.1.2 → 3.2.0
+- ↑ io.swagger.core.v3:swagger-annotations-jakarta 2.2.15 → 2.2.47
+- ↑ io.swagger.core.v3:swagger-core-jakarta 2.2.15 → 2.2.47
+- ↑ io.swagger.core.v3:swagger-models-jakarta 2.2.15 → 2.2.47
+- ↑ jakarta.activation:jakarta.activation-api 2.1.3 → 2.1.4
+- ↑ jakarta.xml.bind:jakarta.xml.bind-api 4.0.2 → 4.0.5
+- ↑ net.bytebuddy:byte-buddy 1.14.19 → 1.17.8
+- ↑ net.minidev:accessors-smart 2.5.1 → 2.5.2
+- ↑ net.minidev:json-smart 2.5.1 → 2.5.2
+- ↑ org.antlr:antlr4-runtime 4.13.0 → 4.13.2
+- ↑ org.apache.commons:commons-lang3 3.14.0 → 3.17.0
+- ↑ org.apache.logging.log4j:log4j-api 2.23.1 → 2.24.3
+- ↑ org.apache.logging.log4j:log4j-to-slf4j 2.23.1 → 2.24.3
+- ↑ org.apache.tomcat.embed:tomcat-embed-core 10.1.31 → 10.1.59
+- ↑ org.apache.tomcat.embed:tomcat-embed-el 10.1.31 → 10.1.59
+- ↑ org.apache.tomcat.embed:tomcat-embed-websocket 10.1.31 → 10.1.59
+- ↑ org.aspectj:aspectjweaver 1.9.22.1 → 1.9.25.1
+- ↑ org.bouncycastle:bcprov-jdk18on 1.83 → 1.85
+- ↑ org.checkerframework:checker-qual 3.43.0 → 3.49.0
+- ↑ org.codehaus.mojo:animal-sniffer-annotations 1.22 → 1.27
+- ↑ org.conscrypt:conscrypt-openjdk-uber 2.5.2 → 2.6.2
+- ↑ org.eclipse.angus:angus-activation 2.0.2 → 2.0.3
+- ↑ org.glassfish.jaxb:jaxb-core 4.0.5 → 4.0.9
+- ↑ org.glassfish.jaxb:jaxb-runtime 4.0.5 → 4.0.9
+- ↑ org.glassfish.jaxb:txw2 4.0.5 → 4.0.9
+- ↑ org.hibernate.common:hibernate-commons-annotations 6.0.6.Final → 7.0.3.Final
+- ↑ org.hibernate.orm:hibernate-core 6.5.3.Final → 6.6.53.Final
+- ↑ org.jboss.logging:jboss-logging 3.5.3.Final → 3.6.3.Final
+- ↑ org.ow2.asm:asm 9.6 → 9.7.1
+- ↑ org.slf4j:jul-to-slf4j 2.0.16 → 2.0.18
+- ↑ org.slf4j:slf4j-api 2.0.16 → 2.0.18
+- ↑ org.springdoc:springdoc-openapi-starter-common 2.2.0 → 2.8.17
+- ↑ org.springdoc:springdoc-openapi-starter-webmvc-api 2.2.0 → 2.8.17
+- ↑ org.springdoc:springdoc-openapi-starter-webmvc-ui 2.2.0 → 2.8.17
+- ↑ org.springframework.batch:spring-batch-core 5.1.2 → 5.2.6
+- ↑ org.springframework.batch:spring-batch-infrastructure 5.1.2 → 5.2.6
+- ↑ org.springframework.boot:spring-boot 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-actuator 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-actuator-autoconfigure 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-autoconfigure 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-actuator 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-batch 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-data-jpa 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-data-redis 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-jdbc 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-json 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-logging 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-oauth2-client 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-reactor-netty 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-security 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-tomcat 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-web 3.3.5 → 3.5.16
+- ↑ org.springframework.boot:spring-boot-starter-webflux 3.3.5 → 3.5.16
+- ↑ org.springframework.data:spring-data-commons 3.3.5 → 3.5.13
+- ↑ org.springframework.data:spring-data-jpa 3.3.5 → 3.5.13
+- ↑ org.springframework.data:spring-data-keyvalue 3.3.5 → 3.5.13
+- ↑ org.springframework.data:spring-data-redis 3.3.5 → 3.5.13
+- ↑ org.springframework.retry:spring-retry 2.0.10 → 2.0.13
+- ↑ org.springframework.security:spring-security-config 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-core 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-crypto 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-oauth2-client 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-oauth2-core 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-oauth2-jose 6.3.4 → 6.5.11
+- ↑ org.springframework.security:spring-security-web 6.3.4 → 6.5.11
+- ↑ org.springframework:spring-aop 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-aspects 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-beans 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-context 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-context-support 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-core 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-expression 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-jcl 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-jdbc 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-orm 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-oxm 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-tx 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-web 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-webflux 6.1.14 → 6.2.19
+- ↑ org.springframework:spring-webmvc 6.1.14 → 6.2.19
+- ↑ org.threeten:threetenbp 1.6.3 → 1.7.0
+- ↑ org.webjars:swagger-ui 5.2.0 → 5.32.2
+- ↑ org.yaml:snakeyaml 2.2 → 2.4
+- + com.fasterxml.woodstox:woodstox-core:7.0.0
+- + com.google.api.grpc:proto-google-cloud-monitoring-v3:3.52.0
+- + com.google.cloud.opentelemetry:detector-resources-support:0.33.0
+- + com.google.cloud.opentelemetry:exporter-metrics:0.33.0
+- + com.google.cloud.opentelemetry:shared-resourcemapping:0.33.0
+- + com.google.cloud:google-cloud-monitoring:3.52.0
+- + com.google.cloud:libraries-bom:26.48.0
+- + dev.cel:common:0.13.0
+- + dev.cel:protobuf:0.13.0
+- + dev.cel:runtime:0.13.0
+- + io.grpc:grpc-inprocess:1.83.0
+- + io.grpc:grpc-opentelemetry:1.83.0
+- + io.grpc:grpc-rls:1.83.0
+- + io.grpc:grpc-util:1.83.0
+- + io.opentelemetry.contrib:opentelemetry-gcp-resources:1.37.0-alpha
+- + io.opentelemetry.instrumentation:opentelemetry-grpc-1.6:2.1.0-alpha
+- + io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:2.1.0
+- + io.opentelemetry.instrumentation:opentelemetry-instrumentation-api-incubator:2.1.0-alpha
+- + io.opentelemetry.semconv:opentelemetry-semconv:1.29.0-alpha
+- + io.opentelemetry:opentelemetry-api:1.49.0
+- + io.opentelemetry:opentelemetry-bom:1.42.1
+- + io.opentelemetry:opentelemetry-common:1.62.0
+- + io.opentelemetry:opentelemetry-context:1.49.0
+- + io.opentelemetry:opentelemetry-extension-incubator:1.35.0-alpha
+- + io.opentelemetry:opentelemetry-sdk:1.49.0
+- + io.opentelemetry:opentelemetry-sdk-common:1.49.0
+- + io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:1.49.0
+- + io.opentelemetry:opentelemetry-sdk-logs:1.49.0
+- + io.opentelemetry:opentelemetry-sdk-metrics:1.49.0
+- + io.opentelemetry:opentelemetry-sdk-trace:1.49.0
+- + io.prometheus:prometheus-metrics-exposition-textformats:1.3.10
+- + org.apache.httpcomponents.client5:httpclient5:5.6.4
+- + org.apache.httpcomponents.core5:httpcore5:5.4.3
+- + org.apache.httpcomponents.core5:httpcore5-h2:5.4.3
+- + org.codehaus.woodstox:stax2-api:4.2.2
+- + org.hibernate.validator:hibernate-validator:8.0.3.Final
+- + org.jspecify:jspecify:1.0.0
+- + org.springframework.boot:spring-boot-starter-validation:3.5.16
+- + org.threeten:threeten-extra:1.8.0
+- + org.webjars:webjars-locator-lite:1.1.3
+- + redis.clients.authentication:redis-authx-core:0.1.1-beta2
+- − com.amazonaws:aws-java-sdk-cloudformation:1.11.792
+- − com.amazonaws:aws-java-sdk-core:1.11.792
+- − com.amazonaws:aws-java-sdk-ec2:1.11.792
+- − com.amazonaws:aws-java-sdk-kms:1.11.792
+- − com.amazonaws:aws-java-sdk-s3:1.11.792
+- − com.amazonaws:jmespath-java:1.11.792
+- − com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.17.2
+- − com.google.api.grpc:grpc-google-iam-v1:1.6.4
+- − io.opencensus:opencensus-contrib-grpc-util:0.31.1
+- − io.opencensus:opencensus-proto:0.2.0
+- − io.prometheus:prometheus-metrics-shaded-protobuf:1.2.1
+- − joda-time:joda-time:2.8.1
+- − org.springframework.boot:spring-boot-starter-aop:3.3.5
+- − org.springframework.cloud:spring-cloud-aws-autoconfigure:2.2.6.RELEASE
+- − org.springframework.cloud:spring-cloud-aws-context:2.2.6.RELEASE
+- − org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE
+- − org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE
+- − software.amazon.ion:ion-java:1.0.2
+
+## 새로 생긴 취약점
+
+- io.opentelemetry:opentelemetry-api CVE-2026-45292
+- org.springframework:spring-webflux CVE-2026-47890
+- org.springframework:spring-webmvc CVE-2026-47890
+
+## 남은 취약점
+
+- com.querydsl:querydsl-jpa CVE-2024-49203
+- org.apache.commons:commons-lang3 CVE-2025-48924
+- org.apache.logging.log4j:log4j-api CVE-2026-49844
+- org.springframework:spring-webflux CVE-2026-47892
+- org.springframework:spring-webmvc CVE-2026-47884

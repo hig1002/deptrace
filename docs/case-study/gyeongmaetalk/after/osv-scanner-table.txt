@@ -1,0 +1,20 @@
+Starting filesystem walk for root: /
+Scanned gradle.lockfile file and found 343 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 294.625µs elapsed, 295µs wall time
+
+Total 7 packages affected by 9 known vulnerabilities (4 Critical, 2 High, 3 Medium, 0 Low, 0 Unknown) from 1 ecosystem.
+7 vulnerabilities can be fixed.
+
++-------------------------------------+------+-----------+------------------------------------+---------+---------------+-----------------+
+| OSV URL                             | CVSS | ECOSYSTEM | PACKAGE                            | VERSION | FIXED VERSION | SOURCE          |
++-------------------------------------+------+-----------+------------------------------------+---------+---------------+-----------------+
+| https://osv.dev/GHSA-6q3q-6v5j-h6vg | 8.8  | Maven     | com.querydsl:querydsl-apt          | 5.0.0   | --            | gradle.lockfile |
+| https://osv.dev/GHSA-6q3q-6v5j-h6vg | 8.8  | Maven     | com.querydsl:querydsl-jpa          | 5.0.0   | --            | gradle.lockfile |
+| https://osv.dev/GHSA-rcgg-9c38-7xpx | 5.3  | Maven     | io.opentelemetry:opentelemetry-api | 1.49.0  | 1.62.0        | gradle.lockfile |
+| https://osv.dev/GHSA-j288-q9x7-2f5v | 6.5  | Maven     | org.apache.commons:commons-lang3   | 3.17.0  | 3.18.0        | gradle.lockfile |
+| https://osv.dev/GHSA-qv9r-c865-cp47 | 6.3  | Maven     | org.apache.logging.log4j:log4j-api | 2.24.3  | 2.25.5        | gradle.lockfile |
+| https://osv.dev/GHSA-9qf2-26p9-2q2q | 9.8  | Maven     | org.springframework:spring-webflux | 6.2.19  | 7.0.9         | gradle.lockfile |
+| https://osv.dev/GHSA-j9f9-w8pj-32f8 | 9.8  | Maven     | org.springframework:spring-webflux | 6.2.19  | 7.0.9         | gradle.lockfile |
+| https://osv.dev/GHSA-j9f9-w8pj-32f8 | 9.8  | Maven     | org.springframework:spring-webmvc  | 6.2.19  | 7.0.9         | gradle.lockfile |
+| https://osv.dev/GHSA-pc63-qcmh-9cmg | 9.8  | Maven     | org.springframework:spring-webmvc  | 6.2.19  | 7.0.9         | gradle.lockfile |
++-------------------------------------+------+-----------+------------------------------------+---------+---------------+-----------------+

@@ -1,0 +1,2684 @@
+{
+  "generatedAt" : "2026-10-19T17:50:54+09:00",
+  "project" : ":",
+  "primaryConfiguration" : "productionRuntimeClasspath",
+  "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+  "components" : [ "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11", "com.amazonaws:aws-java-sdk-cloudformation:1.11.792", "com.amazonaws:aws-java-sdk-core:1.11.792", "com.amazonaws:aws-java-sdk-ec2:1.11.792", "com.amazonaws:aws-java-sdk-kms:1.11.792", "com.amazonaws:aws-java-sdk-s3:1.11.792", "com.amazonaws:jmespath-java:1.11.792", "com.apple.itunes.storekit:app-store-server-library:5.0.0", "com.auth0:java-jwt:4.4.0", "com.fasterxml.jackson.core:jackson-annotations:2.17.2", "com.fasterxml.jackson.core:jackson-core:2.17.2", "com.fasterxml.jackson.core:jackson-databind:2.17.2", "com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.17.2", "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.2", "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.17.2", "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2", "com.fasterxml.jackson.module:jackson-module-parameter-names:2.17.2", "com.fasterxml.jackson:jackson-bom:2.17.2", "com.fasterxml:classmate:1.7.0", "com.github.stephenc.jcip:jcip-annotations:1.0-1", "com.google.android:annotations:4.1.1.4", "com.google.api-client:google-api-client-gson:2.0.0", "com.google.api-client:google-api-client:2.7.2", "com.google.api.grpc:gapic-google-cloud-storage-v2:2.14.0-alpha", "com.google.api.grpc:grpc-google-cloud-storage-v2:2.14.0-alpha", "com.google.api.grpc:grpc-google-iam-v1:1.6.4", "com.google.api.grpc:proto-google-cloud-firestore-v1:3.7.0", "com.google.api.grpc:proto-google-cloud-storage-v2:2.14.0-alpha", "com.google.api.grpc:proto-google-common-protos:2.9.6", "com.google.api.grpc:proto-google-iam-v1:1.6.4", "com.google.api:api-common:2.2.1", "com.google.api:gax-grpc:2.19.4", "com.google.api:gax-httpjson:0.104.4", "com.google.api:gax:2.19.4", "com.google.apis:google-api-services-androidpublisher:v3-rev20260318-2.0.0", "com.google.apis:google-api-services-storage:v1-rev20220705-2.0.0", "com.google.auth:google-auth-library-credentials:1.30.0", "com.google.auth:google-auth-library-oauth2-http:1.30.0", "com.google.auto.value:auto-value-annotations:1.11.0", "com.google.cloud:google-cloud-core-grpc:2.8.22", "com.google.cloud:google-cloud-core-http:2.8.22", "com.google.cloud:google-cloud-core:2.8.22", "com.google.cloud:google-cloud-firestore:3.7.0", "com.google.cloud:google-cloud-storage:2.14.0", "com.google.cloud:proto-google-cloud-firestore-bundle-v1:3.7.0", "com.google.code.findbugs:jsr305:3.0.2", "com.google.code.gson:gson:2.10.1", "com.google.errorprone:error_prone_annotations:2.36.0", "com.google.firebase:firebase-admin:9.1.1", "com.google.guava:failureaccess:1.0.2", "com.google.guava:guava:33.3.1-android", "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava", "com.google.http-client:google-http-client-apache-v2:1.45.2", "com.google.http-client:google-http-client-appengine:1.42.2", "com.google.http-client:google-http-client-gson:1.45.2", "com.google.http-client:google-http-client-jackson2:1.42.2", "com.google.http-client:google-http-client:1.45.2", "com.google.j2objc:j2objc-annotations:3.0.0", "com.google.oauth-client:google-oauth-client:1.36.0", "com.google.protobuf:protobuf-java-util:3.21.8", "com.google.protobuf:protobuf-java:3.25.1", "com.google.re2j:re2j:1.6", "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0", "com.mysema.commons:mysema-commons-lang:0.2.4", "com.mysql:mysql-connector-j:8.3.0", "com.nimbusds:content-type:2.2", "com.nimbusds:lang-tag:1.7", "com.nimbusds:nimbus-jose-jwt:9.37", "com.nimbusds:oauth2-oidc-sdk:9.43.4", "com.querydsl:querydsl-core:5.1.0", "com.querydsl:querydsl-jpa:5.0.0", "com.squareup.okhttp3:logging-interceptor:4.12.0", "com.squareup.okhttp3:okhttp:4.12.0", "com.squareup.okio:okio-jvm:3.6.0", "com.squareup.okio:okio:3.6.0", "com.squareup.retrofit2:retrofit:2.9.0", "com.sun.istack:istack-commons-runtime:4.1.2", "com.zaxxer:HikariCP:5.1.0", "commons-codec:commons-codec:1.16.1", "commons-logging:commons-logging:1.2", "io.grpc:grpc-alts:1.50.1", "io.grpc:grpc-api:1.68.2", "io.grpc:grpc-auth:1.50.1", "io.grpc:grpc-context:1.68.2", "io.grpc:grpc-core:1.50.1", "io.grpc:grpc-googleapis:1.50.1", "io.grpc:grpc-grpclb:1.50.1", "io.grpc:grpc-netty-shaded:1.50.1", "io.grpc:grpc-protobuf-lite:1.50.1", "io.grpc:grpc-protobuf:1.50.1", "io.grpc:grpc-services:1.50.1", "io.grpc:grpc-stub:1.50.1", "io.grpc:grpc-xds:1.50.1", "io.jsonwebtoken:jjwt-api:0.11.5", "io.jsonwebtoken:jjwt-impl:0.11.5", "io.jsonwebtoken:jjwt-jackson:0.11.5", "io.lettuce:lettuce-core:6.3.2.RELEASE", "io.micrometer:micrometer-commons:1.13.6", "io.micrometer:micrometer-core:1.13.6", "io.micrometer:micrometer-jakarta9:1.13.6", "io.micrometer:micrometer-observation:1.13.6", "io.micrometer:micrometer-registry-prometheus:1.13.6", "io.netty:netty-buffer:4.1.114.Final", "io.netty:netty-codec-dns:4.1.114.Final", "io.netty:netty-codec-http2:4.1.114.Final", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-codec-socks:4.1.114.Final", "io.netty:netty-codec:4.1.114.Final", "io.netty:netty-common:4.1.114.Final", "io.netty:netty-handler-proxy:4.1.114.Final", "io.netty:netty-handler:4.1.114.Final", "io.netty:netty-resolver-dns-classes-macos:4.1.114.Final", "io.netty:netty-resolver-dns-native-macos:4.1.114.Final", "io.netty:netty-resolver-dns:4.1.114.Final", "io.netty:netty-resolver:4.1.114.Final", "io.netty:netty-transport-classes-epoll:4.1.114.Final", "io.netty:netty-transport-native-epoll:4.1.114.Final", "io.netty:netty-transport-native-unix-common:4.1.114.Final", "io.netty:netty-transport:4.1.114.Final", "io.opencensus:opencensus-api:0.31.1", "io.opencensus:opencensus-contrib-grpc-util:0.31.1", "io.opencensus:opencensus-contrib-http-util:0.31.1", "io.opencensus:opencensus-proto:0.2.0", "io.perfmark:perfmark-api:0.25.0", "io.projectreactor.netty:reactor-netty-core:1.1.23", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.projectreactor:reactor-core:3.6.11", "io.prometheus:prometheus-metrics-config:1.2.1", "io.prometheus:prometheus-metrics-core:1.2.1", "io.prometheus:prometheus-metrics-exposition-formats:1.2.1", "io.prometheus:prometheus-metrics-model:1.2.1", "io.prometheus:prometheus-metrics-shaded-protobuf:1.2.1", "io.prometheus:prometheus-metrics-tracer-common:1.2.1", "io.smallrye:jandex:3.1.2", "io.swagger.core.v3:swagger-annotations-jakarta:2.2.15", "io.swagger.core.v3:swagger-core-jakarta:2.2.15", "io.swagger.core.v3:swagger-models-jakarta:2.2.15", "jakarta.activation:jakarta.activation-api:2.1.3", "jakarta.annotation:jakarta.annotation-api:2.1.1", "jakarta.inject:jakarta.inject-api:2.0.1", "jakarta.persistence:jakarta.persistence-api:3.1.0", "jakarta.transaction:jakarta.transaction-api:2.0.1", "jakarta.validation:jakarta.validation-api:3.0.2", "jakarta.xml.bind:jakarta.xml.bind-api:4.0.2", "javax.annotation:javax.annotation-api:1.3.2", "joda-time:joda-time:2.8.1", "net.bytebuddy:byte-buddy:1.14.19", "net.minidev:accessors-smart:2.5.1", "net.minidev:json-smart:2.5.1", "net.nurigo:sdk:4.3.0", "org.antlr:antlr4-runtime:4.13.0", "org.apache.commons:commons-lang3:3.14.0", "org.apache.httpcomponents:httpclient:4.5.14", "org.apache.httpcomponents:httpcore:4.4.16", "org.apache.logging.log4j:log4j-api:2.23.1", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.tomcat.embed:tomcat-embed-core:10.1.31", "org.apache.tomcat.embed:tomcat-embed-el:10.1.31", "org.apache.tomcat.embed:tomcat-embed-websocket:10.1.31", "org.aspectj:aspectjweaver:1.9.22.1", "org.bouncycastle:bcprov-jdk18on:1.83", "org.checkerframework:checker-qual:3.43.0", "org.codehaus.mojo:animal-sniffer-annotations:1.22", "org.conscrypt:conscrypt-openjdk-uber:2.5.2", "org.eclipse.angus:angus-activation:2.0.2", "org.glassfish.jaxb:jaxb-core:4.0.5", "org.glassfish.jaxb:jaxb-runtime:4.0.5", "org.glassfish.jaxb:txw2:4.0.5", "org.hdrhistogram:HdrHistogram:2.2.2", "org.hibernate.common:hibernate-commons-annotations:6.0.6.Final", "org.hibernate.orm:hibernate-core:6.5.3.Final", "org.jboss.logging:jboss-logging:3.5.3.Final", "org.jetbrains.kotlin:kotlin-reflect:2.2.0", "org.jetbrains.kotlin:kotlin-stdlib-common:2.2.0", "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.2.0", "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.0", "org.jetbrains.kotlin:kotlin-stdlib:2.2.0", "org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0", "org.jetbrains.kotlinx:kotlinx-serialization-bom:1.6.3", "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.6.3", "org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3", "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.6.3", "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3", "org.jetbrains:annotations:13.0", "org.latencyutils:LatencyUtils:2.0.3", "org.ow2.asm:asm:9.6", "org.reactivestreams:reactive-streams:1.0.4", "org.slf4j:jul-to-slf4j:2.0.16", "org.slf4j:slf4j-api:2.0.16", "org.springdoc:springdoc-openapi-starter-common:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-api:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0", "org.springframework.batch:spring-batch-core:5.1.2", "org.springframework.batch:spring-batch-infrastructure:5.1.2", "org.springframework.boot:spring-boot-actuator-autoconfigure:3.3.5", "org.springframework.boot:spring-boot-actuator:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter-aop:3.3.5", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter-jdbc:3.3.5", "org.springframework.boot:spring-boot-starter-json:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.boot:spring-boot-starter-tomcat:3.3.5", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5", "org.springframework.cloud:spring-cloud-aws-autoconfigure:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-context:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE", "org.springframework.data:spring-data-commons:3.3.5", "org.springframework.data:spring-data-jpa:3.3.5", "org.springframework.data:spring-data-keyvalue:3.3.5", "org.springframework.data:spring-data-redis:3.3.5", "org.springframework.retry:spring-retry:2.0.10", "org.springframework.security:spring-security-config:6.3.4", "org.springframework.security:spring-security-core:6.3.4", "org.springframework.security:spring-security-crypto:6.3.4", "org.springframework.security:spring-security-oauth2-client:6.3.4", "org.springframework.security:spring-security-oauth2-core:6.3.4", "org.springframework.security:spring-security-oauth2-jose:6.3.4", "org.springframework.security:spring-security-web:6.3.4", "org.springframework:spring-aop:6.1.14", "org.springframework:spring-aspects:6.1.14", "org.springframework:spring-beans:6.1.14", "org.springframework:spring-context-support:6.1.14", "org.springframework:spring-context:6.1.14", "org.springframework:spring-core:6.1.14", "org.springframework:spring-expression:6.1.14", "org.springframework:spring-jcl:6.1.14", "org.springframework:spring-jdbc:6.1.14", "org.springframework:spring-orm:6.1.14", "org.springframework:spring-oxm:6.1.14", "org.springframework:spring-tx:6.1.14", "org.springframework:spring-web:6.1.14", "org.springframework:spring-webflux:6.1.14", "org.springframework:spring-webmvc:6.1.14", "org.threeten:threetenbp:1.6.3", "org.webjars:swagger-ui:5.2.0", "org.yaml:snakeyaml:2.2", "software.amazon.awssdk:annotations:2.20.20", "software.amazon.awssdk:apache-client:2.20.20", "software.amazon.awssdk:arns:2.20.20", "software.amazon.awssdk:auth:2.20.20", "software.amazon.awssdk:aws-core:2.20.20", "software.amazon.awssdk:aws-query-protocol:2.20.20", "software.amazon.awssdk:aws-xml-protocol:2.20.20", "software.amazon.awssdk:endpoints-spi:2.20.20", "software.amazon.awssdk:http-client-spi:2.20.20", "software.amazon.awssdk:json-utils:2.20.20", "software.amazon.awssdk:metrics-spi:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "software.amazon.awssdk:profiles:2.20.20", "software.amazon.awssdk:protocol-core:2.20.20", "software.amazon.awssdk:regions:2.20.20", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:sdk-core:2.20.20", "software.amazon.awssdk:third-party-jackson-core:2.20.20", "software.amazon.awssdk:utils:2.20.20", "software.amazon.eventstream:eventstream:1.0.1", "software.amazon.ion:ion-java:1.0.2" ],
+  "findings" : [ {
+    "coordinate" : "io.netty:netty-handler:4.1.114.Final",
+    "module" : "io.netty:netty-handler",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-c4c3-7fpv-j4q5",
+      "canonicalId" : "CVE-2026-75595",
+      "aliases" : [ "CVE-2026-75595" ],
+      "severity" : "CRITICAL",
+      "summary" : "Netty: SNI Routing Bypass via Fragmented TLS ClientHello Causing Fallback to Default SslContext",
+      "fixedInLine" : "4.1.137.Final",
+      "nextSafe" : "4.1.137.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-3qp7-7mw8-wx86",
+      "canonicalId" : "CVE-2026-44249",
+      "aliases" : [ "CVE-2026-44249" ],
+      "severity" : "HIGH",
+      "summary" : "Netty has an IPv6 Subnet Filter Bypass via Incorrect Comparator Masking",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-4g8c-wm8x-jfhw",
+      "canonicalId" : "CVE-2025-24970",
+      "aliases" : [ "CVE-2025-24970" ],
+      "severity" : "HIGH",
+      "summary" : "SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine",
+      "fixedInLine" : "4.1.118.Final",
+      "nextSafe" : "4.1.118.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-c653-97m9-rcg9",
+      "canonicalId" : "CVE-2026-50010",
+      "aliases" : [ "CVE-2026-50010" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: Wrapping plain trust manager silently disables hostname verification",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-x4gw-5cx5-pgmh",
+      "canonicalId" : "CVE-2026-45416",
+      "aliases" : [ "CVE-2026-45416" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: SNI handler pre-allocates up to 16 MiB from nine attacker bytes",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-fccg-mwvh-qqg4",
+      "canonicalId" : "CVE-2026-75596",
+      "aliases" : [ "CVE-2026-75596" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: Fragmented ClientHello records trigger quadratic pre-handshake reassembly in default SNI parsing",
+      "fixedInLine" : "4.1.137.Final",
+      "nextSafe" : "4.1.137.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정 (전이 요청: 4.1.84.Final, 4.1.107.Final, 4.1.86.Final, 4.1.114.Final)",
+    "downgraded" : false,
+    "introducerCount" : 4,
+    "introductions" : [ {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "io.netty:netty-handler:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "io.lettuce:lettuce-core:6.3.2.RELEASE", "io.netty:netty-handler:4.1.114.Final" ]
+    }, {
+      "introducer" : "software.amazon.awssdk:s3:2.20.20",
+      "path" : [ "root project :", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "io.netty:netty-handler:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-handler:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.137.Final",
+    "publishedFixVersion" : "4.1.137.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.137.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.apache.tomcat.embed:tomcat-embed-core:10.1.31",
+    "module" : "org.apache.tomcat.embed:tomcat-embed-core",
+    "version" : "10.1.31",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-5m62-pw8w-7w9f",
+      "canonicalId" : "CVE-2026-43515",
+      "aliases" : [ "BIT-tomcat-2026-43515", "CVE-2026-43515" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat - Security constraints not correctly applied",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-83qj-6fr2-vhqg",
+      "canonicalId" : "CVE-2025-24813",
+      "aliases" : [ "BIT-tomcat-2025-24813", "CVE-2025-24813" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT",
+      "fixedInLine" : "10.1.35",
+      "nextSafe" : "10.1.35",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-9xv2-5v5q-p794",
+      "canonicalId" : "CVE-2026-65905",
+      "aliases" : [ "BIT-tomcat-2026-65905", "CVE-2026-65905" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat's DIGEST authenticator has an Authentication Bypass by Capture-replay vulnerability",
+      "fixedInLine" : "10.1.58",
+      "nextSafe" : "10.1.58",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-gcx9-497g-6cp6",
+      "canonicalId" : "CVE-2026-65182",
+      "aliases" : [ "BIT-tomcat-2026-65182", "CVE-2026-65182" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat has an Improper Access Control, Incorrect Authorization vulnerability",
+      "fixedInLine" : "10.1.58",
+      "nextSafe" : "10.1.58",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h3x4-894j-xpx5",
+      "canonicalId" : "CVE-2026-68525",
+      "aliases" : [ "BIT-tomcat-2026-68525", "CVE-2026-68525" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat's FORM authentication process has an Incorrect Authorization vulnerability",
+      "fixedInLine" : "10.1.58",
+      "nextSafe" : "10.1.58",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h6fc-48rj-7qqh",
+      "canonicalId" : "CVE-2026-43512",
+      "aliases" : [ "BIT-tomcat-2026-43512", "CVE-2026-43512" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-r29c-68gh-xp6x",
+      "canonicalId" : "CVE-2026-41293",
+      "aliases" : [ "BIT-tomcat-2026-41293", "CVE-2026-41293" ],
+      "severity" : "CRITICAL",
+      "summary" : "Apache Tomcat - HTTP/2 request headers not validated",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-25xr-qj8w-c4vf",
+      "canonicalId" : "CVE-2025-53506",
+      "aliases" : [ "BIT-tomcat-2025-53506", "CVE-2025-53506" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams",
+      "fixedInLine" : "10.1.43",
+      "nextSafe" : "10.1.43",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-27hp-xhwr-wr2m",
+      "canonicalId" : "CVE-2024-56337",
+      "aliases" : [ "BIT-tomcat-2024-56337", "CVE-2024-56337" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability",
+      "fixedInLine" : "10.1.34",
+      "nextSafe" : "10.1.34",
+      "alternatives" : [ "org.apache.tomcat:tomcat-embed-core:9.0.98" ]
+    }, {
+      "id" : "GHSA-563x-q5rq-57qp",
+      "canonicalId" : "CVE-2026-24880",
+      "aliases" : [ "BIT-tomcat-2026-24880", "CVE-2026-24880" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat has an HTTP Request/Response Smuggling vulnerability",
+      "fixedInLine" : "10.1.52",
+      "nextSafe" : "10.1.52",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5j33-cvvr-w245",
+      "canonicalId" : "CVE-2024-50379",
+      "aliases" : [ "BIT-tomcat-2024-50379", "CVE-2024-50379" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability",
+      "fixedInLine" : "10.1.34",
+      "nextSafe" : "10.1.34",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5mp6-jrq3-r938",
+      "canonicalId" : "CVE-2026-43513",
+      "aliases" : [ "BIT-tomcat-2026-43513", "CVE-2026-43513" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat: LockOutRealm treats user names as case-sensitive",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-fv25-8xcx-gqjc",
+      "canonicalId" : "CVE-2026-42498",
+      "aliases" : [ "BIT-tomcat-2026-42498", "CVE-2026-42498" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat - WebSocket authentication header exposure",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-gqp3-2cvr-x8m3",
+      "canonicalId" : "CVE-2025-48989",
+      "aliases" : [ "BIT-tomcat-2025-48989", "CVE-2025-48989" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Improper Resource Shutdown or Release vulnerability",
+      "fixedInLine" : "10.1.44",
+      "nextSafe" : "10.1.44",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-gx5v-xp9w-j4cg",
+      "canonicalId" : "CVE-2026-41284",
+      "aliases" : [ "BIT-tomcat-2026-41284", "CVE-2026-41284" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h3gc-qfqq-6h8f",
+      "canonicalId" : "CVE-2025-48988",
+      "aliases" : [ "BIT-tomcat-2025-48988", "CVE-2025-48988" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat - DoS in multipart upload",
+      "fixedInLine" : "10.1.42",
+      "nextSafe" : "10.1.42",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mgp5-rv84-w37q",
+      "canonicalId" : "CVE-2026-24734",
+      "aliases" : [ "BIT-tomcat-2026-24734", "CVE-2026-24734" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat has an Improper Input Validation vulnerability",
+      "fixedInLine" : "10.1.52",
+      "nextSafe" : "10.1.52",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-rv64-5gf8-9qq8",
+      "canonicalId" : "CVE-2026-34483",
+      "aliases" : [ "BIT-tomcat-2026-34483", "CVE-2026-34483" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve",
+      "fixedInLine" : "10.1.54",
+      "nextSafe" : "10.1.54",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wmwf-9ccg-fff5",
+      "canonicalId" : "CVE-2025-55752",
+      "aliases" : [ "BIT-tomcat-2025-55752", "CVE-2025-55752" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Vulnerable to Relative Path Traversal",
+      "fixedInLine" : "10.1.45",
+      "nextSafe" : "10.1.45",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wr62-c79q-cv37",
+      "canonicalId" : "CVE-2025-52520",
+      "aliases" : [ "BIT-tomcat-2025-52520", "CVE-2025-52520" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits",
+      "fixedInLine" : "10.1.43",
+      "nextSafe" : "10.1.43",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-x4m4-345f-5h5g",
+      "canonicalId" : "CVE-2026-34487",
+      "aliases" : [ "BIT-tomcat-2026-34487", "CVE-2026-34487" ],
+      "severity" : "HIGH",
+      "summary" : "Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File",
+      "fixedInLine" : "10.1.54",
+      "nextSafe" : "10.1.54",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-23hv-mwm6-g8jf",
+      "canonicalId" : "CVE-2025-55668",
+      "aliases" : [ "BIT-tomcat-2025-55668", "CVE-2025-55668" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat Session Fixation vulnerability",
+      "fixedInLine" : "10.1.42",
+      "nextSafe" : "10.1.42",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-3p2h-wqq4-wf4h",
+      "canonicalId" : "CVE-2025-31650",
+      "aliases" : [ "BIT-tomcat-2025-31650", "CVE-2025-31650" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat Denial of Service via invalid HTTP priority header",
+      "fixedInLine" : "10.1.40",
+      "nextSafe" : "10.1.40",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-42wg-hm62-jcwg",
+      "canonicalId" : "CVE-2025-49124",
+      "aliases" : [ "BIT-tomcat-2025-49124", "CVE-2025-49124" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat installer for Windows has an untrusted search path vulnerability",
+      "fixedInLine" : "10.1.42",
+      "nextSafe" : "10.1.42",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-9m3c-qcxr-9x87",
+      "canonicalId" : "CVE-2026-25854",
+      "aliases" : [ "BIT-tomcat-2026-25854", "CVE-2026-25854" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat has an Open Redirect vulnerability",
+      "fixedInLine" : "10.1.53",
+      "nextSafe" : "10.1.53",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-fpj8-gq4v-p354",
+      "canonicalId" : "CVE-2025-66614",
+      "aliases" : [ "BIT-tomcat-2025-66614", "CVE-2025-66614" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat - Client certificate verification bypass",
+      "fixedInLine" : "10.1.50",
+      "nextSafe" : "10.1.50",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wc4r-xq3c-5cf3",
+      "canonicalId" : "CVE-2025-49125",
+      "aliases" : [ "BIT-tomcat-2025-49125", "CVE-2025-49125" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Tomcat - Security constraint bypass for pre/post-resources",
+      "fixedInLine" : "10.1.42",
+      "nextSafe" : "10.1.42",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-9m89-8frq-c98c",
+      "canonicalId" : "CVE-2026-43514",
+      "aliases" : [ "BIT-tomcat-2026-43514", "CVE-2026-43514" ],
+      "severity" : "LOW",
+      "summary" : "Apache Tomcat - AJP secret compared in non-constant time",
+      "fixedInLine" : "10.1.55",
+      "nextSafe" : "10.1.55",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-ff77-26x5-69cr",
+      "canonicalId" : "CVE-2025-31651",
+      "aliases" : [ "BIT-tomcat-2025-31651", "CVE-2025-31651" ],
+      "severity" : "LOW",
+      "summary" : "Apache Tomcat Rewrite rule bypass",
+      "fixedInLine" : "10.1.40",
+      "nextSafe" : "10.1.40",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h2fw-rfh5-95r3",
+      "canonicalId" : "CVE-2025-46701",
+      "aliases" : [ "BIT-tomcat-2025-46701", "CVE-2025-46701" ],
+      "severity" : "LOW",
+      "summary" : "Apache Tomcat - CGI security constraint bypass",
+      "fixedInLine" : "10.1.41",
+      "nextSafe" : "10.1.41",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-hgrr-935x-pq79",
+      "canonicalId" : "CVE-2025-61795",
+      "aliases" : [ "BIT-tomcat-2025-61795", "CVE-2025-61795" ],
+      "severity" : "LOW",
+      "summary" : "Apache Tomcat Vulnerable to Improper Resource Shutdown or Release",
+      "fixedInLine" : "10.1.47",
+      "nextSafe" : "10.1.47",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-vfww-5hm6-hx2j",
+      "canonicalId" : "CVE-2025-55754",
+      "aliases" : [ "BIT-tomcat-2025-55754", "CVE-2025-55754" ],
+      "severity" : "LOW",
+      "summary" : "Apache Tomcat Vulnerable to Improper Neutralization of Escape, Meta, or Control Sequences",
+      "fixedInLine" : "10.1.45",
+      "nextSafe" : "10.1.45",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 10.1.31으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework.boot:spring-boot-starter-tomcat:3.3.5", "org.apache.tomcat.embed:tomcat-embed-core:10.1.31" ]
+    } ],
+    "fixVersion" : "10.1.58",
+    "publishedFixVersion" : "10.1.59",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 10.1.59 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). OSV 수정 버전 10.1.58은 Maven Central에 배포되지 않아 10.1.59을 기준으로 한다."
+  }, {
+    "coordinate" : "org.bouncycastle:bcprov-jdk18on:1.83",
+    "module" : "org.bouncycastle:bcprov-jdk18on",
+    "version" : "1.83",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-574f-3g2m-x479",
+      "canonicalId" : "CVE-2025-14813",
+      "aliases" : [ "CVE-2025-14813" ],
+      "severity" : "CRITICAL",
+      "summary" : "Bouncy Castle for Java GOST 28147 CTR mode reuses keystream after 255 blocks",
+      "fixedInLine" : "1.84",
+      "nextSafe" : "1.84",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-9pwp-9qqc-pr26",
+      "canonicalId" : "CVE-2026-8763",
+      "aliases" : [ "CVE-2026-8763" ],
+      "severity" : "CRITICAL",
+      "summary" : "Bouncy Castle: Name Constraints bypass via trailing dot in rfc822Name and URI",
+      "fixedInLine" : "1.85",
+      "nextSafe" : "1.85",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-p93r-85wp-75v3",
+      "canonicalId" : "CVE-2026-5598",
+      "aliases" : [ "CVE-2026-5598" ],
+      "severity" : "HIGH",
+      "summary" : "Bouncy Castle Has Covert Timing Channel Vulnerability",
+      "fixedInLine" : "1.84",
+      "nextSafe" : "1.84",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-qp49-qgx5-5m26",
+      "canonicalId" : "CVE-2026-13506",
+      "aliases" : [ "CVE-2026-13506" ],
+      "severity" : "HIGH",
+      "summary" : "Bouncy Castle: Lazy ASN.1 sequence forcing resets nesting-depth guard",
+      "fixedInLine" : "1.85",
+      "nextSafe" : "1.85",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-c3fc-8qff-9hwx",
+      "canonicalId" : "CVE-2026-0636",
+      "aliases" : [ "CVE-2026-0636" ],
+      "severity" : "MODERATE",
+      "summary" : "Bouncy Castle has an LDAP injection",
+      "fixedInLine" : "1.84",
+      "nextSafe" : "1.84",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "TRANSITIVE",
+    "decisionExplanation" : "전이 의존성이 요청한 버전 그대로 선택됨",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "com.apple.itunes.storekit:app-store-server-library:5.0.0",
+      "path" : [ "root project :", "com.apple.itunes.storekit:app-store-server-library:5.0.0", "org.bouncycastle:bcprov-jdk18on:1.83" ]
+    } ],
+    "fixVersion" : "1.85",
+    "publishedFixVersion" : "1.85",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "CONSTRAIN_TRANSITIVE",
+    "remediationAdvice" : "전이 의존성이다. 유입자(com.apple.itunes.storekit:app-store-server-library:5.0.0)를 올리거나, constraints { implementation('org.bouncycastle:bcprov-jdk18on:1.85') } 로 하한을 지정한다."
+  }, {
+    "coordinate" : "org.springframework.security:spring-security-web:6.3.4",
+    "module" : "org.springframework.security:spring-security-web",
+    "version" : "6.3.4",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-mf92-479x-3373",
+      "canonicalId" : "CVE-2026-22732",
+      "aliases" : [ "CVE-2026-22732" ],
+      "severity" : "CRITICAL",
+      "summary" : "Spring Security HTTP Headers Are not Written Under Some Conditions",
+      "fixedInLine" : null,
+      "nextSafe" : "6.5.9",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-293q-567p-wmwq",
+      "canonicalId" : "CVE-2026-47838",
+      "aliases" : [ "CVE-2026-47838" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Security Vulnerable to Unauthorized User Impersonation when Using X.509 Client Certificates",
+      "fixedInLine" : null,
+      "nextSafe" : "6.5.11",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-x2r2-rvhq-2mqv",
+      "canonicalId" : "CVE-2026-41706",
+      "aliases" : [ "CVE-2026-41706" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Security: Open Redirect via Unvalidated Post-Login Redirect URL Stored in CookieRequestCache",
+      "fixedInLine" : null,
+      "nextSafe" : "6.5.11",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.3.4으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-web:6.3.4" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-oauth2-client:6.3.4", "org.springframework.security:spring-security-web:6.3.4" ]
+    } ],
+    "fixVersion" : "6.5.11",
+    "publishedFixVersion" : "6.5.11",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.5.11 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 6.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework:spring-webflux:6.1.14",
+    "module" : "org.springframework:spring-webflux",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-9qf2-26p9-2q2q",
+      "canonicalId" : "CVE-2026-47892",
+      "aliases" : [ "CVE-2026-47892" ],
+      "severity" : "CRITICAL",
+      "summary" : "Spring Framework Header Predicate Bypass in WebFlux Functional Endpoints",
+      "fixedInLine" : null,
+      "nextSafe" : "7.0.9",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-x23c-287f-qqv5",
+      "canonicalId" : "CVE-2026-41842",
+      "aliases" : [ "CVE-2026-41842" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Framework Denial of Service via Versioned Resources in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-4773-3jfm-qmx3",
+      "canonicalId" : "CVE-2026-22737",
+      "aliases" : [ "CVE-2026-22737" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Improper Path Limitation with Script View Templates",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.17",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-4hfh-6x8g-gwpp",
+      "canonicalId" : "CVE-2026-41839",
+      "aliases" : [ "CVE-2026-41839" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Escalation via Session Fixation in WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5843-p793-ghmm",
+      "canonicalId" : "CVE-2026-22740",
+      "aliases" : [ "CVE-2026-22740" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework DoS with Multipart Temp Files in WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.18",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6p4f-wcwh-5vvm",
+      "canonicalId" : "CVE-2026-22745",
+      "aliases" : [ "CVE-2026-22745" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.18",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-72pg-x5f8-j25j",
+      "canonicalId" : "CVE-2026-41843",
+      "aliases" : [ "CVE-2026-41843" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Path Traversal via Versioned Static Resources in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-83f7-v6px-pp3h",
+      "canonicalId" : "CVE-2026-41840",
+      "aliases" : [ "CVE-2026-41840" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Denial of Service via Multipart Requests in WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-cjpg-rgq5-fr37",
+      "canonicalId" : "CVE-2026-41853",
+      "aliases" : [ "CVE-2026-41853" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Multipart Request Smuggling in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h3qp-gqrc-q736",
+      "canonicalId" : "CVE-2026-41844",
+      "aliases" : [ "CVE-2026-41844" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Open Redirect in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mq64-j8f9-9gcj",
+      "canonicalId" : "CVE-2026-41841",
+      "aliases" : [ "CVE-2026-41841" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Information Disclosure via Static Resource Cache in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6hcq-hmm3-jj3c",
+      "canonicalId" : "CVE-2026-22735",
+      "aliases" : [ "CVE-2026-22735" ],
+      "severity" : "LOW",
+      "summary" : "Spring MVC and WebFlux has Server Sent Event stream corruption",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.17",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wg35-8jpf-2xv3",
+      "canonicalId" : "CVE-2026-22741",
+      "aliases" : [ "CVE-2026-22741" ],
+      "severity" : "LOW",
+      "summary" : "Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources.",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.18",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework:spring-webflux:6.1.14" ]
+    } ],
+    "fixVersion" : "7.0.9",
+    "publishedFixVersion" : "7.0.9",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 7.0.9 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 7.0.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework:spring-webmvc:6.1.14",
+    "module" : "org.springframework:spring-webmvc",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "CRITICAL",
+    "advisories" : [ {
+      "id" : "GHSA-pc63-qcmh-9cmg",
+      "canonicalId" : "CVE-2026-47884",
+      "aliases" : [ "CVE-2026-47884" ],
+      "severity" : "CRITICAL",
+      "summary" : "Spring Framework Improper Path Limitation in XsltView",
+      "fixedInLine" : null,
+      "nextSafe" : "7.0.9",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-3chg-m5w7-qfv5",
+      "canonicalId" : "CVE-2026-41845",
+      "aliases" : [ "CVE-2026-41845" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Framework Cross-site Scripting via JavaScriptUtils",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-x23c-287f-qqv5",
+      "canonicalId" : "CVE-2026-41842",
+      "aliases" : [ "CVE-2026-41842" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Framework Denial of Service via Versioned Resources in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-4773-3jfm-qmx3",
+      "canonicalId" : "CVE-2026-22737",
+      "aliases" : [ "CVE-2026-22737" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Improper Path Limitation with Script View Templates",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.17",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6p4f-wcwh-5vvm",
+      "canonicalId" : "CVE-2026-22745",
+      "aliases" : [ "CVE-2026-22745" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.18",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-72pg-x5f8-j25j",
+      "canonicalId" : "CVE-2026-41843",
+      "aliases" : [ "CVE-2026-41843" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Path Traversal via Versioned Static Resources in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-957g-f97v-vppc",
+      "canonicalId" : "CVE-2026-41846",
+      "aliases" : [ "CVE-2026-41846" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Cross-site Scripting via JSP Form Tags",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-cjpg-rgq5-fr37",
+      "canonicalId" : "CVE-2026-41853",
+      "aliases" : [ "CVE-2026-41853" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Multipart Request Smuggling in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-h3qp-gqrc-q736",
+      "canonicalId" : "CVE-2026-41844",
+      "aliases" : [ "CVE-2026-41844" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Open Redirect in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mq64-j8f9-9gcj",
+      "canonicalId" : "CVE-2026-41841",
+      "aliases" : [ "CVE-2026-41841" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Information Disclosure via Static Resource Cache in Spring MVC and WebFlux",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-r936-gwx5-v52f",
+      "canonicalId" : "CVE-2025-41242",
+      "aliases" : [ "CVE-2025-41242" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework MVC Applications Path Traversal Vulnerability",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.10",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6hcq-hmm3-jj3c",
+      "canonicalId" : "CVE-2026-22735",
+      "aliases" : [ "CVE-2026-22735" ],
+      "severity" : "LOW",
+      "summary" : "Spring MVC and WebFlux has Server Sent Event stream corruption",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.17",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wg35-8jpf-2xv3",
+      "canonicalId" : "CVE-2026-22741",
+      "aliases" : [ "CVE-2026-22741" ],
+      "severity" : "LOW",
+      "summary" : "Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources.",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.18",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정 (전이 요청: 6.1.14, 6.0.11)",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework:spring-webmvc:6.1.14" ]
+    }, {
+      "introducer" : "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
+      "path" : [ "root project :", "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-api:2.2.0", "org.springframework:spring-webmvc:6.1.14" ]
+    } ],
+    "fixVersion" : "7.0.9",
+    "publishedFixVersion" : "7.0.9",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 7.0.9 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 7.0.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "com.amazonaws:aws-java-sdk-s3:1.11.792",
+    "module" : "com.amazonaws:aws-java-sdk-s3",
+    "version" : "1.11.792",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-c28r-hw5m-5gv3",
+      "canonicalId" : "CVE-2022-31159",
+      "aliases" : [ "CVE-2022-31159" ],
+      "severity" : "HIGH",
+      "summary" : "Partial Path Traversal in com.amazonaws:aws-java-sdk-s3 ",
+      "fixedInLine" : "1.12.261",
+      "nextSafe" : "1.12.261",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "TRANSITIVE",
+    "decisionExplanation" : "전이 의존성이 요청한 버전 그대로 선택됨",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE",
+      "path" : [ "root project :", "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-context:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE", "com.amazonaws:aws-java-sdk-s3:1.11.792" ]
+    } ],
+    "fixVersion" : "1.12.261",
+    "publishedFixVersion" : "1.12.261",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "CONSTRAIN_TRANSITIVE",
+    "remediationAdvice" : "전이 의존성이다. 유입자(org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE)를 올리거나, constraints { implementation('com.amazonaws:aws-java-sdk-s3:1.12.261') } 로 하한을 지정한다."
+  }, {
+    "coordinate" : "com.fasterxml.jackson.core:jackson-core:2.17.2",
+    "module" : "com.fasterxml.jackson.core:jackson-core",
+    "version" : "2.17.2",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-7hhh-6rmp-j9qf",
+      "canonicalId" : "CVE-2026-89425",
+      "aliases" : [ "CVE-2026-89425" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-core: UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilder growth (DoS)",
+      "fixedInLine" : "2.18.11",
+      "nextSafe" : "2.18.11",
+      "alternatives" : [ "tools.jackson.core:jackson-core:3.1.7", "tools.jackson.core:jackson-core:3.2.3" ]
+    }, {
+      "id" : "GHSA-p6pp-m3f8-5c89",
+      "canonicalId" : "CVE-2026-89407",
+      "aliases" : [ "CVE-2026-89407" ],
+      "severity" : "HIGH",
+      "summary" : " jackson-core: ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber()",
+      "fixedInLine" : "2.18.11",
+      "nextSafe" : "2.18.11",
+      "alternatives" : [ "tools.jackson.core:jackson-core:3.1.7", "tools.jackson.core:jackson-core:3.2.2" ]
+    }, {
+      "id" : "GHSA-r7wm-3cxj-wff9",
+      "canonicalId" : "CVE-2026-68494",
+      "aliases" : [ "CVE-2026-68494" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)",
+      "fixedInLine" : "2.18.8",
+      "nextSafe" : "2.18.8",
+      "alternatives" : [ "tools.jackson.core:jackson-core:3.1.4" ]
+    }, {
+      "id" : "GHSA-72hv-8253-57qq",
+      "canonicalId" : "CVE-2026-18401",
+      "aliases" : [ "CVE-2026-18401" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition",
+      "fixedInLine" : "2.18.6",
+      "nextSafe" : "2.18.6",
+      "alternatives" : [ "tools.jackson.core:jackson-core:3.1.0" ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.17.2으로 결정 (전이 요청: 2.17.2, 2.13.4)",
+    "downgraded" : false,
+    "introducerCount" : 9,
+    "introductions" : [ {
+      "introducer" : "com.apple.itunes.storekit:app-store-server-library:5.0.0",
+      "path" : [ "root project :", "com.apple.itunes.storekit:app-store-server-library:5.0.0", "com.fasterxml.jackson.core:jackson-databind:2.17.2", "com.fasterxml.jackson.core:jackson-core:2.17.2" ]
+    }, {
+      "introducer" : "com.auth0:java-jwt:4.4.0",
+      "path" : [ "root project :", "com.auth0:java-jwt:4.4.0", "com.fasterxml.jackson.core:jackson-databind:2.17.2", "com.fasterxml.jackson.core:jackson-core:2.17.2" ]
+    }, {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "com.google.cloud:google-cloud-storage:2.14.0", "com.fasterxml.jackson.core:jackson-core:2.17.2" ]
+    }, {
+      "introducer" : "io.jsonwebtoken:jjwt-jackson:0.11.5",
+      "path" : [ "root project :", "io.jsonwebtoken:jjwt-jackson:0.11.5", "com.fasterxml.jackson.core:jackson-databind:2.17.2", "com.fasterxml.jackson.core:jackson-core:2.17.2" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-actuator-autoconfigure:3.3.5", "com.fasterxml.jackson.core:jackson-databind:2.17.2", "com.fasterxml.jackson.core:jackson-core:2.17.2" ]
+    } ],
+    "fixVersion" : "2.18.11",
+    "publishedFixVersion" : "2.18.11",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 2.18.11 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "com.fasterxml.jackson.core:jackson-databind:2.17.2",
+    "module" : "com.fasterxml.jackson.core:jackson-databind",
+    "version" : "2.17.2",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-cxp5-3px4-pw24",
+      "canonicalId" : "CVE-2026-91777",
+      "aliases" : [ "CVE-2026-91777" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-databind quadratic forward-reference completion ",
+      "fixedInLine" : "2.18.11",
+      "nextSafe" : "2.18.11",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.7", "tools.jackson.core:jackson-databind:3.2.3" ]
+    }, {
+      "id" : "GHSA-j3rv-43j4-c7qm",
+      "canonicalId" : "CVE-2026-54512",
+      "aliases" : [ "CVE-2026-54512" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-databind has a PolymorphicTypeValidator bypass via generic type parameters that allows arbitrary class instantiation",
+      "fixedInLine" : "2.18.8",
+      "nextSafe" : "2.18.8",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.4" ]
+    }, {
+      "id" : "GHSA-q4xh-88c3-wmh7",
+      "canonicalId" : "CVE-2026-68497",
+      "aliases" : [ "CVE-2026-68497" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
+      "fixedInLine" : "2.18.10",
+      "nextSafe" : "2.18.10",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.6", "tools.jackson.core:jackson-databind:3.2.2" ]
+    }, {
+      "id" : "GHSA-rmj7-2vxq-3g9f",
+      "canonicalId" : "CVE-2026-54513",
+      "aliases" : [ "CVE-2026-54513" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-databind has an array subtype allowlist bypass in BasicPolymorphicTypeValidator (allowIfSubTypeIsArray)",
+      "fixedInLine" : "2.18.8",
+      "nextSafe" : "2.18.8",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.4" ]
+    }, {
+      "id" : "GHSA-wv8q-qhhj-9h54",
+      "canonicalId" : "CVE-2026-91776",
+      "aliases" : [ "CVE-2026-91776" ],
+      "severity" : "HIGH",
+      "summary" : "jackson-databind retains every unknown raw type ID ",
+      "fixedInLine" : "2.18.11",
+      "nextSafe" : "2.18.11",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.7", "tools.jackson.core:jackson-databind:3.2.3" ]
+    }, {
+      "id" : "GHSA-3pjw-73gf-8qr5",
+      "canonicalId" : "CVE-2026-59888",
+      "aliases" : [ "CVE-2026-59888" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind: @JsonIgnore on a Record property is bypassed with a PropertyNamingStrategy",
+      "fixedInLine" : "2.18.8",
+      "nextSafe" : "2.18.8",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.4" ]
+    }, {
+      "id" : "GHSA-5jmj-h7xm-6q6v",
+      "canonicalId" : "CVE-2026-54515",
+      "aliases" : [ "CVE-2026-54515" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind has case-insensitive deserialization bypasses per-property @JsonIgnoreProperties",
+      "fixedInLine" : "2.18.9",
+      "nextSafe" : "2.18.9",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.4" ]
+    }, {
+      "id" : "GHSA-gx83-3vf8-gh7j",
+      "canonicalId" : "CVE-2026-83557",
+      "aliases" : [ "CVE-2026-83557" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+      "fixedInLine" : "2.18.10",
+      "nextSafe" : "2.18.10",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.6", "tools.jackson.core:jackson-databind:3.2.2" ]
+    }, {
+      "id" : "GHSA-hgj6-7826-r7m5",
+      "canonicalId" : "CVE-2026-54514",
+      "aliases" : [ "CVE-2026-54514" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind: InetSocketAddress deserialization triggers eager DNS resolution (SSRF)",
+      "fixedInLine" : "2.18.8",
+      "nextSafe" : "2.18.8",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:2.21.4", "tools.jackson.core:jackson-databind:3.1.4" ]
+    }, {
+      "id" : "GHSA-vvgp-rfg2-7rr6",
+      "canonicalId" : "CVE-2026-77310",
+      "aliases" : [ "CVE-2026-77310" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
+      "fixedInLine" : "2.18.9",
+      "nextSafe" : "2.18.9",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.5", "tools.jackson.core:jackson-databind:3.2.1" ]
+    }, {
+      "id" : "GHSA-wjgm-6hv5-3cvf",
+      "canonicalId" : "CVE-2026-19032",
+      "aliases" : [ "CVE-2026-19032" ],
+      "severity" : "MODERATE",
+      "summary" : "jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
+      "fixedInLine" : "2.18.10",
+      "nextSafe" : "2.18.10",
+      "alternatives" : [ "tools.jackson.core:jackson-databind:3.1.6", "tools.jackson.core:jackson-databind:3.2.2" ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.17.2으로 결정 (전이 요청: 2.12.6.1, 2.14.2, 2.16.1, 2.17.2, 2.15.1, 2.6.7.3)",
+    "downgraded" : false,
+    "introducerCount" : 8,
+    "introductions" : [ {
+      "introducer" : "com.apple.itunes.storekit:app-store-server-library:5.0.0",
+      "path" : [ "root project :", "com.apple.itunes.storekit:app-store-server-library:5.0.0", "com.fasterxml.jackson.core:jackson-databind:2.17.2" ]
+    }, {
+      "introducer" : "com.auth0:java-jwt:4.4.0",
+      "path" : [ "root project :", "com.auth0:java-jwt:4.4.0", "com.fasterxml.jackson.core:jackson-databind:2.17.2" ]
+    }, {
+      "introducer" : "io.jsonwebtoken:jjwt-jackson:0.11.5",
+      "path" : [ "root project :", "io.jsonwebtoken:jjwt-jackson:0.11.5", "com.fasterxml.jackson.core:jackson-databind:2.17.2" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-actuator-autoconfigure:3.3.5", "com.fasterxml.jackson.core:jackson-databind:2.17.2" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework.boot:spring-boot-starter-json:3.3.5", "com.fasterxml.jackson.core:jackson-databind:2.17.2" ]
+    } ],
+    "fixVersion" : "2.18.11",
+    "publishedFixVersion" : "2.18.11",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 2.18.11 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "com.google.protobuf:protobuf-java:3.25.1",
+    "module" : "com.google.protobuf:protobuf-java",
+    "version" : "3.25.1",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-735f-pc8j-v9w8",
+      "canonicalId" : "CVE-2024-7254",
+      "aliases" : [ "CVE-2024-7254" ],
+      "severity" : "HIGH",
+      "summary" : "protobuf-java has potential Denial of Service issue",
+      "fixedInLine" : "3.25.5",
+      "nextSafe" : "3.25.5",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "CONFLICT_RESOLUTION",
+    "decisionExplanation" : "버전 충돌 중 가장 높은 버전 선택 (between versions 3.25.1 and 3.21.8)",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "com.mysql:mysql-connector-j:8.3.0",
+      "path" : [ "root project :", "com.mysql:mysql-connector-j:8.3.0", "com.google.protobuf:protobuf-java:3.25.1" ]
+    }, {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "com.google.cloud:google-cloud-storage:2.14.0", "com.google.protobuf:protobuf-java:3.25.1" ]
+    } ],
+    "fixVersion" : "3.25.5",
+    "publishedFixVersion" : "3.25.5",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "CONSTRAIN_TRANSITIVE",
+    "remediationAdvice" : "전이 의존성이다. 유입자(com.mysql:mysql-connector-j:8.3.0, com.google.firebase:firebase-admin:9.1.1)를 올리거나, constraints { implementation('com.google.protobuf:protobuf-java:3.25.5') } 로 하한을 지정한다."
+  }, {
+    "coordinate" : "com.nimbusds:nimbus-jose-jwt:9.37",
+    "module" : "com.nimbusds:nimbus-jose-jwt",
+    "version" : "9.37",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-gvpg-vgmx-xg6w",
+      "canonicalId" : "CVE-2023-52428",
+      "aliases" : [ "CVE-2023-52428" ],
+      "severity" : "HIGH",
+      "summary" : "Denial of Service in Connect2id Nimbus JOSE+JWT",
+      "fixedInLine" : "9.37.2",
+      "nextSafe" : "9.37.2",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-xwmg-2g98-w7v9",
+      "canonicalId" : "CVE-2025-53864",
+      "aliases" : [ "CVE-2025-53864" ],
+      "severity" : "MODERATE",
+      "summary" : "Nimbus JOSE + JWT is vulnerable to DoS attacks when processing deeply nested JSON",
+      "fixedInLine" : "9.37.4",
+      "nextSafe" : "9.37.4",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "DIRECT_OVERRIDE",
+    "decisionExplanation" : "직접 선언한 버전(9.37)이 다른 라이브러리의 요청 9.37.3보다 우선 적용됨 · 요청된 더 높은 버전 대신 낮은 버전이 선택된 하향",
+    "downgraded" : true,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "com.nimbusds:nimbus-jose-jwt:9.37",
+      "path" : [ "root project :", "com.nimbusds:nimbus-jose-jwt:9.37" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-oauth2-jose:6.3.4", "com.nimbusds:nimbus-jose-jwt:9.37" ]
+    } ],
+    "fixVersion" : "9.37.4",
+    "publishedFixVersion" : "9.37.4",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPDATE_DIRECT",
+    "remediationAdvice" : "직접 선언 버전을 9.37.4 이상으로 올린다. 직접 선언을 제거하면 9.37.3이 선택되지만 9.37.4 미만이라 일부 권고가 남는다."
+  }, {
+    "coordinate" : "com.querydsl:querydsl-jpa:5.0.0",
+    "module" : "com.querydsl:querydsl-jpa",
+    "version" : "5.0.0",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-6q3q-6v5j-h6vg",
+      "canonicalId" : "CVE-2024-49203",
+      "aliases" : [ "CVE-2024-49203" ],
+      "severity" : "HIGH",
+      "summary" : "Querydsl vulnerable to HQL injection through orderBy",
+      "fixedInLine" : null,
+      "nextSafe" : null,
+      "alternatives" : [ "io.github.openfeign.querydsl:querydsl-jpa:5.6.1", "io.github.openfeign.querydsl:querydsl-jpa:6.10.1" ]
+    } ],
+    "decision" : "DIRECT_OVERRIDE",
+    "decisionExplanation" : "직접 선언한 버전(5.0.0)이 BOM 관리 버전 5.1.0보다 우선 적용됨",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "com.querydsl:querydsl-jpa:5.0.0",
+      "path" : [ "root project :", "com.querydsl:querydsl-jpa:5.0.0" ]
+    } ],
+    "fixVersion" : null,
+    "publishedFixVersion" : null,
+    "allFixable" : false,
+    "lineChange" : false,
+    "alternatives" : [ "io.github.openfeign.querydsl:querydsl-jpa:5.6.1", "io.github.openfeign.querydsl:querydsl-jpa:6.10.1" ],
+    "remediation" : "NO_FIX",
+    "remediationAdvice" : "이 좌표에는 공개된 수정 버전이 없다. 같은 권고가 다른 좌표에는 수정 버전을 두고 있다(io.github.openfeign.querydsl:querydsl-jpa:5.6.1, io.github.openfeign.querydsl:querydsl-jpa:6.10.1): 좌표 이동·포크 여부를 확인한다. 실제 사용 여부를 확인해 제거·대체하거나, 영향이 없다는 근거와 만료일을 남겨 예외로 등록한다."
+  }, {
+    "coordinate" : "io.grpc:grpc-netty-shaded:1.50.1",
+    "module" : "io.grpc:grpc-netty-shaded",
+    "version" : "1.50.1",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-prj3-ccx8-p6x4",
+      "canonicalId" : "CVE-2025-55163",
+      "aliases" : [ "CVE-2025-55163" ],
+      "severity" : "HIGH",
+      "summary" : "Netty affected by MadeYouReset HTTP/2 DDoS vulnerability",
+      "fixedInLine" : "1.75.0",
+      "nextSafe" : "1.75.0",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "TRANSITIVE",
+    "decisionExplanation" : "전이 의존성이 요청한 버전 그대로 선택됨",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "com.google.cloud:google-cloud-storage:2.14.0", "io.grpc:grpc-netty-shaded:1.50.1" ]
+    } ],
+    "fixVersion" : "1.75.0",
+    "publishedFixVersion" : "1.75.0",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "CONSTRAIN_TRANSITIVE",
+    "remediationAdvice" : "전이 의존성이다. 유입자(com.google.firebase:firebase-admin:9.1.1)를 올리거나, constraints { implementation('io.grpc:grpc-netty-shaded:1.75.0') } 로 하한을 지정한다."
+  }, {
+    "coordinate" : "io.micrometer:micrometer-core:1.13.6",
+    "module" : "io.micrometer:micrometer-core",
+    "version" : "1.13.6",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-g3pr-3p32-fp23",
+      "canonicalId" : "CVE-2026-40984",
+      "aliases" : [ "CVE-2026-40984" ],
+      "severity" : "HIGH",
+      "summary" : "Micrometer HTTP server instrumentations DoS",
+      "fixedInLine" : null,
+      "nextSafe" : "1.15.12",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 1.13.6으로 결정 (전이 요청: 1.13.6, 1.12.6)",
+    "downgraded" : false,
+    "introducerCount" : 3,
+    "introductions" : [ {
+      "introducer" : "io.micrometer:micrometer-registry-prometheus:1.13.6",
+      "path" : [ "root project :", "io.micrometer:micrometer-registry-prometheus:1.13.6", "io.micrometer:micrometer-core:1.13.6" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "io.micrometer:micrometer-jakarta9:1.13.6", "io.micrometer:micrometer-core:1.13.6" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.batch:spring-batch-core:5.1.2", "io.micrometer:micrometer-core:1.13.6" ]
+    } ],
+    "fixVersion" : "1.15.12",
+    "publishedFixVersion" : "1.15.12",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 1.15.12 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 1.15.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "io.netty:netty-codec:4.1.114.Final",
+    "module" : "io.netty:netty-codec",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-558v-64gr-wgg4",
+      "canonicalId" : "CVE-2026-59901",
+      "aliases" : [ "CVE-2026-59901" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: [Bzip2Decoder] Infinite Loop in RLE State Machine Leads to Event-Loop Thread Hang",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mj4r-2hfc-f8p6",
+      "canonicalId" : "CVE-2026-42583",
+      "aliases" : [ "CVE-2026-42583" ],
+      "severity" : "HIGH",
+      "summary" : "Netty Lz4FrameDecoder is vulnerable to resource exhaustion ",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-3p8m-j85q-pgmj",
+      "canonicalId" : "CVE-2025-58057",
+      "aliases" : [ "CVE-2025-58057" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty's decoders vulnerable to DoS via zip bomb style attack",
+      "fixedInLine" : "4.1.125.Final",
+      "nextSafe" : "4.1.125.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정 (전이 요청: 4.1.86.Final, 4.1.114.Final)",
+    "downgraded" : false,
+    "introducerCount" : 4,
+    "introductions" : [ {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-codec:4.1.114.Final" ]
+    }, {
+      "introducer" : "software.amazon.awssdk:s3:2.20.20",
+      "path" : [ "root project :", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "io.netty:netty-codec:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "io.lettuce:lettuce-core:6.3.2.RELEASE", "io.netty:netty-handler:4.1.114.Final", "io.netty:netty-codec:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-codec:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.136.Final",
+    "publishedFixVersion" : "4.1.136.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.136.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-codec-dns:4.1.114.Final",
+    "module" : "io.netty:netty-codec-dns",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-cm33-6792-r9fm",
+      "canonicalId" : "CVE-2026-42579",
+      "aliases" : [ "CVE-2026-42579" ],
+      "severity" : "HIGH",
+      "summary" : "Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mfg7-5gfp-c4w3",
+      "canonicalId" : "CVE-2026-73508",
+      "aliases" : [ "CVE-2026-73508" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: Memory Leak in DNS Record Decoder via Malformed Domain Names",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-resolver-dns:4.1.114.Final", "io.netty:netty-codec-dns:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.136.Final",
+    "publishedFixVersion" : "4.1.136.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.136.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-codec-http:4.1.114.Final",
+    "module" : "io.netty:netty-codec-http",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-57rv-r2g8-2cj3",
+      "canonicalId" : "CVE-2026-42584",
+      "aliases" : [ "CVE-2026-42584" ],
+      "severity" : "HIGH",
+      "summary" : "Netty has HttpClientCodec response desynchronization",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6jqx-86gh-f27w",
+      "canonicalId" : "CVE-2026-55831",
+      "aliases" : [ "CVE-2026-55831" ],
+      "severity" : "HIGH",
+      "summary" : "Netty SPDY SETTINGS frame count materializes unbounded settings map",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-f6hv-jmp6-3vwv",
+      "canonicalId" : "CVE-2026-42587",
+      "aliases" : [ "CVE-2026-42587" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-jppx-w49h-x2qq",
+      "canonicalId" : "CVE-2026-56745",
+      "aliases" : [ "CVE-2026-56745" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: [SpdyHttpDecoder] ByteBuf Reference Leak on RST_STREAM Leads to Native Memory Exhaustion",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-mvh2-crg5-v77c",
+      "canonicalId" : "CVE-2026-55833",
+      "aliases" : [ "CVE-2026-55833" ],
+      "severity" : "HIGH",
+      "summary" : "Netty SPDY zlib header block continues decoded expansion after maxHeaderSize truncation",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-pwqr-wmgm-9rr8",
+      "canonicalId" : "CVE-2026-33870",
+      "aliases" : [ "CVE-2026-33870" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing",
+      "fixedInLine" : "4.1.132.Final",
+      "nextSafe" : "4.1.132.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-38f8-5428-x5cv",
+      "canonicalId" : "CVE-2026-42585",
+      "aliases" : [ "CVE-2026-42585" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-4mp9-239f-g9hg",
+      "canonicalId" : "CVE-2026-59898",
+      "aliases" : [ "CVE-2026-59898" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: WebSockets V07/V08 handshaker missing Connection/Upgrade validation",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6cqp-g7gg-8hr5",
+      "canonicalId" : "CVE-2026-56746",
+      "aliases" : [ "CVE-2026-56746" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: Security Control Bypass via CORS Short-Circuit Failure",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-84h7-rjj3-6jx4",
+      "canonicalId" : "CVE-2025-67735",
+      "aliases" : [ "CVE-2025-67735" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder",
+      "fixedInLine" : "4.1.129.Final",
+      "nextSafe" : "4.1.129.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-8c42-7qj2-3j46",
+      "canonicalId" : "CVE-2026-59903",
+      "aliases" : [ "CVE-2026-59903" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite",
+      "fixedInLine" : "4.1.137.Final",
+      "nextSafe" : "4.1.137.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-gcjf-9mgh-3p7g",
+      "canonicalId" : "CVE-2026-59921",
+      "aliases" : [ "CVE-2026-59921" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: CRLF Injection via Multipart Filename in Netty HttpPostRequestEncoder",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-hvcg-qmg6-jm4c",
+      "canonicalId" : "CVE-2026-50020",
+      "aliases" : [ "CVE-2026-50020" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: HttpObjectDecoder skips arbitrary initial control characters when only initial CRLF characters are permitted",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-m4cv-j2px-7723",
+      "canonicalId" : "CVE-2026-42580",
+      "aliases" : [ "CVE-2026-42580" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-q4f6-jm68-57ww",
+      "canonicalId" : "CVE-2026-59899",
+      "aliases" : [ "CVE-2026-59899" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: [HttpContentEncoder] Unbounded Per-Connection Queue Growth via HTTP/1.1 Pipelining Leads to Denial of Service",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-v8h7-rr48-vmmv",
+      "canonicalId" : "CVE-2026-41417",
+      "aliases" : [ "CVE-2026-41417" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-xxqh-mfjm-7mv9",
+      "canonicalId" : "CVE-2026-42581",
+      "aliases" : [ "CVE-2026-42581" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-fghv-69vj-qj49",
+      "canonicalId" : "CVE-2025-58056",
+      "aliases" : [ "CVE-2025-58056" ],
+      "severity" : "LOW",
+      "summary" : "Netty vulnerable to request smuggling due to incorrect parsing of chunk extensions",
+      "fixedInLine" : "4.1.125.Final",
+      "nextSafe" : "4.1.125.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정 (전이 요청: 4.1.84.Final, 4.1.86.Final, 4.1.114.Final)",
+    "downgraded" : false,
+    "introducerCount" : 3,
+    "introductions" : [ {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "io.netty:netty-codec-http:4.1.114.Final" ]
+    }, {
+      "introducer" : "software.amazon.awssdk:s3:2.20.20",
+      "path" : [ "root project :", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "io.netty:netty-codec-http:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-codec-http:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.137.Final",
+    "publishedFixVersion" : "4.1.137.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.137.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-codec-http2:4.1.114.Final",
+    "module" : "io.netty:netty-codec-http2",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-93wv-jw9v-4972",
+      "canonicalId" : "CVE-2026-56819",
+      "aliases" : [ "CVE-2026-56819" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: HTTP/2 decompression leaks ByteBuf reference count when the decompressor channel is already closed (Direct memory leak / OOM DoS)",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-f6hv-jmp6-3vwv",
+      "canonicalId" : "CVE-2026-42587",
+      "aliases" : [ "CVE-2026-42587" ],
+      "severity" : "HIGH",
+      "summary" : "Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-prj3-ccx8-p6x4",
+      "canonicalId" : "CVE-2025-55163",
+      "aliases" : [ "CVE-2025-55163" ],
+      "severity" : "HIGH",
+      "summary" : "Netty affected by MadeYouReset HTTP/2 DDoS vulnerability",
+      "fixedInLine" : "4.1.124.Final",
+      "nextSafe" : "4.1.124.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-w9fj-cfpg-grvv",
+      "canonicalId" : "CVE-2026-33871",
+      "aliases" : [ "CVE-2026-33871" ],
+      "severity" : "HIGH",
+      "summary" : "Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass",
+      "fixedInLine" : "4.1.132.Final",
+      "nextSafe" : "4.1.132.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-563q-j3cm-6jxm",
+      "canonicalId" : "CVE-2026-50560",
+      "aliases" : [ "CVE-2026-50560" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty susceptible to HTTP/2 Reset Attack with different on-the-wire signature",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5x3r-wrvg-rp6q",
+      "canonicalId" : "CVE-2026-47244",
+      "aliases" : [ "CVE-2026-47244" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty HTTP/2: Advertised MAX_CONCURRENT_STREAMS are not enforced",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-c2gf-v879-257j",
+      "canonicalId" : "CVE-2026-48043",
+      "aliases" : [ "CVE-2026-48043" ],
+      "severity" : "MODERATE",
+      "summary" : "netty-codec-http2: ByteBuf Reference-Count Leak in DelegatingDecompressorFrameListener Leads to Memory Exhaustion",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-c69g-56f8-xwqj",
+      "canonicalId" : "CVE-2026-59900",
+      "aliases" : [ "CVE-2026-59900" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: [codec-http2] Lack of Host Header Deduplication in HTTP/2→HTTP/1.x Translation Leads to Request Routing Bypass",
+      "fixedInLine" : "4.1.136.Final",
+      "nextSafe" : "4.1.136.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정 (전이 요청: 4.1.86.Final, 4.1.114.Final)",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "software.amazon.awssdk:s3:2.20.20",
+      "path" : [ "root project :", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "io.netty:netty-codec-http2:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-codec-http2:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.136.Final",
+    "publishedFixVersion" : "4.1.136.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.136.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-resolver-dns:4.1.114.Final",
+    "module" : "io.netty:netty-resolver-dns",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-5pvg-856g-cp85",
+      "canonicalId" : "CVE-2026-47691",
+      "aliases" : [ "CVE-2026-47691" ],
+      "severity" : "HIGH",
+      "summary" : "Netty has Insufficient Bailiwick Validation for NS Records",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-676x-f7gg-47vc",
+      "canonicalId" : "CVE-2026-45674",
+      "aliases" : [ "CVE-2026-45674" ],
+      "severity" : "HIGH",
+      "summary" : "Netty Vulnerable to DNS Cache Poisoning via Missing Bailiwick Checks in CNAME Records",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-xmv7-r254-6q78",
+      "canonicalId" : "CVE-2026-45673",
+      "aliases" : [ "CVE-2026-45673" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: DNS Cache Poisoning due to Predictable PRNG and Default Static Source Port",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-resolver-dns:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.135.Final",
+    "publishedFixVersion" : "4.1.135.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.135.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "net.minidev:json-smart:2.5.1",
+    "module" : "net.minidev:json-smart",
+    "version" : "2.5.1",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-pq2g-wx69-c263",
+      "canonicalId" : "CVE-2024-57699",
+      "aliases" : [ "CVE-2024-57699" ],
+      "severity" : "HIGH",
+      "summary" : "Netplex Json-smart Uncontrolled Recursion vulnerability",
+      "fixedInLine" : "2.5.2",
+      "nextSafe" : "2.5.2",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.5.1으로 결정 · 요청 범위 [1.3.3,2.4.10] 밖의 버전",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-oauth2-client:6.3.4", "com.nimbusds:oauth2-oidc-sdk:9.43.4", "net.minidev:json-smart:2.5.1" ]
+    } ],
+    "fixVersion" : "2.5.2",
+    "publishedFixVersion" : "2.5.2",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 2.5.2 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.springframework.boot:spring-boot:3.3.5",
+    "module" : "org.springframework.boot:spring-boot",
+    "version" : "3.3.5",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-rc42-6c7j-7h5r",
+      "canonicalId" : "CVE-2025-22235",
+      "aliases" : [ "CVE-2025-22235" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
+      "fixedInLine" : "3.3.11",
+      "nextSafe" : "3.3.11",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wwpq-f5c3-7hvx",
+      "canonicalId" : "CVE-2026-40973",
+      "aliases" : [ "CVE-2026-40973" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Boot accepts predictable temp directory without ownership verification",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.14",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.3.5으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 10,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot:3.3.5" ]
+    } ],
+    "fixVersion" : "3.5.14",
+    "publishedFixVersion" : "3.5.14",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.5.14 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 3.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+    "module" : "org.springframework.boot:spring-boot-starter-actuator",
+    "version" : "3.3.5",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-mgvc-8q2h-5pgc",
+      "canonicalId" : "CVE-2026-22733",
+      "aliases" : [ "CVE-2026-22733" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.12",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.3.5으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5" ]
+    } ],
+    "fixVersion" : "3.5.12",
+    "publishedFixVersion" : "3.5.12",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.5.12 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 3.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.data:spring-data-commons:3.3.5",
+    "module" : "org.springframework.data:spring-data-commons",
+    "version" : "3.3.5",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-9fw2-h3hf-293r",
+      "canonicalId" : "CVE-2026-41716",
+      "aliases" : [ "CVE-2026-41716" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Data Commons: Heap exhaustion from unbounded property-lookup cache retaining crafted string keys",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.12",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5m4m-73w9-8433",
+      "canonicalId" : "CVE-2026-41721",
+      "aliases" : [ "CVE-2026-41721" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Data Commons: Denial of Service via excessive memory allocation in projection binding",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.12",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-5vpf-xvv7-c8vh",
+      "canonicalId" : "CVE-2026-41711",
+      "aliases" : [ "CVE-2026-41711" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Data Commons: StackOverflowException when parsing Sort parameters (DoS)",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.12",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.3.5으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5", "org.springframework.data:spring-data-jpa:3.3.5", "org.springframework.data:spring-data-commons:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.data:spring-data-redis:3.3.5", "org.springframework.data:spring-data-keyvalue:3.3.5", "org.springframework.data:spring-data-commons:3.3.5" ]
+    } ],
+    "fixVersion" : "3.5.12",
+    "publishedFixVersion" : "3.5.12",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.5.12 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 3.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.security:spring-security-crypto:6.3.4",
+    "module" : "org.springframework.security:spring-security-crypto",
+    "version" : "6.3.4",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-mg83-c7gq-rv5c",
+      "canonicalId" : "CVE-2025-22228",
+      "aliases" : [ "CVE-2025-22228" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Security Does Not Enforce Password Length",
+      "fixedInLine" : "6.3.8",
+      "nextSafe" : "6.3.8",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.3.4으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-core:6.3.4", "org.springframework.security:spring-security-crypto:6.3.4" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-config:6.3.4", "org.springframework.security:spring-security-core:6.3.4", "org.springframework.security:spring-security-crypto:6.3.4" ]
+    } ],
+    "fixVersion" : "6.3.8",
+    "publishedFixVersion" : "6.3.8",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.3.8 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.springframework:spring-core:6.1.14",
+    "module" : "org.springframework:spring-core",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-jmp9-x22r-554x",
+      "canonicalId" : "CVE-2025-41249",
+      "aliases" : [ "CVE-2025-41249" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Framework annotation detection mechanism may result in improper authorization",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.11",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-659m-px2c-25wj",
+      "canonicalId" : "CVE-2026-41848",
+      "aliases" : [ "CVE-2026-41848" ],
+      "severity" : "LOW",
+      "summary" : "Spring Framework Denial of Service via AntPathMatcher",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정 (전이 요청: 6.1.14, 6.1.7)",
+    "downgraded" : false,
+    "introducerCount" : 10,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework:spring-core:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework:spring-core:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5", "org.springframework.data:spring-data-jpa:3.3.5", "org.springframework:spring-core:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework:spring-core:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework:spring-core:6.1.14" ]
+    } ],
+    "fixVersion" : "6.2.19",
+    "publishedFixVersion" : "6.2.19",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.2.19 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 6.2.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework:spring-expression:6.1.14",
+    "module" : "org.springframework:spring-expression",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-r5w3-xv2f-j59q",
+      "canonicalId" : "CVE-2026-41850",
+      "aliases" : [ "CVE-2026-41850" ],
+      "severity" : "HIGH",
+      "summary" : "Spring Framework Algorithmic Denial of Service via SpEL Expressions",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-wxpp-56q6-5pcg",
+      "canonicalId" : "CVE-2026-41851",
+      "aliases" : [ "CVE-2026-41851" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework Denial of Service via Unbounded Cache in SpEL",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-9f52-rjqv-25qv",
+      "canonicalId" : "CVE-2026-41852",
+      "aliases" : [ "CVE-2026-41852" ],
+      "severity" : "LOW",
+      "summary" : "Spring Framework Arbitrary Method Invocation in SpEL Expressions",
+      "fixedInLine" : null,
+      "nextSafe" : "6.2.19",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 10,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-core:6.3.4", "org.springframework:spring-expression:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-web:6.3.4", "org.springframework:spring-expression:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework:spring-webmvc:6.1.14", "org.springframework:spring-expression:6.1.14" ]
+    }, {
+      "introducer" : "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
+      "path" : [ "root project :", "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-api:2.2.0", "org.springframework:spring-webmvc:6.1.14", "org.springframework:spring-expression:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.batch:spring-batch-core:5.1.2", "org.springframework:spring-context:6.1.14", "org.springframework:spring-expression:6.1.14" ]
+    } ],
+    "fixVersion" : "6.2.19",
+    "publishedFixVersion" : "6.2.19",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.2.19 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 6.2.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "software.amazon.ion:ion-java:1.0.2",
+    "module" : "software.amazon.ion:ion-java",
+    "version" : "1.0.2",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-264p-99wq-f4j6",
+      "canonicalId" : "CVE-2024-21634",
+      "aliases" : [ "CVE-2024-21634" ],
+      "severity" : "HIGH",
+      "summary" : "Ion Java StackOverflow vulnerability",
+      "fixedInLine" : null,
+      "nextSafe" : null,
+      "alternatives" : [ "com.amazon.ion:ion-java:1.10.5" ]
+    } ],
+    "decision" : "TRANSITIVE",
+    "decisionExplanation" : "전이 의존성이 요청한 버전 그대로 선택됨",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE",
+      "path" : [ "root project :", "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-context:2.2.6.RELEASE", "org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE", "com.amazonaws:aws-java-sdk-core:1.11.792", "software.amazon.ion:ion-java:1.0.2" ]
+    } ],
+    "fixVersion" : null,
+    "publishedFixVersion" : null,
+    "allFixable" : false,
+    "lineChange" : false,
+    "alternatives" : [ "com.amazon.ion:ion-java:1.10.5" ],
+    "remediation" : "NO_FIX",
+    "remediationAdvice" : "이 좌표에는 공개된 수정 버전이 없다. 같은 권고가 다른 좌표에는 수정 버전을 두고 있다(com.amazon.ion:ion-java:1.10.5): 좌표 이동·포크 여부를 확인한다. 실제 사용 여부를 확인해 제거·대체하거나, 영향이 없다는 근거와 만료일을 남겨 예외로 등록한다."
+  }, {
+    "coordinate" : "ch.qos.logback:logback-core:1.5.11",
+    "module" : "ch.qos.logback:logback-core",
+    "version" : "1.5.11",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-25qh-j22f-pwp8",
+      "canonicalId" : "CVE-2025-11226",
+      "aliases" : [ "CVE-2025-11226" ],
+      "severity" : "MODERATE",
+      "summary" : "QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing",
+      "fixedInLine" : "1.5.19",
+      "nextSafe" : "1.5.19",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-pr98-23f8-jwxv",
+      "canonicalId" : "CVE-2024-12798",
+      "aliases" : [ "CVE-2024-12798" ],
+      "severity" : "MODERATE",
+      "summary" : "QOS.CH logback-core Expression Language Injection vulnerability",
+      "fixedInLine" : "1.5.13",
+      "nextSafe" : "1.5.13",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-6v67-2wr5-gvf4",
+      "canonicalId" : "CVE-2024-12801",
+      "aliases" : [ "CVE-2024-12801" ],
+      "severity" : "LOW",
+      "summary" : "QOS.CH logback-core Server-Side Request Forgery vulnerability",
+      "fixedInLine" : "1.5.13",
+      "nextSafe" : "1.5.13",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-jhq6-gfmj-v8fx",
+      "canonicalId" : "CVE-2026-10532",
+      "aliases" : [ "CVE-2026-10532" ],
+      "severity" : "LOW",
+      "summary" : "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+      "fixedInLine" : "1.5.34",
+      "nextSafe" : "1.5.34",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-p47f-322f-whfh",
+      "canonicalId" : "CVE-2026-9828",
+      "aliases" : [ "CVE-2026-9828" ],
+      "severity" : "LOW",
+      "summary" : "QOS.CH Sarl logback logback-core has a deserialization of untrusted data vulnerability",
+      "fixedInLine" : "1.5.33",
+      "nextSafe" : "1.5.33",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-qqpg-mvqg-649v",
+      "canonicalId" : "CVE-2026-1225",
+      "aliases" : [ "CVE-2026-1225" ],
+      "severity" : "LOW",
+      "summary" : "Logback allows an attacker to instantiate classes already present on the class path",
+      "fixedInLine" : "1.5.25",
+      "nextSafe" : "1.5.25",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 1.5.11으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 8,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "ch.qos.logback:logback-classic:1.5.11", "ch.qos.logback:logback-core:1.5.11" ]
+    } ],
+    "fixVersion" : "1.5.34",
+    "publishedFixVersion" : "1.5.34",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 1.5.34 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-common:4.1.114.Final",
+    "module" : "io.netty:netty-common",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-389x-839f-4rhx",
+      "canonicalId" : "CVE-2025-25193",
+      "aliases" : [ "CVE-2025-25193" ],
+      "severity" : "MODERATE",
+      "summary" : "Denial of Service attack on windows app using Netty",
+      "fixedInLine" : "4.1.118.Final",
+      "nextSafe" : "4.1.118.Final",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-xq3w-v528-46rv",
+      "canonicalId" : "CVE-2024-47535",
+      "aliases" : [ "CVE-2024-47535" ],
+      "severity" : "MODERATE",
+      "summary" : "Denial of Service attack on windows app using netty",
+      "fixedInLine" : "4.1.115.Final",
+      "nextSafe" : "4.1.115.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정 (전이 요청: 4.1.107.Final, 4.1.86.Final, 4.1.114.Final)",
+    "downgraded" : false,
+    "introducerCount" : 4,
+    "introductions" : [ {
+      "introducer" : "com.google.firebase:firebase-admin:9.1.1",
+      "path" : [ "root project :", "com.google.firebase:firebase-admin:9.1.1", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-common:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "io.lettuce:lettuce-core:6.3.2.RELEASE", "io.netty:netty-common:4.1.114.Final" ]
+    }, {
+      "introducer" : "software.amazon.awssdk:s3:2.20.20",
+      "path" : [ "root project :", "software.amazon.awssdk:s3:2.20.20", "software.amazon.awssdk:netty-nio-client:2.20.20", "io.netty:netty-common:4.1.114.Final" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-codec-http:4.1.114.Final", "io.netty:netty-common:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.118.Final",
+    "publishedFixVersion" : "4.1.118.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.118.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-transport-native-epoll:4.1.114.Final",
+    "module" : "io.netty:netty-transport-native-epoll",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-w573-9ffj-6ff9",
+      "canonicalId" : "CVE-2026-45536",
+      "aliases" : [ "CVE-2026-45536" ],
+      "severity" : "MODERATE",
+      "summary" : "Netty: Unix-socket fd receive leaks descriptors when peer sends two at once",
+      "fixedInLine" : "4.1.135.Final",
+      "nextSafe" : "4.1.135.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.netty:netty-transport-native-epoll:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.135.Final",
+    "publishedFixVersion" : "4.1.135.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.135.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.projectreactor.netty:reactor-netty-http:1.1.23",
+    "module" : "io.projectreactor.netty:reactor-netty-http",
+    "version" : "1.1.23",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-4q2v-9p7v-3v22",
+      "canonicalId" : "CVE-2025-22227",
+      "aliases" : [ "CVE-2025-22227" ],
+      "severity" : "MODERATE",
+      "summary" : "Reactor Netty HTTP is vulnerable to credential leaks during chained redirects",
+      "fixedInLine" : "1.2.8",
+      "nextSafe" : "1.2.8",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 1.1.23으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23" ]
+    } ],
+    "fixVersion" : "1.2.8",
+    "publishedFixVersion" : "1.2.8",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 1.2.8 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.apache.commons:commons-lang3:3.14.0",
+    "module" : "org.apache.commons:commons-lang3",
+    "version" : "3.14.0",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-j288-q9x7-2f5v",
+      "canonicalId" : "CVE-2025-48924",
+      "aliases" : [ "CVE-2025-48924" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs",
+      "fixedInLine" : "3.18.0",
+      "nextSafe" : "3.18.0",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.14.0으로 결정 (전이 요청: 3.12.0)",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
+      "path" : [ "root project :", "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-api:2.2.0", "org.springdoc:springdoc-openapi-starter-common:2.2.0", "io.swagger.core.v3:swagger-core-jakarta:2.2.15", "org.apache.commons:commons-lang3:3.14.0" ]
+    } ],
+    "fixVersion" : "3.18.0",
+    "publishedFixVersion" : "3.18.0",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.18.0 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.apache.logging.log4j:log4j-api:2.23.1",
+    "module" : "org.apache.logging.log4j:log4j-api",
+    "version" : "2.23.1",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-qv9r-c865-cp47",
+      "canonicalId" : "CVE-2026-49844",
+      "aliases" : [ "CVE-2026-49844" ],
+      "severity" : "MODERATE",
+      "summary" : "Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization",
+      "fixedInLine" : "2.25.5",
+      "nextSafe" : "2.25.5",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.23.1으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 8,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.logging.log4j:log4j-api:2.23.1" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.logging.log4j:log4j-api:2.23.1" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.logging.log4j:log4j-api:2.23.1" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.logging.log4j:log4j-api:2.23.1" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-starter-logging:3.3.5", "org.apache.logging.log4j:log4j-to-slf4j:2.23.1", "org.apache.logging.log4j:log4j-api:2.23.1" ]
+    } ],
+    "fixVersion" : "2.25.5",
+    "publishedFixVersion" : "2.25.5",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 2.25.5 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.springframework.boot:spring-boot-autoconfigure:3.3.5",
+    "module" : "org.springframework.boot:spring-boot-autoconfigure",
+    "version" : "3.3.5",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-ggg2-9786-hwc8",
+      "canonicalId" : "CVE-2026-41001",
+      "aliases" : [ "CVE-2026-41001" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Boot: Predictable Temp Directory in Artemis Auto-configuration",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.15",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.3.5으로 결정 (전이 요청: 3.3.5, 2.3.8.RELEASE, 3.1.2)",
+    "downgraded" : false,
+    "introducerCount" : 10,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-actuator:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-actuator:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.boot:spring-boot-starter:3.3.5", "org.springframework.boot:spring-boot-autoconfigure:3.3.5" ]
+    } ],
+    "fixVersion" : "3.5.15",
+    "publishedFixVersion" : "3.5.15",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.5.15 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 3.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.data:spring-data-keyvalue:3.3.5",
+    "module" : "org.springframework.data:spring-data-keyvalue",
+    "version" : "3.3.5",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-xg2j-3hj6-pc24",
+      "canonicalId" : "CVE-2026-41719",
+      "aliases" : [ "CVE-2026-41719" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Data KeyValue: Remote code execution via SpEL Injection in Sort-based repository queries",
+      "fixedInLine" : null,
+      "nextSafe" : "3.5.12",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.3.5으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-redis:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-redis:3.3.5", "org.springframework.data:spring-data-redis:3.3.5", "org.springframework.data:spring-data-keyvalue:3.3.5" ]
+    } ],
+    "fixVersion" : "3.5.12",
+    "publishedFixVersion" : "3.5.12",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 3.5.12 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 3.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.retry:spring-retry:2.0.10",
+    "module" : "org.springframework.retry:spring-retry",
+    "version" : "2.0.10",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-2827-2mxx-j8pv",
+      "canonicalId" : "CVE-2026-41710",
+      "aliases" : [ "CVE-2026-41710" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Retry has Cache Exhaustion in Stateful Retries that leads to Denial of Service",
+      "fixedInLine" : "2.0.13",
+      "nextSafe" : "2.0.13",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.0.10으로 결정 (전이 요청: 2.0.6)",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.batch:spring-batch-core:5.1.2", "org.springframework.batch:spring-batch-infrastructure:5.1.2", "org.springframework.retry:spring-retry:2.0.10" ]
+    } ],
+    "fixVersion" : "2.0.13",
+    "publishedFixVersion" : "2.0.13",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 2.0.13 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.springframework.security:spring-security-core:6.3.4",
+    "module" : "org.springframework.security:spring-security-core",
+    "version" : "6.3.4",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-q3v6-hm2v-pw99",
+      "canonicalId" : "CVE-2024-38827",
+      "aliases" : [ "CVE-2024-38827" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework has Authorization Bypass for Case Sensitive Comparisons",
+      "fixedInLine" : "6.3.5",
+      "nextSafe" : "6.3.5",
+      "alternatives" : [ ]
+    }, {
+      "id" : "GHSA-vxf7-qj7q-83fh",
+      "canonicalId" : "CVE-2026-22746",
+      "aliases" : [ "CVE-2026-22746" ],
+      "severity" : "LOW",
+      "summary" : "Spring Security Vulnerable to User Attribute Enumeration when Using DaoAuthenticationProvider",
+      "fixedInLine" : null,
+      "nextSafe" : "6.5.10",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.3.4으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 2,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-core:6.3.4" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-config:6.3.4", "org.springframework.security:spring-security-core:6.3.4" ]
+    } ],
+    "fixVersion" : "6.5.10",
+    "publishedFixVersion" : "6.5.10",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.5.10 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 6.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework.security:spring-security-oauth2-jose:6.3.4",
+    "module" : "org.springframework.security:spring-security-oauth2-jose",
+    "version" : "6.3.4",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-cvc6-q2cp-2xhw",
+      "canonicalId" : "CVE-2026-22748",
+      "aliases" : [ "CVE-2026-22748" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Security has Potential Security Misconfiguration when Using withIssuerLocation",
+      "fixedInLine" : null,
+      "nextSafe" : "6.5.10",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.3.4으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-oauth2-jose:6.3.4" ]
+    } ],
+    "fixVersion" : "6.5.10",
+    "publishedFixVersion" : "6.5.10",
+    "allFixable" : true,
+    "lineChange" : true,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.5.10 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다). 현재 릴리스 라인에는 공개 수정 버전이 없어 6.5.x 라인으로 옮겨야 한다."
+  }, {
+    "coordinate" : "org.springframework:spring-web:6.1.14",
+    "module" : "org.springframework:spring-web",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "MODERATE",
+    "advisories" : [ {
+      "id" : "GHSA-6r3c-xf4w-jxjm",
+      "canonicalId" : "CVE-2025-41234",
+      "aliases" : [ "CVE-2025-41234" ],
+      "severity" : "MODERATE",
+      "summary" : "Spring Framework vulnerable to a reflected file download (RFD)",
+      "fixedInLine" : "6.1.21",
+      "nextSafe" : "6.1.21",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 5,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework:spring-web:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework:spring-web:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-web:6.3.4", "org.springframework:spring-web:6.1.14" ]
+    }, {
+      "introducer" : "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
+      "path" : [ "root project :", "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0", "org.springdoc:springdoc-openapi-starter-webmvc-api:2.2.0", "org.springframework:spring-webmvc:6.1.14", "org.springframework:spring-web:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-oauth2-client:6.3.4", "org.springframework.security:spring-security-oauth2-core:6.3.4", "org.springframework:spring-web:6.1.14" ]
+    } ],
+    "fixVersion" : "6.1.21",
+    "publishedFixVersion" : "6.1.21",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.1.21 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "io.netty:netty-handler-proxy:4.1.114.Final",
+    "module" : "io.netty:netty-handler-proxy",
+    "version" : "4.1.114.Final",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "LOW",
+    "advisories" : [ {
+      "id" : "GHSA-45q3-82m4-75jr",
+      "canonicalId" : "CVE-2026-42578",
+      "aliases" : [ "CVE-2026-42578" ],
+      "severity" : "LOW",
+      "summary" : "Netty has HTTP Header Injection via HttpProxyHandler Disabled Validation (Incomplete Fix CVE-2025-67735)",
+      "fixedInLine" : "4.1.133.Final",
+      "nextSafe" : "4.1.133.Final",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 4.1.114.Final으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-webflux:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-webflux:3.3.5", "org.springframework.boot:spring-boot-starter-reactor-netty:3.3.5", "io.projectreactor.netty:reactor-netty-http:1.1.23", "io.projectreactor.netty:reactor-netty-core:1.1.23", "io.netty:netty-handler-proxy:4.1.114.Final" ]
+    } ],
+    "fixVersion" : "4.1.133.Final",
+    "publishedFixVersion" : "4.1.133.Final",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 4.1.133.Final 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.springframework:spring-context:6.1.14",
+    "module" : "org.springframework:spring-context",
+    "version" : "6.1.14",
+    "inPrimary" : true,
+    "configurations" : [ "productionRuntimeClasspath", "runtimeClasspath", "testRuntimeClasspath" ],
+    "maxSeverity" : "LOW",
+    "advisories" : [ {
+      "id" : "GHSA-4wp7-92pw-q264",
+      "canonicalId" : "CVE-2025-22233",
+      "aliases" : [ "CVE-2025-22233" ],
+      "severity" : "LOW",
+      "summary" : "Spring Framework DataBinder Case Sensitive Match Exception",
+      "fixedInLine" : "6.1.20",
+      "nextSafe" : "6.1.20",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 6.1.14으로 결정 (전이 요청: 6.1.14, 5.2.12.RELEASE, 6.1.7)",
+    "downgraded" : false,
+    "introducerCount" : 10,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-batch:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-batch:3.3.5", "org.springframework.batch:spring-batch-core:5.1.2", "org.springframework:spring-context:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-data-jpa:3.3.5", "org.springframework.data:spring-data-jpa:3.3.5", "org.springframework:spring-context:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-oauth2-client:3.3.5", "org.springframework.security:spring-security-config:6.3.4", "org.springframework:spring-context:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-security:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-security:3.3.5", "org.springframework.security:spring-security-config:6.3.4", "org.springframework:spring-context:6.1.14" ]
+    }, {
+      "introducer" : "org.springframework.boot:spring-boot-starter-web:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-web:3.3.5", "org.springframework:spring-webmvc:6.1.14", "org.springframework:spring-context:6.1.14" ]
+    } ],
+    "fixVersion" : "6.1.20",
+    "publishedFixVersion" : "6.1.20",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "UPGRADE_PLATFORM",
+    "remediationAdvice" : "Spring Boot BOM이 관리하는 버전이다. 6.1.20 이상을 관리하는 Spring Boot로 올리거나, BOM 버전 속성으로 오버라이드한다(검증된 조합이 깨지므로 근거를 남긴다)."
+  }, {
+    "coordinate" : "org.assertj:assertj-core:3.25.3",
+    "module" : "org.assertj:assertj-core",
+    "version" : "3.25.3",
+    "inPrimary" : false,
+    "configurations" : [ "testRuntimeClasspath" ],
+    "maxSeverity" : "HIGH",
+    "advisories" : [ {
+      "id" : "GHSA-rqfh-9r24-8c9r",
+      "canonicalId" : "CVE-2026-24400",
+      "aliases" : [ "CVE-2026-24400" ],
+      "severity" : "HIGH",
+      "summary" : "AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion",
+      "fixedInLine" : "3.27.7",
+      "nextSafe" : "3.27.7",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 3.25.3으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-test:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-test:3.3.5", "org.assertj:assertj-core:3.25.3" ]
+    } ],
+    "fixVersion" : "3.27.7",
+    "publishedFixVersion" : "3.27.7",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "TEST_ONLY",
+    "remediationAdvice" : "배포 클래스패스에 없음(테스트 범위). 게이트 대상에서 제외하고 보고만 한다."
+  }, {
+    "coordinate" : "org.xmlunit:xmlunit-core:2.9.1",
+    "module" : "org.xmlunit:xmlunit-core",
+    "version" : "2.9.1",
+    "inPrimary" : false,
+    "configurations" : [ "testRuntimeClasspath" ],
+    "maxSeverity" : "LOW",
+    "advisories" : [ {
+      "id" : "GHSA-chfm-68vv-pvw5",
+      "canonicalId" : "CVE-2024-31573",
+      "aliases" : [ "CVE-2024-31573" ],
+      "severity" : "LOW",
+      "summary" : "XMLUnit for Java has Insecure Defaults when Processing XSLT Stylesheets",
+      "fixedInLine" : "2.10.0",
+      "nextSafe" : "2.10.0",
+      "alternatives" : [ ]
+    } ],
+    "decision" : "BOM_MANAGED",
+    "decisionExplanation" : "Spring Boot BOM(dependency-management 플러그인)이 관리 버전 2.9.1으로 결정",
+    "downgraded" : false,
+    "introducerCount" : 1,
+    "introductions" : [ {
+      "introducer" : "org.springframework.boot:spring-boot-starter-test:3.3.5",
+      "path" : [ "root project :", "org.springframework.boot:spring-boot-starter-test:3.3.5", "org.xmlunit:xmlunit-core:2.9.1" ]
+    } ],
+    "fixVersion" : "2.10.0",
+    "publishedFixVersion" : "2.10.0",
+    "allFixable" : true,
+    "lineChange" : false,
+    "alternatives" : [ ],
+    "remediation" : "TEST_ONLY",
+    "remediationAdvice" : "배포 클래스패스에 없음(테스트 범위). 게이트 대상에서 제외하고 보고만 한다."
+  } ],
+  "summary" : {
+    "primaryComponents" : 269,
+    "vulnerableComponents" : 43,
+    "vulnerableInPrimary" : 41,
+    "advisoryEntries" : 165,
+    "uniqueAdvisoriesPrimary" : 152,
+    "severityPrimary" : {
+      "CRITICAL" : 13,
+      "HIGH" : 58,
+      "MODERATE" : 64,
+      "LOW" : 17
+    },
+    "remediationPrimary" : {
+      "UPDATE_DIRECT" : 1,
+      "UPGRADE_PLATFORM" : 34,
+      "CONSTRAIN_TRANSITIVE" : 4,
+      "NO_FIX" : 2
+    }
+  }
+}
