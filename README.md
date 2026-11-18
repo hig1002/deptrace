@@ -11,6 +11,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 | 누가 끌고 왔는가? | 직접 의존성(1차 유입자)별 최단 유입 경로 |
 | 어디를 고쳐야 하는가? | 버전을 결정한 주체에 따라 직접 선언 제거·상향 / Spring Boot(BOM) 업그레이드 / constraints / 수정 불가로 분류 |
 | 고친 뒤 정말 바뀌었는가? | 수정 전후 구성요소·취약점 비교(상향·하향·추가·제거, 해결·신규·잔존) |
+| 라이선스 의무가 있는가? | POM(부모 상속 포함)의 선언을 SPDX로 정규화하고 의무 강도로 분류, 금지 라이선스는 유입 경로와 함께 게이트에서 차단 |
 
 ## 만든 계기
 
@@ -73,6 +74,15 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
    - 배포 클래스패스에서 기준 심각도 이상이면 실패시킵니다.
    - 예외는 사유(reason)와 만료일(expires)이 있어야만 인정하고, 만료되면 다시 실패시킵니다.
 
+7. **라이선스** ([license 패키지](src/main/java/deptrace/license), [ADR 0004](docs/adr/0004-license-identification.md))
+   - 배포 클래스패스 구성요소마다 Maven Central의 POM을 받아 `<licenses>`를 읽습니다. 자기 POM에 없으면 부모 POM을 따라 올라갑니다(경매톡 292개 중 105개가 상속).
+   - "The Apache Software License, Version 2.0", "Apache 2", "ASL 2.0" 같은 자유 형식 표기를 SPDX 식별자로 정규화합니다. 이름을 먼저 보고, 없으면 URL을 봅니다.
+     - 이름을 먼저 보는 이유: "v2.1 **or later**"나 "GPL2 **w/ CPE**"처럼 URL에는 드러나지 않는 조건이 이름에만 있기 때문입니다.
+     - 식별하지 못한 값은 추측하지 않고 미확인(UNKNOWN)으로 남깁니다.
+   - 의무 강도로 분류합니다: 허용형 / 약한 카피레프트(LGPL·EPL·MPL·CDDL·GPL+Classpath 예외) / 강한 카피레프트(GPL) / 네트워크 카피레프트(AGPL·SSPL) / 미확인.
+   - 여러 라이선스가 선언되면 그중 하나를 고를 수 있다(OR)고 봅니다. 금지되지 않은 선택지가 하나라도 있으면 위반이 아니고, 어떤 선택지를 가정했는지 리포트에 남깁니다.
+   - 정책 파일로 분류 단위 금지·검토, SPDX 식별자 단위 허용·금지, 사유·만료일이 있는 예외를 지정합니다.
+
 ## 기존 도구와의 역할 분담
 
 | 영역 | 그대로 사용 | 직접 구현 |
@@ -101,6 +111,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 |---|---|
 | `deptrace explain --graphs build/deptrace com.nimbusds:nimbus-jose-jwt` | 구성요소 하나의 버전 결정 원인과 유입 경로 (오프라인) |
 | `deptrace analyze --graphs build/deptrace --out build/deptrace-report --fail-on HIGH --exceptions deptrace-exceptions.yml` | 전체 분석, 리포트 생성, 정책 게이트 (위반 시 종료 코드 1) |
+| `deptrace licenses --graphs build/deptrace --policy deptrace-licenses.yml` | 라이선스 판정과 라이선스 게이트 (금지 라이선스가 있으면 종료 코드 1) |
 | `deptrace diff --before before/analysis.json --after after/analysis.json --out diff.md` | 수정 전후 비교 |
 
 CI 예시는 [경매톡 워크플로](docs/case-study/gyeongmaetalk.md#자동화)를 참고하세요.
@@ -119,11 +130,12 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 
 ## 검증
 
-- 단위 테스트 32개 (`./gradlew test`)
+- 단위 테스트 56개 (`./gradlew test`)
   - 버전 결정 분류: 하향, BOM 덮어쓰기, 범위 이탈, 충돌 해결
   - 유입 경로: 최단 경로, 제약 엣지 제외, 순환
   - 영향 범위 해석: 라인 변경, 재발 범위, 정렬, 좌표 이동
   - 실배포 버전 선택(변형 꼬리표 유지 포함), 정책 게이트(예외 만료·패키지 불일치·설정 오류), 전후 비교
+  - 라이선스: POM 해석(부모 상속, 순환, XXE 차단), SPDX 정규화(구체적 URL 우선, or-later·예외 조항), 다중 라이선스 선택, 정책·예외
 - 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58, guava 33.7.2-jre)를 그대로 옮겼습니다.
 - OSV-Scanner와의 차분 비교: 경매톡 배포 클래스패스 기준 (구성요소, 권고 ID) 163쌍이 모두 일치했습니다.
 
@@ -134,4 +146,8 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
   - Maven은 가까운 선언이 이기는(nearest-wins) 다른 해석 규칙을 쓰므로 별도 추출기가 필요합니다.
   - 빌드를 실행할 수 없는 입력(매니페스트만 있는 경우)도 지원하지 않습니다. 다음 단계는 정적 해석기를 만들고, 이 도구의 추출 결과를 정답 데이터로 삼아 정확도를 측정하는 것입니다.
 - **바이너리 분석:** bootJar 안의 JAR와 재패키징(shading)된 라이브러리 식별은 하지 않습니다. 해석 그래프에 나타나지 않는 구성요소는 보지 못합니다.
-- **데이터 범위:** 취약점 데이터는 OSV에 의존하고, 라이선스는 아직 다루지 않습니다.
+- **데이터 범위:** 취약점 데이터는 OSV에 의존합니다.
+- **라이선스:** POM 선언만 봅니다.
+  - JAR 안의 LICENSE 파일, 소스 파일 헤더, 재패키징된 코드의 원래 라이선스는 보지 않습니다. POM 선언이 실제와 다른 경우를 잡지 못합니다.
+  - 다중 라이선스를 OR로 보는 것은 Maven 관례에 따른 가정이라, AND 의미로 나열한 프로젝트는 사람이 확인해야 합니다.
+  - 라이선스 간 호환성(예: Apache-2.0과 GPL-2.0의 결합)과 고지 의무 이행(NOTICE 파일 수집)은 다루지 않습니다.
