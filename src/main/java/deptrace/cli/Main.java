@@ -29,7 +29,7 @@ import picocli.CommandLine.Parameters;
 
 @Command(name = "deptrace", mixinStandardHelpOptions = true, version = "deptrace 0.1.0",
         description = "Gradle 의존성 해석 결과와 OSV 취약점 정보를 결합해 유입 경로·버전 결정 원인·수정 지점을 알려준다.",
-        subcommands = {Main.Explain.class, Main.Analyze.class, Main.Diff.class})
+        subcommands = {Main.Explain.class, Main.Analyze.class, Main.Licenses.class, Main.Diff.class})
 public final class Main {
 
     public static void main(String[] args) {
@@ -135,6 +135,49 @@ public final class Main {
                 Files.writeString(summary, gateMarkdown + "\n" + report, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             }
             return exit;
+        }
+    }
+
+    @Command(name = "licenses", description = "배포 클래스패스 구성요소의 라이선스를 POM에서 판정하고, 정책 위반 시 종료 코드 1을 반환한다.")
+    static final class Licenses implements Callable<Integer> {
+
+        @Option(names = "--graphs", required = true, description = "init script 출력 디렉터리 (build/deptrace)")
+        Path graphs;
+
+        @Option(names = "--out", defaultValue = "build/deptrace-report", description = "결과 디렉터리 (licenses.json, licenses.md)")
+        Path out;
+
+        @Option(names = "--cache", defaultValue = ".deptrace-cache", description = "POM 캐시")
+        Path cache;
+
+        @Option(names = "--policy", description = "라이선스 정책 파일 (YAML). 없으면 강한·네트워크 카피레프트 금지, 약한 카피레프트·미확인은 검토")
+        Path policy;
+
+        @Option(names = "--summary", description = "Markdown 요약을 덧붙일 파일 (예: $GITHUB_STEP_SUMMARY)")
+        Path summary;
+
+        @Override
+        public Integer call() throws Exception {
+            ResolvedGraph graph = GraphLoader.primary(new GraphLoader().loadDirectory(graphs));
+            deptrace.license.PomSource.MavenCentral poms = new deptrace.license.PomSource.MavenCentral(cache.resolve("pom"));
+            var licenses = deptrace.license.LicenseReport.resolveAll(graph, new deptrace.license.LicenseResolver(poms));
+            var result = deptrace.license.LicensePolicy.load(policy).evaluate(licenses, LocalDate.now());
+            var report = deptrace.license.LicenseReport.build(graph, licenses, result);
+
+            Json.write(out.resolve("licenses.json"), report);
+            String md = report.toMarkdown();
+            Files.writeString(out.resolve("licenses.md"), md);
+            if (summary != null) {
+                Files.writeString(summary, md + "\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            }
+
+            System.out.printf("%s 구성요소 %d개: %s%n", graph.configuration(), report.components(), report.byCategory());
+            System.out.println(poms.stats());
+            System.out.println("리포트: " + out.resolve("licenses.md"));
+            System.out.println("게이트: " + (report.passed() ? "통과" : "실패 — 금지 "
+                    + result.with(deptrace.license.LicensePolicy.Verdict.DENIED).size() + "건")
+                    + ", 검토 필요 " + result.with(deptrace.license.LicensePolicy.Verdict.REVIEW).size() + "건");
+            return report.passed() ? 0 : 1;
         }
     }
 
