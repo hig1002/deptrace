@@ -1,6 +1,6 @@
 # DepTrace
 
-Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 구성요소가 **어떤 경로로 들어왔는지, 왜 그 버전이 선택됐는지, 어디를 고쳐야 하는지**를 알려주는 Java CLI입니다. CI에서 정책 게이트로도 동작합니다.
+Gradle·Maven 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 구성요소가 **어떤 경로로 들어왔는지, 왜 그 버전이 선택됐는지, 어디를 고쳐야 하는지**를 알려주는 Java CLI입니다. CI에서 정책 게이트로도 동작합니다.
 
 취약점 스캐너는 "무엇이 취약한가"를 알려줍니다. DepTrace는 그다음 질문에 답하려고 만들었습니다.
 
@@ -46,6 +46,11 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
    - Gradle의 `ResolutionResult` API에서 구성별로 노드를 뽑습니다. 노드는 선택된 구성요소와 선택 사유입니다.
    - 엣지(요청 좌표·버전 → 선택된 구성요소, 제약 여부)도 함께 뽑습니다.
    - dependency-management 플러그인이 관리하는 버전과 직접 선언된 의존성도 기록합니다.
+   - **Maven** ([MavenTreeParser](src/main/java/deptrace/maven/MavenTreeParser.java), [ADR 0007](docs/adr/0007-maven-extraction.md))
+     - Maven이 직접 해석한 결과(`dependency:tree -Dverbose`)를 같은 그래프 형식으로 옮깁니다. 해석 규칙을 다시 구현하지 않습니다.
+     - `omitted for conflict with`는 nearest-wins 충돌 해결로, `version managed from`은 dependencyManagement의 덮어쓰기로 기록합니다.
+     - 직접 의존성에 버전이 적혀 있는지는 pom.xml에서 읽습니다.
+     - 구성은 `maven:runtime`(compile·runtime, 기준 구성)과 `maven:test`(전체) 두 개입니다.
 2. **버전 결정 분류** ([VersionDecisionClassifier](src/main/java/deptrace/analysis/VersionDecisionClassifier.java))
    - 요청 버전, 선택 버전·사유, 직접 선언·BOM 관리 버전을 비교합니다.
    - Gradle 기본 충돌 해결은 항상 높은 버전을 고릅니다. 하지만 BOM 규칙이나 직접 선언은 요청보다 낮은 버전을 강제할 수 있어서, 이 **하향**을 별도로 표시합니다.
@@ -122,8 +127,15 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 ./gradlew -I /path/to/deptrace/init/deptrace.init.gradle deptraceExport --no-configuration-cache
 ```
 
+Maven 프로젝트는 아래처럼 추출합니다. 프로젝트의 `mvnw`(없으면 `mvn`)로 maven-dependency-plugin 3.9.0을 실행하고, 결과를 `target/deptrace`에 씁니다. 이후 명령은 `--graphs target/deptrace`로 같습니다.
+
+```bash
+deptrace maven-export --project .
+```
+
 | 명령 | 설명 |
 |---|---|
+| `deptrace maven-export --project .` | Maven 프로젝트의 해석 그래프 추출 (`target/deptrace`) |
 | `deptrace explain --graphs build/deptrace com.nimbusds:nimbus-jose-jwt` | 구성요소 하나의 버전 결정 원인과 유입 경로 (오프라인) |
 | `deptrace analyze --graphs build/deptrace --out build/deptrace-report --fail-on HIGH --exceptions deptrace-exceptions.yml` | 전체 분석, 리포트 생성, 정책 게이트 (위반 시 종료 코드 1) |
 | `deptrace nvd-gaps --graphs build/deptrace --analysis build/deptrace-report/analysis.json` | OSV 미반영 권고 보완 점검 (`NVD_API_KEY`, `GITHUB_TOKEN` 환경 변수 권장) |
@@ -147,7 +159,7 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 
 ## 검증
 
-- 단위 테스트 74개 (`./gradlew test`)
+- 단위 테스트 82개 (`./gradlew test`)
   - 버전 결정 분류: 하향, BOM 덮어쓰기, 범위 이탈, 충돌 해결
   - 유입 경로: 최단 경로, 제약 엣지 제외, 순환
   - 영향 범위 해석: 라인 변경, 재발 범위, 정렬, 좌표 이동
@@ -155,6 +167,7 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
   - 라이선스: POM 해석(부모 상속, 순환, XXE 차단), SPDX 정규화(구체적 URL 우선, or-later·예외 조항), 다중 라이선스 선택, 정책·예외
   - SBOM: CycloneDX 공식 라이브러리(cyclonedx-core-java)로 1.6 스키마 검증, 라이선스 표현 구분, 제약 엣지 제외, VEX 상태
   - NVD 보완: 라인별 범위, Java 외 target_sw 제외, 버전 `-` 제외, AND 조건, 변형 꼬리표, 제품 단위 집계, 다음 안전 버전, 게이트
+- Maven 추출 정확도: spring-batch-extensions 6개 모듈에서 Maven의 `dependency:list` 결과와 비교해, 실행 범위 357개·전체 525개 구성요소가 **모두 일치**했습니다(누락 0, 초과 0). [사례](docs/case-study/spring-batch-extensions.md)
 - NVD 보완 점검 정확도: Dependency-Check 교차 검증에서 OSV가 놓친 것으로 확인한 26건을 기준으로 **26건 모두 찾았고(재현율 100%), 추가 보고는 0건**, Dependency-Check의 오탐 CVE 13건은 하나도 보고하지 않았습니다([사례 12절](docs/case-study/gyeongmaetalk.md#12-osv-미반영-권고-보완-2026-11-18)).
 - SBOM 교차 검증: 경매톡에서 CycloneDX Gradle 플러그인 3.6.1의 결과와 비교했습니다. 배포 구성요소 292개가 모두 일치했고, 차이는 [사례 문서](docs/case-study/gyeongmaetalk.md#10-sbom과-공식-플러그인-비교-2026-11-18)에 정리했습니다.
 - 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58, guava 33.7.2-jre)를 그대로 옮겼습니다.
@@ -163,9 +176,10 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 ## 한계와 다음 단계
 
 - **도달 가능성:** 함수 단위 도달 가능성은 분석하지 않습니다. 예외 판단의 근거는 기능 단위 코드 검색이며, 사람이 판단합니다.
-- **빌드 시스템:** Gradle만 지원합니다.
-  - Maven은 가까운 선언이 이기는(nearest-wins) 다른 해석 규칙을 쓰므로 별도 추출기가 필요합니다.
-  - 빌드를 실행할 수 없는 입력(매니페스트만 있는 경우)도 지원하지 않습니다. 다음 단계는 정적 해석기를 만들고, 이 도구의 추출 결과를 정답 데이터로 삼아 정확도를 측정하는 것입니다.
+- **빌드 시스템:** Gradle과 Maven을 지원합니다.
+  - Maven은 모듈 하나씩 추출합니다. 멀티 모듈 프로젝트(reactor)는 모듈마다 실행해야 합니다.
+  - Maven 그래프는 group:artifact:version 단위라, classifier만 다른 jar(예: netty-tcnative의 OS별 jar)를 구분하지 않습니다.
+  - 빌드를 실행할 수 없는 입력(매니페스트만 있는 경우)은 지원하지 않습니다. 다음 단계는 정적 해석기를 만들고, Gradle·Maven 추출 결과를 정답 데이터로 삼아 정확도를 측정하는 것입니다.
 - **바이너리 분석:** bootJar 안의 JAR와 재패키징(shading)된 라이브러리 식별은 하지 않습니다. 해석 그래프에 나타나지 않는 구성요소는 보지 못합니다.
 - **데이터 범위:** 취약점 데이터는 OSV에 의존합니다.
   - OSV는 GitHub이 **검토한** 권고만 Maven 좌표에 연결합니다. 미검토(unreviewed) 권고는 보지 못합니다.
