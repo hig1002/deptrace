@@ -1,0 +1,72 @@
+# NVD 제품(CPE vendor:product) ↔ Maven 모듈 대응표.
+#
+# OSV는 GitHub이 검토해 패키지에 연결한 권고만 Maven 좌표로 매칭한다. 검토 전 권고는 NVD에만 있고,
+# NVD는 jar가 아니라 "제품" 단위(CPE)로 영향 범위를 적는다. 이 표는 그 공백을 메우기 위해
+# 어떤 Maven 모듈이 어떤 NVD 제품의 일부인지를 명시적으로 적는다.
+#
+# 원칙
+# - jar 이름에서 제품을 추측하지 않는다. Dependency-Check가 querydsl을 "homepage_project:homepage"로,
+#   Java용 opentelemetry를 Go·JavaScript 제품으로 잘못 연결한 것이 추측의 결과였다.
+# - 버전 체계가 제품과 다른 하위 모듈은 제외한다 (netty-tcnative는 2.0.x라 Netty 4.x 범위에 잘못 걸린다).
+# - 제품 단위 권고는 jar마다 세지 않고 제품당 한 번만 보고한다.
+# - 새 제품은 NVD에서 CPE 이름을 확인하고(virtualMatchString 조회 결과 1건 이상) 추가한다.
+products:
+  - name: Spring Framework
+    cpes: [vmware:spring_framework, pivotal_software:spring_framework, springsource:spring_framework]
+    group: org.springframework
+    artifacts: 'spring-(aop|aspects|beans|context|context-indexer|context-support|core|expression|instrument|jcl|jdbc|jms|messaging|orm|oxm|r2dbc|test|tx|web|webflux|webmvc|websocket)'
+  - name: Spring Security
+    cpes: [vmware:spring_security, pivotal_software:spring_security]
+    group: org.springframework.security
+    artifacts: 'spring-security-.+'
+  - name: Spring Data JPA
+    cpes: [vmware:spring_data_jpa, pivotal_software:spring_data_jpa]
+    group: org.springframework.data
+    artifacts: 'spring-data-jpa'
+  - name: Spring Boot
+    cpes: [vmware:spring_boot, pivotal_software:spring_boot]
+    group: org.springframework.boot
+    artifacts: 'spring-boot(-.+)?'
+  - name: Reactor Netty
+    cpes: [pivotal:reactor_netty, vmware:reactor_netty]
+    group: io.projectreactor.netty
+    artifacts: 'reactor-netty(-.+)?'
+  - name: Netty
+    cpes: [netty:netty]
+    group: io.netty
+    # tcnative(2.0.x)와 incubator 모듈은 Netty 본체와 버전 체계가 달라 제외
+    artifacts: 'netty-(?!tcnative|incubator).+'
+  - name: MySQL Connector/J
+    cpes: ['oracle:mysql_connector\/j']
+    group: com.mysql
+    artifacts: 'mysql-connector-j'
+  - name: Apache Tomcat
+    cpes: [apache:tomcat]
+    group: org.apache.tomcat.embed
+    artifacts: 'tomcat-embed-.+'
+  - name: jackson-databind
+    cpes: [fasterxml:jackson-databind]
+    group: com.fasterxml.jackson.core
+    artifacts: 'jackson-databind'
+  - name: Apache Log4j
+    cpes: [apache:log4j]
+    group: org.apache.logging.log4j
+    # NVD의 apache:log4j 권고는 대부분 log4j-core의 문제다. log4j-api까지 넣으면
+    # Dependency-Check처럼 core 전용 권고가 api·to-slf4j에 붙는다. api 전용 권고는 GitHub이 검토해 OSV에 있다
+    artifacts: 'log4j-core'
+  - name: Logback
+    cpes: [qos:logback]
+    group: ch.qos.logback
+    artifacts: 'logback-(core|classic)'
+  - name: Hibernate ORM
+    cpes: [hibernate:hibernate_orm, redhat:hibernate_orm]
+    group: org.hibernate.orm
+    artifacts: 'hibernate-core'
+  - name: Guava
+    cpes: [google:guava]
+    group: com.google.guava
+    artifacts: 'guava'
+  - name: Apache Commons Lang
+    cpes: [apache:commons_lang]
+    group: org.apache.commons
+    artifacts: 'commons-lang3'

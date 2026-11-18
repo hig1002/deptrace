@@ -29,7 +29,7 @@ import picocli.CommandLine.Parameters;
 
 @Command(name = "deptrace", mixinStandardHelpOptions = true, version = "deptrace 0.1.0",
         description = "Gradle 의존성 해석 결과와 OSV 취약점 정보를 결합해 유입 경로·버전 결정 원인·수정 지점을 알려준다.",
-        subcommands = {Main.Explain.class, Main.Analyze.class, Main.Licenses.class, Main.Sbom.class, Main.Diff.class})
+        subcommands = {Main.Explain.class, Main.Analyze.class, Main.NvdGaps.class, Main.Licenses.class, Main.Sbom.class, Main.Diff.class})
 public final class Main {
 
     public static void main(String[] args) {
@@ -135,6 +135,65 @@ public final class Main {
                 Files.writeString(summary, gateMarkdown + "\n" + report, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             }
             return exit;
+        }
+    }
+
+    @Command(name = "nvd-gaps", description = "OSV가 아직 Maven 패키지에 연결하지 못한 권고(GitHub 미검토 등)를 NVD 제품 단위로 찾는다.")
+    static final class NvdGaps implements Callable<Integer> {
+
+        @Option(names = "--graphs", required = true, description = "init script 출력 디렉터리 (build/deptrace)")
+        Path graphs;
+
+        @Option(names = "--analysis", required = true, description = "analyze가 만든 analysis.json (OSV가 이미 보고한 CVE를 빼는 데 쓴다)")
+        Path analysis;
+
+        @Option(names = "--out", defaultValue = "build/deptrace-report", description = "결과 디렉터리 (nvd-gaps.json, nvd-gaps.md)")
+        Path out;
+
+        @Option(names = "--cache", defaultValue = ".deptrace-cache", description = "NVD·GitHub·Maven 응답 캐시")
+        Path cache;
+
+        @Option(names = "--products", description = "NVD 제품 대응표 (YAML). 기본값은 내장 표")
+        Path products;
+
+        @Option(names = "--fail-on", defaultValue = "NONE", description = "게이트 기준 심각도: NONE, LOW, MODERATE, HIGH, CRITICAL")
+        String failOn;
+
+        @Option(names = "--exceptions", description = "예외 파일 (취약점 예외와 같은 형식, id에 CVE 또는 GHSA)")
+        Path exceptions;
+
+        @Option(names = "--summary", description = "Markdown 요약을 덧붙일 파일 (예: $GITHUB_STEP_SUMMARY)")
+        Path summary;
+
+        @Override
+        public Integer call() throws Exception {
+            ResolvedGraph graph = GraphLoader.primary(new GraphLoader().loadDirectory(graphs));
+            AnalysisResult osv = Json.read(analysis, AnalysisResult.class);
+            var nvd = new deptrace.nvd.NvdClient(cache.resolve("nvd"), System.getenv("NVD_API_KEY"));
+            var ghsa = new deptrace.nvd.GhsaLookup(cache.resolve("ghsa"), System.getenv("GITHUB_TOKEN"));
+            var map = products == null ? deptrace.nvd.ProductMap.defaults() : deptrace.nvd.ProductMap.load(products);
+            var result = new deptrace.nvd.GapAnalyzer(map, nvd.source(), ghsa.source(), new MavenCentralVersions(cache.resolve("maven")))
+                    .analyze(graph, osv);
+
+            Severity threshold = failOn.equalsIgnoreCase("NONE") ? null : Severity.parse(failOn);
+            var gate = threshold == null ? null
+                    : deptrace.nvd.GapAnalyzer.gate(result, threshold, PolicyGate.loadExceptions(exceptions), LocalDate.now());
+            String md = deptrace.nvd.GapAnalyzer.render(result, gate, threshold);
+            Json.write(out.resolve("nvd-gaps.json"), result);
+            Files.writeString(out.resolve("nvd-gaps.md"), md);
+            if (summary != null) {
+                Files.writeString(summary, md + "\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            }
+            System.out.printf("NVD 범위에 든 CVE %d건 → OSV 보고 %d, 검토상 다른 모듈 %d, OSV 미반영 %d%n", result.nvdMatched(),
+                    result.coveredByOsv().size(), result.reviewedElsewhere().size(), result.gaps().size());
+            System.out.println(nvd.stats());
+            System.out.println("리포트: " + out.resolve("nvd-gaps.md"));
+            if (gate != null) {
+                System.out.println("게이트: " + (gate.passed() ? "통과" : "실패 — 위반 " + gate.violations().size() + "건")
+                        + (gate.accepted().isEmpty() ? "" : ", 예외 인정 " + gate.accepted().size() + "건"));
+                return gate.passed() ? 0 : 1;
+            }
+            return 0;
         }
     }
 
