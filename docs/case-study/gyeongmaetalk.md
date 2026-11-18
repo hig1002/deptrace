@@ -237,9 +237,61 @@ okhttp logging-interceptor는 Boot 3.5가 okhttp 관리를 중단하면서 4.12.
 
 감사 워크플로가 매 실행마다 `bom.cdx.json`을 만들어 리포트 산출물에 함께 올립니다.
 
+## 11. OWASP Dependency-Check와 교차 검증 (2026-11-18)
+
+같은 커밋, 같은 범위(배포 클래스패스)에서 OWASP Dependency-Check 13.0.0(NVD, CPE 매칭)과 DepTrace(OSV, 패키지 좌표 매칭)의 결과를 (구성요소, CVE) 쌍으로 비교했습니다. Dependency-Check는 OSS Index 분석기를 끄고 NVD만 썼습니다. 이 비교의 목적이 CPE 방식 자체를 보는 것이기 때문입니다.
+
+| | 쌍 | 고유 CVE |
+|---|---|---|
+| DepTrace | 9 | 8 |
+| Dependency-Check | 349 | 40 |
+| 공통 | 6 | 5 |
+| Dependency-Check에만 | **343** | 39 (그중 4건은 다른 모듈에서는 공통) |
+| DepTrace에만 | 3 | 3 |
+
+Dependency-Check에만 나온 343쌍을 전부 GitHub Advisory Database(GHSA)와 NVD의 CPE 범위로 하나씩 대조해 세 가지 원인으로 분류했습니다. 분류되지 않고 남은 건 없습니다.
+
+| 원인 | 쌍 | CVE | 판정 | 예 |
+|---|---|---|---|---|
+| 다른 생태계 | 28 | 7 | **오탐** | OpenTelemetry **Go** SDK의 CVE 5건(CPE의 `target_sw=go`)과 **JavaScript**(npm) CVE 1건이 Java용 opentelemetry jar 15개에 붙음. Kotlin **Gradle 플러그인** CVE가 kotlin-stdlib에 붙음 |
+| 같은 프로젝트의 다른 모듈 | 46 | 6 | **오탐** | log4j-**core** 전용 CVE 2건이 log4j-api·log4j-to-slf4j에 붙음. spring-**webmvc**의 XsltView CVE가 spring-core, spring-jdbc 등 13개 모듈에 붙음. CPE가 "Spring Framework" 제품 단위라 jar 단위로 구분하지 못함 |
+| 미검토 GHSA | 269 | 26 | **DepTrace 미탐** | Spring Framework 14건, Spring Security 5건, Spring Data JPA, Reactor Netty, Netty, MySQL Connector/J 4건 |
+
+### DepTrace가 놓친 26건
+
+이 26건은 GitHub에 권고가 있지만 아직 **미검토(unreviewed)** 상태입니다. 미검토 권고는 NVD에서 자동으로 가져온 것이라 어느 Maven 패키지에 해당하는지 연결돼 있지 않습니다. OSV는 GitHub이 검토해 패키지에 연결한 권고만 Maven 좌표로 매칭하므로, DepTrace도 이 26건을 보지 못했습니다. Spring 권고들은 공개된 지 약 3개월(2026-08-27)이 지났는데도 미검토 상태였습니다.
+
+NVD의 CPE 범위로 확인하니 26건 모두 경매톡의 현재 버전이 영향 범위 안에 있었습니다. CRITICAL도 포함돼 있습니다. **앞 절의 게이트 "통과"는 OSV에 데이터가 없어서 나온 결과이기도 했습니다.**
+
+| 대상 (현재 버전) | CVE 수 | NVD 수정 버전 | Maven Central 배포 |
+|---|---|---|---|
+| Spring Framework 6.2.19 | 14 | 6.2.20 | 없음 (공개 수정은 7.0.x) |
+| Spring Security 6.5.11 | 5 | 6.5.12 | 없음 |
+| Spring Data JPA 3.5.13 | 1 | 3.5.14 | 없음 |
+| Reactor Netty 1.2.18 | 1 | 1.2.19 | 없음 |
+| Netty 4.1.137.Final | 1 | 4.1.138 | **있음** |
+| MySQL Connector/J 9.7.0 | 4 | (9.7.x 영향) | 없음 |
+
+Netty만 같은 라인의 공개 수정 버전이 있습니다. Spring 계열은 6.2·3.5 라인의 공개 수정 버전이 없어, 3절에서 판단한 것과 같이 Spring Boot 4(Spring Framework 7) 이전이 필요합니다.
+
+### DepTrace에만 나온 3건
+
+| 구성요소 | 권고 | Dependency-Check가 놓친 이유 |
+|---|---|---|
+| querydsl-jpa 5.0.0 | CVE-2024-49203 (HIGH) | jar를 `cpe:...:homepage_project:homepage:5.0.0`이라는 엉뚱한 제품으로 식별해, 실제 querydsl CVE에 연결하지 못함 |
+| opentelemetry-api 1.49.0 | GHSA-ccrj-gw8r-854m, GHSA-rcgg-9c38-7xpx (MODERATE) | Dependency-Check 결과에 없음. NVD 쪽에서 이 Java 패키지의 CPE와 연결되지 않은 것으로 보임 |
+
+### 결론
+
+- **두 방식은 서로의 약점을 보완합니다.** CPE 방식은 제품 단위·생태계 구분이 거칠어 오탐이 많습니다(343쌍 중 74쌍, CVE 39건 중 13건). 대신 GitHub이 아직 검토하지 않은 최신 권고를 잡습니다. 좌표 방식은 정확하지만, 검토가 끝나기 전까지는 보지 못합니다.
+- **숫자가 많은 쪽이 맞는 것도, 적은 쪽이 맞는 것도 아닙니다.** 343건을 그대로 개발팀에 넘기면 오탐 74쌍과 모듈 중복을 걸러내는 일이 개발자에게 넘어갑니다. 반대로 OSV만 믿으면 CRITICAL을 포함한 26건을 놓칩니다.
+- 이 결과는 DepTrace의 한계로 README에 기록했습니다. 미검토 권고를 보완하는 방법은 후속 과제로 남깁니다.
+
 ## 후속 과제
 
-- Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전)
+- **미검토 권고 보완:** NVD 전용 CVE를 패키지에 연결하는 방법 검토 (예: 프로젝트별 CPE→Maven 모듈 대응표, 미검토 GHSA 주기 조회). 정확도는 이번 비교 결과를 기준으로 측정
+- Netty 4.1.138.Final 상향 (CVE-2026-89044, 같은 라인 공개 수정 버전 있음)
+- Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전). 미검토 권고 19건(Spring Framework·Security)도 이 이전으로만 공개 수정 가능
 - querydsl → OpenFeign 포크(io.github.openfeign.querydsl) 이전
 - 운영 설정으로 실제 기동 확인. 이번 점검에서는 저장소에 `application.yml`이 없어 컨텍스트 기동을 검증하지 못했습니다.
 - MariaDB Connector/J 전환 검증 (라이선스 예외 만료 2027-05-18 전, 또는 배포 형태가 바뀔 때)

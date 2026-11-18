@@ -158,6 +158,8 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
   - 빌드를 실행할 수 없는 입력(매니페스트만 있는 경우)도 지원하지 않습니다. 다음 단계는 정적 해석기를 만들고, 이 도구의 추출 결과를 정답 데이터로 삼아 정확도를 측정하는 것입니다.
 - **바이너리 분석:** bootJar 안의 JAR와 재패키징(shading)된 라이브러리 식별은 하지 않습니다. 해석 그래프에 나타나지 않는 구성요소는 보지 못합니다.
 - **데이터 범위:** 취약점 데이터는 OSV에 의존합니다.
+  - OSV는 GitHub이 **검토한** 권고만 Maven 좌표에 연결합니다. 미검토(unreviewed) 권고는 보지 못합니다.
+  - 경매톡에서 OWASP Dependency-Check와 비교해 보니, 이 때문에 놓친 CVE가 26건(CRITICAL 포함)이었습니다([사례 11절](docs/case-study/gyeongmaetalk.md#11-owasp-dependency-check와-교차-검증-2026-11-18)). 공개 직후의 권고는 CPE 기반 도구와 함께 보는 것이 안전합니다.
 - **라이선스:** POM 선언만 봅니다.
   - JAR 안의 LICENSE 파일, 소스 파일 헤더, 재패키징된 코드의 원래 라이선스는 보지 않습니다. POM 선언이 실제와 다른 경우를 잡지 못합니다.
   - 다중 라이선스를 OR로 보는 것은 Maven 관례에 따른 가정이라, AND 의미로 나열한 프로젝트는 사람이 확인해야 합니다.
