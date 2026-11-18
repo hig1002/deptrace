@@ -109,7 +109,7 @@ public final class Analyzer {
         String publishedFix = null;
         String fixNote = "";
         if (fixVersion != null && published.versions(c.module()).isPresent()) {
-            publishedFix = published.lowestPublishedAtLeast(c.module(), fixVersion).orElse(null);
+            publishedFix = published.lowestPublishedAtLeast(c.module(), fixVersion, c.version()).orElse(null);
             if (publishedFix == null) {
                 fixNote = " OSV 수정 버전 " + fixVersion + " 이상은 아직 Maven Central에 배포되지 않았다.";
             } else if (!publishedFix.equals(fixVersion)) {
