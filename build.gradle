@@ -26,6 +26,8 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.14.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.assertj:assertj-core:3.27.7'
+    // 생성한 SBOM을 CycloneDX 공식 스키마로 검증하는 데만 쓴다 (출력은 직접 생성)
+    testImplementation 'org.cyclonedx:cyclonedx-core-java:13.5.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

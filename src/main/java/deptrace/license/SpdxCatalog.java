@@ -106,6 +106,8 @@ public final class SpdxCatalog {
                         "gpl-2.0-with-classpath-exception", "gnu general public license, version 2 with the classpath exception",
                         "gpl 2 with classpath exception"),
                 List.of("openjdk.java.net/legal/gplv2+ce", "openjdk.org/legal/gplv2+ce", "gnu.org/software/classpath/license"));
+        // 버전 없는 "CDDL + GPLv2 with classpath exception"은 Java EE·GlassFish 계열이 쓰는 표기다.
+        // javax.annotation-api 1.3.2의 POM이 가리키는 LICENSE 원문이 CDDL 1.1임을 확인했다 (CycloneDX Gradle 플러그인은 1.0으로 표기)
         add("CDDL-1.1 OR GPL-2.0-only WITH Classpath-exception-2.0", W,
                 List.of("cddl + gplv2 with classpath exception", "cddl/gplv2+ce", "cddl+gpl license", "cddl+gpl_1_1",
                         "dual license consisting of the cddl v1.1 and gpl v2"),

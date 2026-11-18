@@ -29,7 +29,7 @@ import picocli.CommandLine.Parameters;
 
 @Command(name = "deptrace", mixinStandardHelpOptions = true, version = "deptrace 0.1.0",
         description = "Gradle 의존성 해석 결과와 OSV 취약점 정보를 결합해 유입 경로·버전 결정 원인·수정 지점을 알려준다.",
-        subcommands = {Main.Explain.class, Main.Analyze.class, Main.Licenses.class, Main.Diff.class})
+        subcommands = {Main.Explain.class, Main.Analyze.class, Main.Licenses.class, Main.Sbom.class, Main.Diff.class})
 public final class Main {
 
     public static void main(String[] args) {
@@ -178,6 +178,48 @@ public final class Main {
                     + result.with(deptrace.license.LicensePolicy.Verdict.DENIED).size() + "건")
                     + ", 검토 필요 " + result.with(deptrace.license.LicensePolicy.Verdict.REVIEW).size() + "건");
             return report.passed() ? 0 : 1;
+        }
+    }
+
+    @Command(name = "sbom", description = "배포 클래스패스를 CycloneDX 1.6 JSON SBOM으로 내보낸다. analyze 결과를 주면 VEX 분석 상태를 붙인다.")
+    static final class Sbom implements Callable<Integer> {
+
+        @Option(names = "--graphs", required = true, description = "init script 출력 디렉터리 (build/deptrace)")
+        Path graphs;
+
+        @Option(names = "--out", defaultValue = "build/deptrace-report/bom.cdx.json", description = "SBOM 파일 경로")
+        Path out;
+
+        @Option(names = "--cache", defaultValue = ".deptrace-cache", description = "POM 캐시")
+        Path cache;
+
+        @Option(names = "--analysis", description = "analyze가 만든 analysis.json. 주면 vulnerabilities(VEX)를 포함한다")
+        Path analysis;
+
+        @Option(names = "--exceptions", description = "취약점 예외 파일. 유효한 예외는 not_affected로 표시한다")
+        Path exceptions;
+
+        @Option(names = "--no-licenses", description = "POM 라이선스 조회를 건너뛴다 (오프라인)")
+        boolean noLicenses;
+
+        @Override
+        public Integer call() throws Exception {
+            ResolvedGraph graph = GraphLoader.primary(new GraphLoader().loadDirectory(graphs));
+            List<deptrace.license.LicenseResolver.ComponentLicense> licenses = noLicenses ? List.of()
+                    : deptrace.license.LicenseReport.resolveAll(graph,
+                            new deptrace.license.LicenseResolver(new deptrace.license.PomSource.MavenCentral(cache.resolve("pom"))));
+            AnalysisResult result = analysis == null ? null : Json.read(analysis, AnalysisResult.class);
+            var bom = deptrace.sbom.CycloneDxWriter.write(graph, licenses, result, PolicyGate.loadExceptions(exceptions),
+                    LocalDate.now(), new CommandLine(new Main()).getCommandSpec().version()[0].replace("deptrace ", ""));
+
+            if (out.toAbsolutePath().getParent() != null) {
+                Files.createDirectories(out.toAbsolutePath().getParent());
+            }
+            Files.writeString(out, deptrace.sbom.CycloneDxWriter.toJson(bom));
+            System.out.printf("CycloneDX %s SBOM: 구성요소 %d개, 의존 관계 %d개%s → %s%n",
+                    deptrace.sbom.CycloneDxWriter.SPEC_VERSION, bom.get("components").size(), bom.get("dependencies").size(),
+                    bom.has("vulnerabilities") ? ", 취약점 " + bom.get("vulnerabilities").size() + "건" : "", out);
+            return 0;
         }
     }
 

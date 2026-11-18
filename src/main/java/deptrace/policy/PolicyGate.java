@@ -111,6 +111,17 @@ public final class PolicyGate {
         return md.toString();
     }
 
+    /** 이 구성요소·권고에 해당하는 예외 (만료 여부는 보지 않는다). SBOM의 VEX 분석에서도 같은 기준을 쓴다. */
+    public static java.util.Optional<PolicyException> exceptionFor(List<PolicyException> exceptions, Finding f, Advisory a) {
+        return exceptions.stream().filter(e -> matches(e, f, a)).findFirst();
+    }
+
+    /** 만료일이 오늘 이후(오늘 포함)인 유효한 예외인지. */
+    public static boolean isActive(PolicyException e, LocalDate today) {
+        LocalDate expires = parse(e.expires());
+        return !isBlank(e.reason()) && expires != null && !expires.isBefore(today);
+    }
+
     private static boolean matches(PolicyException e, Finding f, Advisory a) {
         if (isBlank(e.id())) {
             return false;

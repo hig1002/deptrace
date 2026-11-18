@@ -80,7 +80,8 @@ public final class LicenseResolver {
         return result(coordinate, Status.NOT_DECLARED, null, List.of());
     }
 
-    static ComponentLicense result(Coordinate c, Status status, Coordinate declaredIn, List<DeclaredLicense> declared) {
+    /** POM 선언으로부터 판정 결과를 만든다. 네트워크 없이 판정 규칙만 쓰는 곳(테스트, SBOM)에서도 쓴다. */
+    public static ComponentLicense result(Coordinate c, Status status, Coordinate declaredIn, List<DeclaredLicense> declared) {
         List<String> spdx = new ArrayList<>();
         List<String> unmatched = new ArrayList<>();
         List<LicenseCategory> categories = new ArrayList<>();
