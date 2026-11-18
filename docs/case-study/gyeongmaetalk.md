@@ -328,15 +328,21 @@ NVD 설정의 AND/OR 논리를 그대로 평가하도록 고치자 0건이 됐�
 
 Dependency-Check는 이것을 269쌍으로 보고했고, DepTrace는 같은 내용을 26건으로 보고합니다. 같은 라인의 공개 수정 버전은 Netty 하나뿐이고, 나머지는 Spring Boot 4 이전과 함께 움직여야 합니다.
 
+### 조치: Netty
+
+같은 라인에 공개 수정 버전이 있는 Netty부터 조치했습니다([451744d](https://github.com/gyeongmaetalk/gyeongmaetalk-BE/commit/451744d)).
+- BOM 속성 `netty.version`을 4.1.137.Final에서 4.1.138.Final로 올렸습니다. 배포 클래스패스의 Netty 모듈 17개가 모두 4.1.138.Final로 해석됩니다.
+- NVD 보완 점검의 OSV 미반영 권고가 26건에서 25건으로 줄었습니다.
+- 취약점·라이선스 게이트 결과와 테스트 결과(113개 중 112개 통과)는 이전과 같습니다.
+
 ### 자동화
 
 감사 워크플로에 보완 점검 단계를 추가했습니다. 지금은 **보고만** 합니다. 공개 수정 버전이 없는 CRITICAL·HIGH가 남아 있어서, 게이트로 쓰려면 먼저 기능 사용 여부를 확인해 예외 근거를 남기거나 Spring Boot 4로 옮겨야 합니다.
 
 ## 후속 과제
 
-- NVD 보완 점검을 게이트로 전환: Spring 계열 CRITICAL·HIGH 15건의 기능 사용 여부 확인 후 예외 등록, 또는 Spring Boot 4 이전
+- NVD 보완 점검을 게이트로 전환: CRITICAL·HIGH 14건(Spring Framework 9, Spring Security 3, MySQL Connector/J 2)의 기능 사용 여부 확인 후 예외 등록, 또는 Spring Boot 4 이전
 - 제품 대응표 확장과, 다른 프로젝트에서 정확도 재측정
-- Netty 4.1.138.Final 상향 (CVE-2026-89044, 같은 라인 공개 수정 버전 있음)
 - Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전). 미검토 권고 19건(Spring Framework·Security)도 이 이전으로만 공개 수정 가능
 - querydsl → OpenFeign 포크(io.github.openfeign.querydsl) 이전
 - 운영 설정으로 실제 기동 확인. 이번 점검에서는 저장소에 `application.yml`이 없어 컨텍스트 기동을 검증하지 못했습니다.
