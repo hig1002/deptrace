@@ -119,12 +119,12 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 
 ## 검증
 
-- 단위 테스트 28개 (`./gradlew test`)
+- 단위 테스트 32개 (`./gradlew test`)
   - 버전 결정 분류: 하향, BOM 덮어쓰기, 범위 이탈, 충돌 해결
   - 유입 경로: 최단 경로, 제약 엣지 제외, 순환
   - 영향 범위 해석: 라인 변경, 재발 범위, 정렬, 좌표 이동
-  - 실배포 버전 선택, 정책 게이트(예외 만료·패키지 불일치·설정 오류), 전후 비교
-- 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58)를 그대로 옮겼습니다.
+  - 실배포 버전 선택(변형 꼬리표 유지 포함), 정책 게이트(예외 만료·패키지 불일치·설정 오류), 전후 비교
+- 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58, guava 33.7.2-jre)를 그대로 옮겼습니다.
 - OSV-Scanner와의 차분 비교: 경매톡 배포 클래스패스 기준 (구성요소, 권고 ID) 163쌍이 모두 일치했습니다.
 
 ## 한계와 다음 단계

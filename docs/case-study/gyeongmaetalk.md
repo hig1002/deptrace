@@ -142,6 +142,30 @@ okhttp logging-interceptor는 Boot 3.5가 okhttp 관리를 중단하면서 4.12.
 
 로컬에서 같은 단계를 실행했을 때 게이트는 수정 전 커밋에서 위반 74건으로 실패, 수정 후 커밋에서 예외 5건 인정으로 통과했습니다.
 
+## 8. 점검 이후: 게이트가 잡은 신규 취약점 (2026-11-18)
+
+브랜치를 올리자 [첫 감사 실행](https://github.com/gyeongmaetalk/gyeongmaetalk-BE/actions/runs/44227648269)이 실패했습니다. 코드는 10월 점검 때와 같았습니다.
+
+| 항목 | 내용 |
+|---|---|
+| 검출 | `com.google.guava:guava:33.6.0-jre` — GHSA-xxph-c9ww-hj94 (HIGH, 역직렬화 시 통제되지 않은 메모리 할당) |
+| 공개일 | 2026-10-27, 점검 8일 뒤 |
+| 유입 | firebase-admin 9.11.0, google-auth-library-oauth2-http 1.52.0, google-api-client 2.7.2를 거친 전이 의존성 |
+| OSV 수정 버전 | 33.7.2. 하지만 Maven Central에는 `33.7.2-jre`와 `33.7.2-android`만 배포됨 |
+
+**DepTrace 자체의 결함도 함께 드러났습니다.** 리포트가 `33.7.2-android`를 권고했습니다.
+- 원인: Maven 버전 비교에서 한정자는 사전순이라 `-android`가 `-jre`보다 낮습니다. "배포된 가장 낮은 버전"을 고르면 다른 변형이 선택됩니다.
+- `-android`는 Android용 API 제약을 둔 변형이라, `-jre`를 쓰던 서버에 그대로 적용하면 의도하지 않은 변경이 됩니다.
+- 수정: 현재 버전의 변형 꼬리표(`jre`, `android`, `jre11` 등)를 유지하는 후보를 먼저 고르고, 같은 변형이 없을 때만 다른 변형으로 넘어가게 했습니다. `Final`, `RELEASE` 같은 정식 표기와 사전 배포 표기는 변형으로 보지 않습니다. 테스트 4개를 추가했습니다.
+
+**조치:** `constraints`로 `guava:33.7.2-jre` 하한을 지정했습니다 ([599583e](https://github.com/gyeongmaetalk/gyeongmaetalk-BE/commit/599583e)).
+- 게이트: 통과, 예외 5건 인정
+- 배포 클래스패스: 취약 구성요소 6개, 고유 취약점 8건 (CRITICAL 3, HIGH 1, MODERATE 4)
+  - 10월보다 MODERATE가 1건 늘었습니다. 점검 이후 공개된 권고이고, 게이트 기준(HIGH) 미만이라 다음 Spring Boot 패치에서 다시 확인합니다.
+- 테스트: 113개 중 112개 통과로 기존과 같습니다.
+
+매일 실행하는 게이트를 둔 이유가 그대로 확인된 사례입니다. 코드가 바뀌지 않아도 공개된 취약점 데이터가 바뀌면 결과가 바뀝니다.
+
 ## 후속 과제
 
 - Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전)
