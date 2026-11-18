@@ -1,0 +1,39 @@
+plugins {
+    id 'application'
+}
+
+group = 'deptrace'
+version = '0.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'info.picocli:picocli:4.7.7'
+    implementation platform('com.fasterxml.jackson:jackson-bom:2.22.4')
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+    // Maven 버전 비교 규칙(ComparableVersion)과 버전 범위([1.0,2.0)) 해석의 기준 구현
+    implementation 'org.apache.maven:maven-artifact:3.9.16'
+
+    testImplementation platform('org.junit:junit-bom:5.14.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.27.7'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'deptrace.cli.Main'
+    applicationName = 'deptrace'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

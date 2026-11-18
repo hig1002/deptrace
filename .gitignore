@@ -1,0 +1,6 @@
+.gradle/
+build/
+.deptrace-cache/
+.idea/
+*.iml
+.DS_Store
