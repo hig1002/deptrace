@@ -70,6 +70,11 @@ public final class ResolvedGraph {
         return data.project();
     }
 
+    /** 이전 형식의 추출 파일에는 없을 수 있다(null). */
+    public GraphExport data() {
+        return data;
+    }
+
     public String root() {
         return data.root();
     }

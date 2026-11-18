@@ -9,6 +9,9 @@ import java.util.Map;
 public record GraphExport(
         String format,
         String project,
+        String projectName,
+        String projectGroup,
+        String projectVersion,
         String configuration,
         String gradleVersion,
         String root,

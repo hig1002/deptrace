@@ -63,6 +63,9 @@ allprojects {
                 out.text = JsonOutput.prettyPrint(JsonOutput.toJson([
                         format            : 'deptrace-graph/1',
                         project           : project.path,
+                        projectName       : project.name,
+                        projectGroup      : project.group?.toString(),
+                        projectVersion    : project.version?.toString(),
                         configuration     : name,
                         gradleVersion     : project.gradle.gradleVersion,
                         root              : root.id.displayName,

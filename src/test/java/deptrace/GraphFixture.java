@@ -67,7 +67,7 @@ public final class GraphFixture {
     }
 
     public ResolvedGraph build() {
-        return ResolvedGraph.of(new GraphExport("deptrace-graph/1", ":", configuration, "8.14.3", ROOT,
+        return ResolvedGraph.of(new GraphExport("deptrace-graph/1", ":", "app", "com.example", "1.0.0", configuration, "8.14.3", ROOT,
                 declared, managed, nodes, edges));
     }
 }
