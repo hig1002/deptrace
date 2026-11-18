@@ -285,11 +285,57 @@ Netty만 같은 라인의 공개 수정 버전이 있습니다. Spring 계열은
 
 - **두 방식은 서로의 약점을 보완합니다.** CPE 방식은 제품 단위·생태계 구분이 거칠어 오탐이 많습니다(343쌍 중 74쌍, CVE 39건 중 13건). 대신 GitHub이 아직 검토하지 않은 최신 권고를 잡습니다. 좌표 방식은 정확하지만, 검토가 끝나기 전까지는 보지 못합니다.
 - **숫자가 많은 쪽이 맞는 것도, 적은 쪽이 맞는 것도 아닙니다.** 343건을 그대로 개발팀에 넘기면 오탐 74쌍과 모듈 중복을 걸러내는 일이 개발자에게 넘어갑니다. 반대로 OSV만 믿으면 CRITICAL을 포함한 26건을 놓칩니다.
-- 이 결과는 DepTrace의 한계로 README에 기록했습니다. 미검토 권고를 보완하는 방법은 후속 과제로 남깁니다.
+- 이 결과는 DepTrace의 한계로 README에 기록했고, 다음 절에서 보완했습니다.
+
+## 12. OSV 미반영 권고 보완 (2026-11-18)
+
+11절에서 찾은 공백을 메우려고 `deptrace nvd-gaps`를 만들었습니다([ADR 0006](../adr/0006-nvd-gap-check.md)). Dependency-Check의 장점(NVD의 최신 권고)은 가져오고, 단점(추측에 의한 제품 식별, jar마다 중복)은 피하는 것이 목표였습니다.
+
+| 설계 | 피하려는 Dependency-Check의 오탐 |
+|---|---|
+| Maven 모듈 ↔ NVD 제품을 명시적 대응표로 연결 | querydsl → `homepage_project:homepage` |
+| target_sw가 Java 계열이 아니면 제외 | Go·JavaScript용 OpenTelemetry 권고 |
+| log4j-api는 log4j 제품에 연결하지 않음 | log4j-core 권고가 log4j-api에 |
+| 제품당 한 번 보고 | Spring 권고 하나가 jar 15개에 |
+| GitHub이 검토해 다른 모듈에 연결한 CVE는 제외 | webmvc 권고가 spring-core 등에 |
+
+### 정확도 측정
+
+11절에서 OSV가 놓쳤다고 확인한 26건을 기준으로 측정했습니다.
+
+| 지표 | 첫 구현 | 수정 후 |
+|---|---|---|
+| 기준 26건 재현율 | 26/26 | **26/26** |
+| 기준 밖 추가 보고 | 2 | **0** |
+| Dependency-Check 오탐 CVE 13건 재등장 | 0 | **0** |
+
+첫 구현의 추가 보고 2건은 2016년 RHEL Tomcat 패키지 권고였습니다. 원인은 두 가지였습니다.
+- CPE 버전 `-`(해당 없음)를 "모든 버전"으로 잘못 읽었습니다.
+- "Oracle Linux에서 실행될 때"라는 AND 조건을 무시했습니다.
+
+NVD 설정의 AND/OR 논리를 그대로 평가하도록 고치자 0건이 됐습니다. 같은 수정으로 CVE-2018-1258("Spring Security **AND** Spring Framework 5.0.5")도 더 이상 6.2.19에 걸리지 않게 됐습니다. 이전에는 GitHub 검토 데이터 덕분에 우연히 걸러졌을 뿐, 판정 자체는 틀렸었습니다.
+
+### 결과: 경매톡의 OSV 미반영 권고 26건
+
+| 제품 (버전, jar 수) | CVE | 심각도 | 범위 밖 다음 배포 버전 |
+|---|---|---|---|
+| Spring Framework (6.2.19, 15) | 14 | CRITICAL 3, HIGH 6, MODERATE 4, LOW 1 | 7.0.9 |
+| Spring Security (6.5.11, 7) | 5 | CRITICAL 1, HIGH 2, MODERATE 2 | 7.0.7 |
+| MySQL Connector/J (9.7.0, 1) | 4 | HIGH 2, MODERATE 2 | 26.7.0 (새 버전 체계) |
+| Netty (4.1.137.Final, 17) | 1 | MODERATE 1 | **4.1.138.Final (같은 라인)** |
+| Reactor Netty (1.2.18, 2) | 1 | MODERATE 1 | 1.3.7 |
+| Spring Data JPA (3.5.13, 1) | 1 | MODERATE 1 | 4.0.7 |
+
+Dependency-Check는 이것을 269쌍으로 보고했고, DepTrace는 같은 내용을 26건으로 보고합니다. 같은 라인의 공개 수정 버전은 Netty 하나뿐이고, 나머지는 Spring Boot 4 이전과 함께 움직여야 합니다.
+
+### 자동화
+
+감사 워크플로에 보완 점검 단계를 추가했습니다. 지금은 **보고만** 합니다. 공개 수정 버전이 없는 CRITICAL·HIGH가 남아 있어서, 게이트로 쓰려면 먼저 기능 사용 여부를 확인해 예외 근거를 남기거나 Spring Boot 4로 옮겨야 합니다.
 
 ## 후속 과제
 
-- **미검토 권고 보완:** NVD 전용 CVE를 패키지에 연결하는 방법 검토 (예: 프로젝트별 CPE→Maven 모듈 대응표, 미검토 GHSA 주기 조회). 정확도는 이번 비교 결과를 기준으로 측정
+- NVD 보완 점검을 게이트로 전환: Spring 계열 CRITICAL·HIGH 15건의 기능 사용 여부 확인 후 예외 등록, 또는 Spring Boot 4 이전
+- 제품 대응표 확장과, 다른 프로젝트에서 정확도 재측정
 - Netty 4.1.138.Final 상향 (CVE-2026-89044, 같은 라인 공개 수정 버전 있음)
 - Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전). 미검토 권고 19건(Spring Framework·Security)도 이 이전으로만 공개 수정 가능
 - querydsl → OpenFeign 포크(io.github.openfeign.querydsl) 이전

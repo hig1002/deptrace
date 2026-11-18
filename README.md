@@ -12,6 +12,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 | 어디를 고쳐야 하는가? | 버전을 결정한 주체에 따라 직접 선언 제거·상향 / Spring Boot(BOM) 업그레이드 / constraints / 수정 불가로 분류 |
 | 고친 뒤 정말 바뀌었는가? | 수정 전후 구성요소·취약점 비교(상향·하향·추가·제거, 해결·신규·잔존) |
 | 라이선스 의무가 있는가? | POM(부모 상속 포함)의 선언을 SPDX로 정규화하고 의무 강도로 분류, 금지 라이선스는 유입 경로와 함께 게이트에서 차단 |
+| OSV가 아직 모르는 권고는? | GitHub 미검토 권고처럼 패키지 매핑이 없는 CVE를 NVD 제품 단위(CPE)로 보완 점검. 제품당 한 번만 보고 |
 | 다른 도구·조직에 넘길 수 있는가? | 배포 클래스패스만 담은 CycloneDX 1.6 SBOM. 라이선스 식, 의존 관계, 예외 근거를 담은 VEX 분석 상태 포함 |
 
 ## 만든 계기
@@ -91,6 +92,12 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
    - `analyze` 결과를 주면 취약점을 붙입니다. 유효한 예외는 VEX `not_affected`(근거·재검토일 포함), 나머지는 `in_triage`로 둡니다. 확인하지 않은 "취약함"은 단정하지 않습니다.
    - 버전 선택 사유와 라이선스 상속 출처는 표준 필드가 없어 `deptrace:*` 속성으로 남깁니다.
 
+9. **NVD 보완 점검** ([nvd 패키지](src/main/java/deptrace/nvd), [ADR 0006](docs/adr/0006-nvd-gap-check.md))
+   - OSV는 GitHub이 검토한 권고만 Maven 좌표에 연결합니다. 검토 전 권고는 NVD에만 있고, NVD는 jar가 아니라 제품(CPE) 단위로 범위를 적습니다.
+   - [제품 대응표](src/main/resources/deptrace/nvd/products.yml)로 Maven 모듈을 NVD 제품에 **명시적으로** 연결합니다. jar 이름에서 추측하지 않습니다.
+   - NVD 설정의 AND/OR 논리를 그대로 평가합니다. 다른 제품 조건은 클래스패스 버전으로 확인하고, OS 같은 확인할 수 없는 조건은 해당하지 않는 것으로 봅니다. target_sw가 Java가 아니거나 버전이 `-`(해당 없음)이면 제외합니다.
+   - OSV가 이미 보고한 CVE와, GitHub이 검토해 다른 Maven 패키지에 연결한 CVE는 뺍니다. 남은 것을 제품당 한 번 보고하고, 범위 밖이면서 Maven Central에 실제로 배포된 다음 버전을 붙입니다.
+
 ## 기존 도구와의 역할 분담
 
 | 영역 | 그대로 사용 | 직접 구현 |
@@ -119,6 +126,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 |---|---|
 | `deptrace explain --graphs build/deptrace com.nimbusds:nimbus-jose-jwt` | 구성요소 하나의 버전 결정 원인과 유입 경로 (오프라인) |
 | `deptrace analyze --graphs build/deptrace --out build/deptrace-report --fail-on HIGH --exceptions deptrace-exceptions.yml` | 전체 분석, 리포트 생성, 정책 게이트 (위반 시 종료 코드 1) |
+| `deptrace nvd-gaps --graphs build/deptrace --analysis build/deptrace-report/analysis.json` | OSV 미반영 권고 보완 점검 (`NVD_API_KEY`, `GITHUB_TOKEN` 환경 변수 권장) |
 | `deptrace licenses --graphs build/deptrace --policy deptrace-licenses.yml` | 라이선스 판정과 라이선스 게이트 (금지 라이선스가 있으면 종료 코드 1) |
 | `deptrace sbom --graphs build/deptrace --analysis build/deptrace-report/analysis.json --exceptions deptrace-exceptions.yml` | CycloneDX 1.6 SBOM (VEX 포함) |
 | `deptrace diff --before before/analysis.json --after after/analysis.json --out diff.md` | 수정 전후 비교 |
@@ -139,13 +147,15 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 
 ## 검증
 
-- 단위 테스트 62개 (`./gradlew test`)
+- 단위 테스트 74개 (`./gradlew test`)
   - 버전 결정 분류: 하향, BOM 덮어쓰기, 범위 이탈, 충돌 해결
   - 유입 경로: 최단 경로, 제약 엣지 제외, 순환
   - 영향 범위 해석: 라인 변경, 재발 범위, 정렬, 좌표 이동
   - 실배포 버전 선택(변형 꼬리표 유지 포함), 정책 게이트(예외 만료·패키지 불일치·설정 오류), 전후 비교
   - 라이선스: POM 해석(부모 상속, 순환, XXE 차단), SPDX 정규화(구체적 URL 우선, or-later·예외 조항), 다중 라이선스 선택, 정책·예외
   - SBOM: CycloneDX 공식 라이브러리(cyclonedx-core-java)로 1.6 스키마 검증, 라이선스 표현 구분, 제약 엣지 제외, VEX 상태
+  - NVD 보완: 라인별 범위, Java 외 target_sw 제외, 버전 `-` 제외, AND 조건, 변형 꼬리표, 제품 단위 집계, 다음 안전 버전, 게이트
+- NVD 보완 점검 정확도: Dependency-Check 교차 검증에서 OSV가 놓친 것으로 확인한 26건을 기준으로 **26건 모두 찾았고(재현율 100%), 추가 보고는 0건**, Dependency-Check의 오탐 CVE 13건은 하나도 보고하지 않았습니다([사례 12절](docs/case-study/gyeongmaetalk.md#12-osv-미반영-권고-보완-2026-11-18)).
 - SBOM 교차 검증: 경매톡에서 CycloneDX Gradle 플러그인 3.6.1의 결과와 비교했습니다. 배포 구성요소 292개가 모두 일치했고, 차이는 [사례 문서](docs/case-study/gyeongmaetalk.md#10-sbom과-공식-플러그인-비교-2026-11-18)에 정리했습니다.
 - 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58, guava 33.7.2-jre)를 그대로 옮겼습니다.
 - OSV-Scanner와의 차분 비교: 경매톡 배포 클래스패스 기준 (구성요소, 권고 ID) 163쌍이 모두 일치했습니다.
@@ -159,7 +169,9 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 - **바이너리 분석:** bootJar 안의 JAR와 재패키징(shading)된 라이브러리 식별은 하지 않습니다. 해석 그래프에 나타나지 않는 구성요소는 보지 못합니다.
 - **데이터 범위:** 취약점 데이터는 OSV에 의존합니다.
   - OSV는 GitHub이 **검토한** 권고만 Maven 좌표에 연결합니다. 미검토(unreviewed) 권고는 보지 못합니다.
-  - 경매톡에서 OWASP Dependency-Check와 비교해 보니, 이 때문에 놓친 CVE가 26건(CRITICAL 포함)이었습니다([사례 11절](docs/case-study/gyeongmaetalk.md#11-owasp-dependency-check와-교차-검증-2026-11-18)). 공개 직후의 권고는 CPE 기반 도구와 함께 보는 것이 안전합니다.
+  - 경매톡에서 OWASP Dependency-Check와 비교해 보니, 이 때문에 놓친 CVE가 26건(CRITICAL 포함)이었습니다([사례 11절](docs/case-study/gyeongmaetalk.md#11-owasp-dependency-check와-교차-검증-2026-11-18)).
+  - `nvd-gaps`로 보완했지만, [제품 대응표](src/main/resources/deptrace/nvd/products.yml)에 있는 제품(현재 14개)만 봅니다. 표에 없는 라이브러리의 미검토 권고는 여전히 보지 못합니다.
+  - NVD는 제품 단위라 어느 jar의 문제인지 알려주지 않습니다. 보고는 제품 단위로 하고, 해당 기능을 쓰는지는 사람이 확인합니다.
 - **라이선스:** POM 선언만 봅니다.
   - JAR 안의 LICENSE 파일, 소스 파일 헤더, 재패키징된 코드의 원래 라이선스는 보지 않습니다. POM 선언이 실제와 다른 경우를 잡지 못합니다.
   - 다중 라이선스를 OR로 보는 것은 Maven 관례에 따른 가정이라, AND 의미로 나열한 프로젝트는 사람이 확인해야 합니다.
