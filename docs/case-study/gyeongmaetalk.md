@@ -166,8 +166,45 @@ okhttp logging-interceptor는 Boot 3.5가 okhttp 관리를 중단하면서 4.12.
 
 매일 실행하는 게이트를 둔 이유가 그대로 확인된 사례입니다. 코드가 바뀌지 않아도 공개된 취약점 데이터가 바뀌면 결과가 바뀝니다.
 
+## 9. 라이선스 점검 (2026-11-18)
+
+`deptrace licenses`로 배포 클래스패스 292개의 POM 라이선스를 판정했습니다([ADR 0004](../adr/0004-license-identification.md)).
+
+| 분류 | 구성요소 수 | 예 |
+|---|---|---|
+| 허용형 | 284 | Apache-2.0 249, BSD-3-Clause 20, MIT 11 |
+| 약한 카피레프트 | 7 | logback(EPL-2.0 / LGPL-2.1), hibernate-core(LGPL-2.1-or-later), jakarta.annotation·transaction(EPL-2.0 / GPL2+Classpath 예외), aspectjweaver(EPL-2.0) |
+| 강한 카피레프트 | 1 | mysql-connector-j 9.7.0 (GPL-2.0 + Universal FOSS Exception) |
+
+- 292개 중 105개는 자기 POM에 선언이 없어 부모 POM에서 상속받았습니다.
+- Apache-2.0 하나가 7가지 표기로 적혀 있었습니다.
+
+**첫 실행에서 판정이 틀린 3건을 찾아 고쳤습니다.**
+- MIT-0이 MIT로 묶임: MIT URL이 MIT-0 URL의 앞부분이라 부분 일치에 걸렸습니다. 더 긴 URL을 우선하게 했습니다.
+- hibernate-core의 "v2.1 or later"가 `LGPL-2.1-only`로 판정됨: "or later"는 이름에만 있고 URL은 같습니다. 이름을 URL보다 먼저 보게 했습니다.
+- 이름 자리에 SPDX 식별자를 그대로 쓴 POM(logback의 `LGPL-2.1-only`)을 URL 없이는 인식하지 못함: SPDX 식별자를 직접 인식하게 했습니다.
+
+### MySQL Connector/J 판단
+
+| 단계 | 내용 |
+|---|---|
+| 판정 | GPL-2.0 + Universal FOSS Exception. 이름이 비슷한 Classpath 예외와 달리, FOSS 예외는 결합한 프로그램이 오픈소스 라이선스일 때만 GPL 전파를 면제합니다. 비공개 소스인 경매톡에는 적용되지 않으므로 강한 카피레프트로 분류했고, 기본 정책에서 게이트가 실패했습니다. |
+| 의무 발생 조건 확인 | GPL의 소스 공개 의무는 바이너리를 배포할 때 생깁니다. 서버에서만 실행하면 생기지 않습니다. 그래서 실제 배포 경로를 확인했습니다. |
+| 배포 경로에서 발견한 것 | 배포 워크플로가 jar를 담은 Docker 이미지를 **공개** Docker Hub 저장소에 push하고 있었습니다. 엄밀히는 GPL 구성요소를 포함한 바이너리를 외부에 배포한 상태였습니다. |
+| 조치 | 공개 이미지 배포를 중단했습니다(2026-11-18). |
+| 대안 비교 | MariaDB Connector/J(LGPL-2.1)로 교체하면 리스크 자체가 없어집니다. 하지만 서버를 내린 상태라 실제 DB 연결로 동작을 검증할 수 없었습니다. 코드는 JDBC 표준 API만 쓰고 `com.mysql` 클래스를 직접 참조하지 않아(src/main 검색 0건), 나중에 교체할 때 영향 범위는 작습니다. |
+| 결정 | [deptrace-licenses.yml](https://github.com/gyeongmaetalk/gyeongmaetalk-BE/blob/chore/dependency-security-update/deptrace-licenses.yml)에 근거와 **전환 조건**("배포 형태가 바뀌면 MariaDB Connector/J로 교체"), 만료일(2027-05-18)을 붙여 예외로 등록했습니다. |
+
+라이선스 판정 결과만 보면 "GPL이 있다"에서 끝납니다. 의무가 실제로 생기는지는 **배포 형태**에 달려 있어서, 빌드 산출물이 어디로 나가는지까지 확인해야 판단할 수 있었습니다.
+
+### 자동화
+
+감사 워크플로에 라이선스 단계를 추가했습니다. 빌드 파일이나 정책 파일이 바뀔 때, 그리고 매일 실행합니다. 취약점 게이트가 실패해도 라이선스 결과가 함께 보이도록, 해석 그래프 추출만 성공하면 실행합니다.
+
 ## 후속 과제
 
 - Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전)
 - querydsl → OpenFeign 포크(io.github.openfeign.querydsl) 이전
 - 운영 설정으로 실제 기동 확인. 이번 점검에서는 저장소에 `application.yml`이 없어 컨텍스트 기동을 검증하지 못했습니다.
+- MariaDB Connector/J 전환 검증 (라이선스 예외 만료 2027-05-18 전, 또는 배포 형태가 바뀔 때)
+- 약한 카피레프트 7건의 고지 의무 정리 (NOTICE·라이선스 사본 수집)
