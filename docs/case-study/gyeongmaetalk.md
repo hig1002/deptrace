@@ -201,6 +201,42 @@ okhttp logging-interceptor는 Boot 3.5가 okhttp 관리를 중단하면서 4.12.
 
 감사 워크플로에 라이선스 단계를 추가했습니다. 빌드 파일이나 정책 파일이 바뀔 때, 그리고 매일 실행합니다. 취약점 게이트가 실패해도 라이선스 결과가 함께 보이도록, 해석 그래프 추출만 성공하면 실행합니다.
 
+## 10. SBOM과 공식 플러그인 비교 (2026-11-18)
+
+`deptrace sbom`으로 CycloneDX 1.6 SBOM을 만들고([ADR 0005](../adr/0005-sbom-scope-and-vex.md)), 같은 커밋에서 CycloneDX Gradle 플러그인 3.6.1(기본 설정)의 결과와 비교했습니다. 두 결과 모두 CycloneDX 공식 라이브러리의 1.6 스키마 검증을 통과했습니다.
+
+### 구성요소 범위
+
+| 항목 | DepTrace | 플러그인 |
+|---|---|---|
+| 구성요소 | 292 | 343 |
+| 공통 | 292 (DepTrace 결과 전부) | |
+| 플러그인에만 있음 | | 51: 테스트 전용 26(h2, assertj 등), 빌드 도구 25(Kotlin 컴파일러, Lombok, querydsl-apt 등) |
+| scope 구분 | 전부 `required` (배포물) | 없음 |
+
+플러그인 결과를 그대로 넘기면, 받는 쪽은 배포 jar에 없는 51개의 취약점과 라이선스까지 대응하게 됩니다. 예를 들어 Lombok은 컴파일할 때만 쓰고 배포물에 들어가지 않습니다.
+
+### 라이선스 표기 (공통 292개 중 13개 차이)
+
+| 구성요소 | DepTrace | 플러그인 | 비고 |
+|---|---|---|---|
+| mysql-connector-j | `GPL-2.0-only WITH Universal-FOSS-exception-1.0` | `GPL-2.0-only` | 예외 조항을 잃으면 판단 근거(9절)가 사라짐 |
+| javax.annotation-api | `CDDL-1.1 OR GPL-2.0-only WITH Classpath-exception-2.0` | `CDDL-1.0 OR GPL-2.0-with-classpath-exception` | POM이 가리키는 LICENSE 원문이 CDDL **1.1**임을 확인. 플러그인 쪽 식별자는 SPDX에서 폐기된 표기 |
+| jakarta.annotation·transaction | `EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0` | `EPL-2.0`, `GPL-2.0-with-classpath-exception` (각각) | 플러그인은 다중 라이선스를 별도 항목으로 나열해 AND인지 OR인지 드러나지 않음 |
+| logback, jakarta.persistence, HdrHistogram | `A OR B` 식 | 별도 항목 나열 | 위와 같음 |
+| hibernate-core | `LGPL-2.1-or-later` | 원문 이름 | 플러그인은 식별하지 못함 |
+| google-auth 2개, re2j, bcprov | `BSD-3-Clause`, `MIT` | 원문 이름("BSD New license", "Go License", "Bouncy Castle Licence") | 플러그인은 식별하지 못함 |
+
+### VEX
+
+취약점 8건을 함께 실었습니다.
+- 예외로 인정한 4건(Spring 3건, querydsl 1건)은 `not_affected`로 쓰고 사유와 재검토일을 붙였습니다. SSE 권고는 webflux와 webmvc에 함께 걸려, 구성요소 기준으로는 5쌍입니다.
+- 게이트 기준(HIGH) 미만인 MODERATE 4건은 `in_triage`입니다. 이 SBOM을 받는 쪽 스캐너는 우리가 이미 검토한 권고를 다시 "취약"으로 띄우지 않을 수 있습니다.
+
+### 자동화
+
+감사 워크플로가 매 실행마다 `bom.cdx.json`을 만들어 리포트 산출물에 함께 올립니다.
+
 ## 후속 과제
 
 - Spring Boot 4 이전 검토 (예외 만료 2027-01-19 전)

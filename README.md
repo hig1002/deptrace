@@ -12,6 +12,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 | 어디를 고쳐야 하는가? | 버전을 결정한 주체에 따라 직접 선언 제거·상향 / Spring Boot(BOM) 업그레이드 / constraints / 수정 불가로 분류 |
 | 고친 뒤 정말 바뀌었는가? | 수정 전후 구성요소·취약점 비교(상향·하향·추가·제거, 해결·신규·잔존) |
 | 라이선스 의무가 있는가? | POM(부모 상속 포함)의 선언을 SPDX로 정규화하고 의무 강도로 분류, 금지 라이선스는 유입 경로와 함께 게이트에서 차단 |
+| 다른 도구·조직에 넘길 수 있는가? | 배포 클래스패스만 담은 CycloneDX 1.6 SBOM. 라이선스 식, 의존 관계, 예외 근거를 담은 VEX 분석 상태 포함 |
 
 ## 만든 계기
 
@@ -83,6 +84,13 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
    - 여러 라이선스가 선언되면 그중 하나를 고를 수 있다(OR)고 봅니다. 금지되지 않은 선택지가 하나라도 있으면 위반이 아니고, 어떤 선택지를 가정했는지 리포트에 남깁니다.
    - 정책 파일로 분류 단위 금지·검토, SPDX 식별자 단위 허용·금지, 사유·만료일이 있는 예외를 지정합니다.
 
+8. **SBOM** ([CycloneDxWriter](src/main/java/deptrace/sbom/CycloneDxWriter.java), [ADR 0005](docs/adr/0005-sbom-scope-and-vex.md))
+   - 배포 클래스패스(`productionRuntimeClasspath`)만 담습니다. 테스트·빌드 도구(컴파일러, 어노테이션 프로세서)는 배포물에 없으므로 넣지 않습니다.
+   - 라이선스는 단일 식별자면 `license.id`, OR·WITH가 있으면 `expression`, 식별하지 못하면 원문을 `license.name`으로 씁니다.
+   - 의존 관계는 실제 유입 엣지만 씁니다. BOM 제약 엣지는 버전만 정할 뿐 구성요소를 끌어오지 않습니다.
+   - `analyze` 결과를 주면 취약점을 붙입니다. 유효한 예외는 VEX `not_affected`(근거·재검토일 포함), 나머지는 `in_triage`로 둡니다. 확인하지 않은 "취약함"은 단정하지 않습니다.
+   - 버전 선택 사유와 라이선스 상속 출처는 표준 필드가 없어 `deptrace:*` 속성으로 남깁니다.
+
 ## 기존 도구와의 역할 분담
 
 | 영역 | 그대로 사용 | 직접 구현 |
@@ -112,6 +120,7 @@ Gradle 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취약한 �
 | `deptrace explain --graphs build/deptrace com.nimbusds:nimbus-jose-jwt` | 구성요소 하나의 버전 결정 원인과 유입 경로 (오프라인) |
 | `deptrace analyze --graphs build/deptrace --out build/deptrace-report --fail-on HIGH --exceptions deptrace-exceptions.yml` | 전체 분석, 리포트 생성, 정책 게이트 (위반 시 종료 코드 1) |
 | `deptrace licenses --graphs build/deptrace --policy deptrace-licenses.yml` | 라이선스 판정과 라이선스 게이트 (금지 라이선스가 있으면 종료 코드 1) |
+| `deptrace sbom --graphs build/deptrace --analysis build/deptrace-report/analysis.json --exceptions deptrace-exceptions.yml` | CycloneDX 1.6 SBOM (VEX 포함) |
 | `deptrace diff --before before/analysis.json --after after/analysis.json --out diff.md` | 수정 전후 비교 |
 
 CI 예시는 [경매톡 워크플로](docs/case-study/gyeongmaetalk.md#자동화)를 참고하세요.
@@ -130,12 +139,14 @@ com.nimbusds:nimbus-jose-jwt:9.37  [productionRuntimeClasspath]
 
 ## 검증
 
-- 단위 테스트 56개 (`./gradlew test`)
+- 단위 테스트 62개 (`./gradlew test`)
   - 버전 결정 분류: 하향, BOM 덮어쓰기, 범위 이탈, 충돌 해결
   - 유입 경로: 최단 경로, 제약 엣지 제외, 순환
   - 영향 범위 해석: 라인 변경, 재발 범위, 정렬, 좌표 이동
   - 실배포 버전 선택(변형 꼬리표 유지 포함), 정책 게이트(예외 만료·패키지 불일치·설정 오류), 전후 비교
   - 라이선스: POM 해석(부모 상속, 순환, XXE 차단), SPDX 정규화(구체적 URL 우선, or-later·예외 조항), 다중 라이선스 선택, 정책·예외
+  - SBOM: CycloneDX 공식 라이브러리(cyclonedx-core-java)로 1.6 스키마 검증, 라이선스 표현 구분, 제약 엣지 제외, VEX 상태
+- SBOM 교차 검증: 경매톡에서 CycloneDX Gradle 플러그인 3.6.1의 결과와 비교했습니다. 배포 구성요소 292개가 모두 일치했고, 차이는 [사례 문서](docs/case-study/gyeongmaetalk.md#10-sbom과-공식-플러그인-비교-2026-11-18)에 정리했습니다.
 - 테스트 데이터는 경매톡에서 실제로 관찰한 사례(nimbus-jose-jwt, querydsl, json-smart, httpclient5, protobuf, ion-java, Tomcat 10.1.58, guava 33.7.2-jre)를 그대로 옮겼습니다.
 - OSV-Scanner와의 차분 비교: 경매톡 배포 클래스패스 기준 (구성요소, 권고 ID) 163쌍이 모두 일치했습니다.
 
