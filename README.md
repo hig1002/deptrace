@@ -14,6 +14,7 @@ Gradle·Maven 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취�
 | 라이선스 의무가 있는가? | POM(부모 상속 포함)의 선언을 SPDX로 정규화하고 의무 강도로 분류, 금지 라이선스는 유입 경로와 함께 게이트에서 차단 |
 | OSV가 아직 모르는 권고는? | GitHub 미검토 권고처럼 패키지 매핑이 없는 CVE를 NVD 제품 단위(CPE)로 보완 점검. 제품당 한 번만 보고 |
 | 다른 도구·조직에 넘길 수 있는가? | 배포 클래스패스만 담은 CycloneDX 1.6 SBOM. 라이선스 식, 의존 관계, 예외 근거를 담은 VEX 분석 상태 포함 |
+| 코드를 안 바꿔도 새 CVE가 나오면? 어느 서비스가 영향받나? | [서버](docs/server.md): CI가 올린 SBOM을 저장하고 매일 OSV와 다시 대조. CVE 번호로 영향받는 프로젝트 조회 |
 
 ## 만든 계기
 
@@ -102,6 +103,16 @@ Gradle·Maven 의존성 해석 결과에 OSV 취약점 정보를 결합해, 취�
    - [제품 대응표](src/main/resources/deptrace/nvd/products.yml)로 Maven 모듈을 NVD 제품에 **명시적으로** 연결합니다. jar 이름에서 추측하지 않습니다.
    - NVD 설정의 AND/OR 논리를 그대로 평가합니다. 다른 제품 조건은 클래스패스 버전으로 확인하고, OS 같은 확인할 수 없는 조건은 해당하지 않는 것으로 봅니다. target_sw가 Java가 아니거나 버전이 `-`(해당 없음)이면 제외합니다.
    - OSV가 이미 보고한 CVE와, GitHub이 검토해 다른 Maven 패키지에 연결한 CVE는 뺍니다. 남은 것을 제품당 한 번 보고하고, 범위 밖이면서 Maven Central에 실제로 배포된 다음 버전을 붙입니다.
+
+## 서버
+
+CLI와 같은 분석 코드를 쓰는 Spring Boot 서버입니다([`server/`](server), [문서](docs/server.md), [ADR 0008](docs/adr/0008-server-design.md)).
+
+- CI가 `deptrace sbom` 결과를 올리면 프로젝트의 스냅샷으로 저장하고, 발견을 OPEN·RESOLVED로 관리합니다.
+- Spring Batch 잡이 매일 사용 중인 구성요소를 중복 없이 OSV에 다시 조회해, 코드 변경 없이 공개된 권고를 찾고 웹훅으로 알립니다.
+- `GET /api/advisories/CVE-…/impact`로 영향받는 프로젝트를, `GET /api/components/usage?module=…`로 라이브러리를 쓰는 프로젝트를 찾습니다.
+- "버전 ↔ 권고" 대응은 전역으로 한 번만 계산하고, 프로젝트별 발견은 유일 제약으로 멱등하게 맞춥니다. OSV 호출은 DB 트랜잭션 밖에서 합니다.
+- Spring Boot 3.5, JPA, PostgreSQL(Flyway), Spring Batch, Testcontainers 통합 테스트 7개. 실제 OSV로 세 프로젝트를 올렸을 때 발견 수가 CLI와 일치했습니다.
 
 ## 기존 도구와의 역할 분담
 
