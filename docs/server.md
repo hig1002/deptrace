@@ -35,8 +35,26 @@ CI ── deptrace sbom ──▶ POST /api/projects/{key}/sboms
 | `GET /api/advisories/{GHSA 또는 CVE}/impact` | 이 권고에 영향받는 프로젝트와 구성요소. CVE 번호로도 찾음 |
 | `GET /api/components/usage?module=group:artifact` | 이 라이브러리를 쓰는 프로젝트와 버전 (권고와 무관) |
 | `POST /api/rescan` | 재검사 즉시 실행 |
+| `POST /api/projects/{key}/exceptions` | 예외 등록: `{advisory, module?, reason, expiresOn, requestedBy?}`. 등록 즉시 해당 발견이 ACCEPTED |
+| `GET /api/projects/{key}/exceptions` | 예외 목록 (ACTIVE / EXPIRED / REVOKED, 덮고 있는 발견 수) |
+| `DELETE /api/projects/{key}/exceptions/{id}` | 철회. 기록은 남고 덮던 발견은 바로 OPEN |
+| `GET /api/exceptions/expiring` | 14일 안에 만료되는 예외 (모든 프로젝트) |
 
-쓰기 요청(POST)은 `Authorization: Bearer {DEPTRACE_API_TOKEN}`이 필요합니다.
+쓰기 요청(GET·HEAD 외 모든 메서드)은 `Authorization: Bearer {DEPTRACE_API_TOKEN}`이 필요합니다.
+
+## 예외(위험 수용)
+
+CLI의 `deptrace-exceptions.yml`과 같은 규칙을 생명주기로 옮겼습니다([ADR 0009](adr/0009-server-risk-acceptance.md)).
+
+```
+OPEN ──(예외 등록)──▶ ACCEPTED ──(만료일 다음 날 재검사 / 철회)──▶ OPEN + "예외 종료" 알림
+  │                                                              
+  └──(버전 상향·제거, 권고 철회)──▶ RESOLVED ──(다시 나타남)──▶ OPEN (예외가 있으면 ACCEPTED)
+```
+
+- 권고는 GHSA ID나 CVE 번호 어느 쪽으로도 지정합니다. 모듈은 선택입니다.
+- 사유는 10자 이상(확인 방법 포함), 만료일은 최대 180일입니다. 길게 잡으면 다시 볼 시점이 사라지기 때문입니다.
+- 예외가 미리 있으면 새로 나타난 발견은 처음부터 ACCEPTED이고 알리지 않습니다.
 
 ## 실행
 
@@ -62,7 +80,7 @@ curl -X POST -H "Authorization: Bearer $DEPTRACE_API_TOKEN" -H "Content-Type: ap
 
 ## 검증
 
-**통합 테스트** (Testcontainers PostgreSQL 17, OSV만 고정 데이터): 7개
+**통합 테스트** (Testcontainers PostgreSQL 17, OSV만 고정 데이터, 시각을 움직일 수 있는 시계): 14개
 
 - 업로드하면 발견이 열리고, 같은 SBOM을 다시 올려도 중복되지 않음
 - 프로젝트가 달라도 같은 버전은 OSV에 한 번만 조회
@@ -71,6 +89,7 @@ curl -X POST -H "Authorization: Bearer $DEPTRACE_API_TOKEN" -H "Content-Type: ap
 - 권고가 철회되면 재검사에서 해결로 바뀜
 - 쓰기 요청은 토큰 필요, 읽기는 불필요
 - CycloneDX가 아니면 400
+- 예외 7개: 등록(CVE 별칭) → 수용, 만료일 당일 유지·다음 날 다시 열림과 알림, 철회, 미리 등록한 예외, 다른 모듈 지정, 정책 위반 400, 곧 만료 목록
 
 **실제 OSV로 실행** (2026-11-19, 로컬 PostgreSQL)
 
@@ -86,7 +105,8 @@ curl -X POST -H "Authorization: Bearer $DEPTRACE_API_TOKEN" -H "Content-Type: ap
 
 ## 한계
 
-- 취약점 예외(사유·만료일), NVD 보완 점검, 라이선스는 아직 서버에 없습니다. CLI에서만 됩니다.
+- NVD 보완 점검과 라이선스는 아직 서버에 없습니다. CLI에서만 됩니다.
+- 예외에 승인 절차(요청자·승인자 분리)가 없고, CLI의 `deptrace-exceptions.yml`을 가져오는 기능도 없습니다. 두 곳에서 관리하면 어긋날 수 있습니다.
 - 인증은 단일 토큰입니다. 프로젝트별 권한은 없습니다.
 - 재검사의 OSV 상세 조회는 CLI와 같은 파일 캐시를 씁니다. 서버를 여러 대 띄우면 캐시와 스케줄 실행이 중복됩니다(분산 락 미적용).
 - 측정은 프로젝트 3개, 구성요소 342개 규모입니다. 대규모 성능은 측정하지 않았습니다.

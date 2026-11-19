@@ -112,7 +112,8 @@ CLI와 같은 분석 코드를 쓰는 Spring Boot 서버입니다([`server/`](se
 - Spring Batch 잡이 매일 사용 중인 구성요소를 중복 없이 OSV에 다시 조회해, 코드 변경 없이 공개된 권고를 찾고 웹훅으로 알립니다.
 - `GET /api/advisories/CVE-…/impact`로 영향받는 프로젝트를, `GET /api/components/usage?module=…`로 라이브러리를 쓰는 프로젝트를 찾습니다.
 - "버전 ↔ 권고" 대응은 전역으로 한 번만 계산하고, 프로젝트별 발견은 유일 제약으로 멱등하게 맞춥니다. OSV 호출은 DB 트랜잭션 밖에서 합니다.
-- Spring Boot 3.5, JPA, PostgreSQL(Flyway), Spring Batch, Testcontainers 통합 테스트 7개. 실제 OSV로 세 프로젝트를 올렸을 때 발견 수가 CLI와 일치했습니다.
+- 예외(위험 수용)를 사유·만료일(최대 180일)과 함께 등록하면 발견이 ACCEPTED가 되고, 만료되면 매일 재검사가 다시 열어 알립니다([ADR 0009](docs/adr/0009-server-risk-acceptance.md)).
+- Spring Boot 3.5, JPA, PostgreSQL(Flyway), Spring Batch, Testcontainers 통합 테스트 14개. 실제 OSV로 세 프로젝트를 올렸을 때 발견 수가 CLI와 일치했습니다.
 
 ## 기존 도구와의 역할 분담
 
