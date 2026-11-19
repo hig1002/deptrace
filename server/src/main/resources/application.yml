@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: deptrace-server
+  datasource:
+    url: ${DEPTRACE_DB_URL:jdbc:postgresql://localhost:5432/deptrace}
+    username: ${DEPTRACE_DB_USER:deptrace}
+    password: ${DEPTRACE_DB_PASSWORD:deptrace}
+  jpa:
+    hibernate:
+      ddl-auto: validate   # 스키마는 Flyway가 관리한다
+    open-in-view: false
+    properties:
+      hibernate.jdbc.batch_size: 100
+      hibernate.order_inserts: true
+  batch:
+    job:
+      enabled: false       # 시작할 때 잡을 실행하지 않는다 (스케줄러·API로만 실행)
+    jdbc:
+      initialize-schema: always
+
+deptrace:
+  osv-cache: ${DEPTRACE_OSV_CACHE:.deptrace-cache/osv}
+  # 업로드·재검사 API 보호. 비어 있으면 검사하지 않는다 (로컬 개발용)
+  api-token: ${DEPTRACE_API_TOKEN:}
+  rescan:
+    cron: ${DEPTRACE_RESCAN_CRON:0 0 0 * * *}   # 매일 00:00 UTC (09:00 KST)
+    chunk-size: 500
+    # 업로드 시 이 시간 안에 조회한 구성요소는 다시 조회하지 않는다
+    fresh-for: PT24H
+  notification:
+    webhook-url: ${DEPTRACE_WEBHOOK_URL:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

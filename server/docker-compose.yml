@@ -1,0 +1,10 @@
+# 로컬 개발용 PostgreSQL. 서버는 ./gradlew :server:bootRun 으로 실행한다.
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: deptrace
+      POSTGRES_USER: deptrace
+      POSTGRES_PASSWORD: deptrace
+    ports:
+      - "5432:5432"

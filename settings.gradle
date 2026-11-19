@@ -1,1 +1,4 @@
 rootProject.name = 'deptrace'
+
+// CLI(루트)와 같은 분석 코드를 쓰는 서버. SBOM을 저장하고 매일 다시 대조한다
+include 'server'
