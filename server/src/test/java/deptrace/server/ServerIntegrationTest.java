@@ -27,7 +27,16 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
+
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
+
 import deptrace.osv.Severity;
+import deptrace.server.notify.Notifier;
 
 /**
  * 실제 PostgreSQL(Testcontainers)에서 업로드 → 발견 → 재검사 → 해결의 흐름을 확인한다.
@@ -51,6 +60,13 @@ class ServerIntegrationTest {
         FakeOsv fakeOsv() {
             return new FakeOsv();
         }
+
+        /** 예외 만료를 확인하려고 시간을 앞으로 보낼 수 있는 시계로 바꾼다. */
+        @Bean
+        @Primary
+        MutableClock mutableClock() {
+            return new MutableClock();
+        }
     }
 
     private static final String WEBMVC_OLD = "org.springframework:spring-webmvc:6.2.19";
@@ -67,12 +83,20 @@ class ServerIntegrationTest {
     @Autowired
     JdbcTemplate jdbc;
 
+    @Autowired
+    MutableClock clock;
+
+    @MockitoSpyBean
+    Notifier notifier;
+
     @BeforeEach
     void clean() {
         jdbc.execute("update project set current_snapshot_id = null");
-        jdbc.execute("delete from finding; delete from component_advisory; delete from advisory_alias; delete from advisory;"
-                + " delete from snapshot_component; delete from snapshot; delete from project; delete from component");
+        jdbc.execute("delete from finding; delete from risk_acceptance; delete from component_advisory; delete from advisory_alias;"
+                + " delete from advisory; delete from snapshot_component; delete from snapshot; delete from project; delete from component");
         osv.reset();
+        clock.reset();
+        Mockito.clearInvocations(notifier);
         // SSE 권고 (경매톡 사례의 GHSA-j9f9-w8pj-32f8 / CVE-2026-47890)
         osv.publish(WEBMVC_OLD, "GHSA-j9f9-w8pj-32f8", "CVE-2026-47890", Severity.CRITICAL);
     }
@@ -171,6 +195,137 @@ class ServerIntegrationTest {
 
         assertThat(r.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
         assertThat(r.getBody()).contains("CycloneDX");
+    }
+
+    // ---- 예외(위험 수용) ----
+
+    private static final String SSE_REASON = "SseEmitter·ServerSentEvent 사용 없음 (src/main 검색 0건)";
+
+    @Test
+    void 예외를_등록하면_발견이_수용되고_열린_목록과_영향_조회에서_빠진다() {
+        upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+
+        // 사람은 보통 CVE 번호로 말한다. GHSA로 저장된 권고를 별칭으로 찾는다
+        Map<String, Object> created = createException("gyeongmaetalk", "CVE-2026-47890", "org.springframework:spring-webmvc",
+                SSE_REASON, today().plusDays(30));
+
+        assertThat(created).containsEntry("accepted", 1);
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=OPEN")).isEmpty();
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=ACCEPTED")).singleElement()
+                .satisfies(f -> assertThat(f.get("acceptance").toString()).contains("SseEmitter"));
+        assertThat(getList("/api/projects")).singleElement()
+                .satisfies(p -> assertThat(p).containsEntry("openBySeverity", Map.of()).containsEntry("accepted", 1));
+        assertThat(projectsOf(get("/api/advisories/CVE-2026-47890/impact"))).isEmpty();
+    }
+
+    @Test
+    void 예외가_만료되면_재검사에서_다시_열리고_알린다() {
+        upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+        createException("gyeongmaetalk", "GHSA-j9f9-w8pj-32f8", null, SSE_REASON, today().plusDays(30));
+        Mockito.clearInvocations(notifier);
+
+        // 만료일 당일까지는 유효하다
+        clock.advance(Duration.ofDays(30));
+        post("/api/rescan", null, "test-token");
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=ACCEPTED")).hasSize(1);
+
+        clock.advance(Duration.ofDays(1));
+        post("/api/rescan", null, "test-token");
+
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=OPEN")).singleElement()
+                .satisfies(f -> assertThat(f).containsEntry("advisory", "GHSA-j9f9-w8pj-32f8"));
+        assertThat(sentAlerts()).anySatisfy(a -> assertThat(a.event()).isEqualTo("ACCEPTANCE_ENDED"));
+        assertThat(getList("/api/projects/gyeongmaetalk/exceptions")).singleElement()
+                .satisfies(e -> assertThat(e).containsEntry("state", "EXPIRED").containsEntry("coveredFindings", 0));
+    }
+
+    @Test
+    void 예외를_철회하면_바로_다시_열리고_기록은_남는다() {
+        upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+        Map<String, Object> created = createException("gyeongmaetalk", "CVE-2026-47890", null, SSE_REASON, today().plusDays(30));
+        long id = ((Number) ((Map<?, ?>) created.get("exception")).get("id")).longValue();
+
+        ResponseEntity<String> noToken = http.exchange("/api/projects/gyeongmaetalk/exceptions/" + id, HttpMethod.DELETE,
+                new HttpEntity<>(null, jsonHeaders(null)), String.class);
+        assertThat(noToken.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+
+        ResponseEntity<Map<String, Object>> revoked = http.exchange("/api/projects/gyeongmaetalk/exceptions/" + id, HttpMethod.DELETE,
+                new HttpEntity<>(null, jsonHeaders("test-token")), new ParameterizedTypeReference<>() {
+                });
+
+        assertThat(revoked.getBody()).containsEntry("state", "REVOKED");
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=OPEN")).hasSize(1);
+        assertThat(getList("/api/projects/gyeongmaetalk/exceptions")).hasSize(1);
+    }
+
+    @Test
+    void 미리_등록한_예외가_있으면_새로_나타난_발견은_열리지_않고_알리지도_않는다() {
+        upload("gyeongmaetalk", GUAVA);
+        createException("gyeongmaetalk", "CVE-2026-47890", null, SSE_REASON, today().plusDays(30));
+        Mockito.clearInvocations(notifier);
+
+        Map<String, Object> r = upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+
+        assertThat(r).containsEntry("opened", 0).containsEntry("accepted", 1);
+        assertThat(sentAlerts()).isEmpty();
+    }
+
+    @Test
+    void 다른_모듈을_지정한_예외는_적용되지_않는다() {
+        upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+
+        Map<String, Object> r = createException("gyeongmaetalk", "CVE-2026-47890", "org.springframework:spring-webflux",
+                SSE_REASON, today().plusDays(30));
+
+        assertThat(r).containsEntry("accepted", 0);
+        assertThat(getList("/api/projects/gyeongmaetalk/findings?status=OPEN")).hasSize(1);
+    }
+
+    @Test
+    void 사유가_짧거나_만료일이_지났거나_너무_길면_거부한다() {
+        upload("gyeongmaetalk", WEBMVC_OLD);
+
+        assertThat(exceptionStatus("gyeongmaetalk", "짧음", today().plusDays(10))).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(exceptionStatus("gyeongmaetalk", SSE_REASON, today().minusDays(1))).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(exceptionStatus("gyeongmaetalk", SSE_REASON, today().plusDays(181))).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(exceptionStatus("gyeongmaetalk", SSE_REASON, today().plusDays(180))).isEqualTo(HttpStatus.CREATED);
+        assertThat(exceptionStatus("no-such-project", SSE_REASON, today().plusDays(10))).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    void 곧_만료되는_예외만_모아_보여준다() {
+        upload("gyeongmaetalk", WEBMVC_OLD, GUAVA);
+        createException("gyeongmaetalk", "CVE-2026-47890", null, SSE_REASON, today().plusDays(10));
+        createException("gyeongmaetalk", "GHSA-other", null, SSE_REASON, today().plusDays(60));
+
+        assertThat(getList("/api/exceptions/expiring")).singleElement()
+                .satisfies(e -> assertThat(e).containsEntry("advisory", "CVE-2026-47890").containsEntry("project", "gyeongmaetalk"));
+    }
+
+    private LocalDate today() {
+        return LocalDate.ofInstant(clock.instant(), ZoneOffset.UTC);
+    }
+
+    private Map<String, Object> createException(String project, String advisory, String module, String reason, LocalDate expiresOn) {
+        return post("/api/projects/" + project + "/exceptions", exceptionBody(advisory, module, reason, expiresOn), "test-token");
+    }
+
+    private HttpStatus exceptionStatus(String project, String reason, LocalDate expiresOn) {
+        return HttpStatus.valueOf(http.exchange("/api/projects/" + project + "/exceptions", HttpMethod.POST,
+                new HttpEntity<>(exceptionBody("CVE-2026-47890", null, reason, expiresOn), jsonHeaders("test-token")), String.class)
+                .getStatusCode().value());
+    }
+
+    private static String exceptionBody(String advisory, String module, String reason, LocalDate expiresOn) {
+        return "{\"advisory\":\"" + advisory + "\"," + (module == null ? "" : "\"module\":\"" + module + "\",")
+                + "\"reason\":\"" + reason + "\",\"expiresOn\":\"" + expiresOn + "\",\"requestedBy\":\"test\"}";
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<Notifier.Alert> sentAlerts() {
+        ArgumentCaptor<List<Notifier.Alert>> captor = ArgumentCaptor.forClass(List.class);
+        Mockito.verify(notifier, Mockito.atLeast(0)).send(captor.capture());
+        return captor.getAllValues().stream().flatMap(List::stream).toList();
     }
 
     // ---- helpers ----

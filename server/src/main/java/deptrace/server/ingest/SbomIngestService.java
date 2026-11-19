@@ -35,8 +35,9 @@ import deptrace.server.scan.ScanService;
 @Service
 public class SbomIngestService {
 
+    /** accepted: 예외가 있어 열리지 않고 바로 수용된 발견 수. */
     public record Result(String project, long snapshotId, int components, int scanned, int skippedNonMaven,
-                         int opened, int reopened, int resolved) {
+                         int opened, int reopened, int resolved, int accepted) {
     }
 
     private final ProjectRepository projects;
@@ -87,7 +88,7 @@ public class SbomIngestService {
         notifier.send(r.alerts());
 
         return new Result(projectKey, saved.snapshot().getId(), parsed.components().size(), scan.scanned(),
-                parsed.skipped(), r.opened(), r.reopened(), r.resolved());
+                parsed.skipped(), r.opened(), r.reopened(), r.resolved(), r.accepted());
     }
 
     /** 이미 있는 구성요소는 재사용하고 없는 것만 만든다. purl이 고유 키다. */

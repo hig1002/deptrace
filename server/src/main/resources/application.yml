@@ -29,6 +29,9 @@ deptrace:
     fresh-for: PT24H
   notification:
     webhook-url: ${DEPTRACE_WEBHOOK_URL:}
+  exceptions:
+    max-duration: P180D      # 예외는 최대 180일. 다시 볼 시점을 강제한다 (ADR 0003)
+    expiring-window: P14D    # 14일 안에 만료되는 예외를 미리 보여준다
 
 management:
   endpoints:

@@ -41,9 +41,12 @@ public class RescanLauncher {
     /** 잡 파라미터에 요청 시각을 넣어, 같은 날 여러 번 실행해도 별개의 실행으로 남게 한다. */
     public Summary run(String trigger) {
         try {
+            // 실행마다 고유한 runId를 식별 파라미터로 준다. 요청 시각(밀리초)만 쓰면 같은 순간에 두 번 요청됐을 때
+            // Spring Batch가 "이미 완료된 잡 인스턴스"로 보고 거부한다 (고정 시계 테스트에서 실제로 재현됨)
             JobExecution e = launcher.run(rescanJob, new JobParametersBuilder()
-                    .addString("trigger", trigger)
-                    .addLong("requestedAt", clock.millis())
+                    .addString("runId", java.util.UUID.randomUUID().toString())
+                    .addString("trigger", trigger, false)
+                    .addLong("requestedAt", clock.millis(), false)
                     .toJobParameters());
             long read = e.getStepExecutions().stream().filter(s -> s.getStepName().equals("rescanScan"))
                     .mapToLong(StepExecution::getReadCount).sum();

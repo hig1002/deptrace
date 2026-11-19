@@ -20,7 +20,8 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Finding {
 
-    public enum Status { OPEN, RESOLVED }
+    /** ACCEPTED: 유효한 예외(사유·만료일)가 있어 위험을 수용한 상태. 만료·철회되면 OPEN으로 돌아간다. */
+    public enum Status { OPEN, ACCEPTED, RESOLVED }
 
     /** UPLOAD: SBOM을 올릴 때 발견, RESCAN: 코드 변경 없이 새 권고가 공개돼 재검사에서 발견 */
     public enum DetectedBy { UPLOAD, RESCAN }
@@ -56,7 +57,31 @@ public class Finding {
 
     private Instant reopenedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "risk_acceptance_id")
+    private RiskAcceptance acceptance;
+
+    private Instant acceptedAt;
+
     protected Finding() {
+    }
+
+    /** 예외로 위험을 수용한다. 해결된 것이 다시 나타났는데 예외가 있으면 바로 수용 상태가 된다. */
+    public void accept(RiskAcceptance acceptance, Instant now) {
+        if (this.status != Status.ACCEPTED || this.acceptance == null || !this.acceptance.getId().equals(acceptance.getId())) {
+            this.acceptedAt = now;
+        }
+        this.status = Status.ACCEPTED;
+        this.acceptance = acceptance;
+        this.resolvedAt = null;
+    }
+
+    /** 예외가 만료·철회돼 다시 조치 대상이 됨. */
+    public void endAcceptance(Instant now) {
+        this.status = Status.OPEN;
+        this.acceptance = null;
+        this.acceptedAt = null;
+        this.reopenedAt = now;
     }
 
     public Finding(Project project, Component component, Advisory advisory, DetectedBy detectedBy, Instant now) {
@@ -71,6 +96,16 @@ public class Finding {
     public void resolve(Instant now) {
         this.status = Status.RESOLVED;
         this.resolvedAt = now;
+        this.acceptance = null;
+        this.acceptedAt = null;
+    }
+
+    public RiskAcceptance getAcceptance() {
+        return acceptance;
+    }
+
+    public Instant getAcceptedAt() {
+        return acceptedAt;
     }
 
     /** 해결됐던 것이 다시 나타남 (예: 버전을 되돌림). */

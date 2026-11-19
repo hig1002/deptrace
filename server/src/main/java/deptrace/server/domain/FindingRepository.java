@@ -12,6 +12,9 @@ public interface FindingRepository extends JpaRepository<Finding, Long> {
 
     List<Finding> findByProject(Project project);
 
+    /** 이 예외가 지금 덮고 있는 발견 수. */
+    long countByAcceptance(RiskAcceptance acceptance);
+
     @Query("""
             select f from Finding f join fetch f.component join fetch f.advisory
             where f.project = :project and (:status is null or f.status = :status)

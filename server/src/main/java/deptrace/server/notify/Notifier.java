@@ -24,7 +24,16 @@ import deptrace.server.config.DeptraceProperties;
 public class Notifier {
 
     /** 알림 한 건: 프로젝트와 새로 걸린 권고 요약. */
-    public record Alert(String project, String component, String advisory, String severity, String detectedBy) {
+    /** event: NEW(새 발견), REOPENED(해결됐다가 다시 나타남), ACCEPTANCE_ENDED(예외 만료·철회로 다시 조치 대상). */
+    public record Alert(String project, String component, String advisory, String severity, String detectedBy, String event) {
+
+        String label() {
+            return switch (event) {
+                case "REOPENED" -> "다시 나타남";
+                case "ACCEPTANCE_ENDED" -> "예외 종료";
+                default -> "새 발견";
+            };
+        }
     }
 
     private static final Logger log = LoggerFactory.getLogger(Notifier.class);
@@ -41,14 +50,14 @@ public class Notifier {
         if (alerts.isEmpty()) {
             return;
         }
-        alerts.forEach(a -> log.warn("새 취약점 발견 [{}] {} {} ({}, {})", a.project(), a.component(), a.advisory(), a.severity(), a.detectedBy()));
+        alerts.forEach(a -> log.warn("{} [{}] {} {} ({}, {})", a.label(), a.project(), a.component(), a.advisory(), a.severity(), a.detectedBy()));
         if (webhookUrl == null || webhookUrl.isBlank()) {
             return;
         }
         try {
-            StringBuilder text = new StringBuilder("DepTrace: 새 취약점 " + alerts.size() + "건\n");
-            alerts.stream().limit(20).forEach(a -> text.append("• [").append(a.project()).append("] ").append(a.component())
-                    .append(" — ").append(a.advisory()).append(" (").append(a.severity()).append(")\n"));
+            StringBuilder text = new StringBuilder("DepTrace: 조치가 필요한 취약점 " + alerts.size() + "건\n");
+            alerts.stream().limit(20).forEach(a -> text.append("• ").append(a.label()).append(" [").append(a.project()).append("] ")
+                    .append(a.component()).append(" — ").append(a.advisory()).append(" (").append(a.severity()).append(")\n"));
             String body = JSON.writeValueAsString(Map.of("text", text.toString(), "alerts", alerts));
             HttpResponse<Void> r = http.send(HttpRequest.newBuilder(URI.create(webhookUrl)).timeout(Duration.ofSeconds(10))
                     .header("Content-Type", "application/json").POST(HttpRequest.BodyPublishers.ofString(body)).build(),

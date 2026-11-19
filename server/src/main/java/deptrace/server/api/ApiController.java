@@ -35,18 +35,26 @@ import deptrace.server.rescan.RescanLauncher;
 @RequestMapping("/api")
 public class ApiController {
 
+    /** acceptance: 이 발견을 덮는 예외 (ACCEPTED일 때만). */
     public record FindingView(long id, String component, String advisory, List<String> aliases, String severity,
-                              String summary, String status, String detectedBy, String firstSeenAt, String resolvedAt) {
+                              String summary, String status, String detectedBy, String firstSeenAt, String resolvedAt,
+                              AcceptanceRef acceptance) {
 
         static FindingView of(Finding f) {
             Advisory a = f.getAdvisory();
+            AcceptanceRef ref = f.getAcceptance() == null ? null : new AcceptanceRef(f.getAcceptance().getId(),
+                    f.getAcceptance().getReason(), f.getAcceptance().getExpiresOn().toString());
             return new FindingView(f.getId(), f.getComponent().getPurl(), a.getId(), List.copyOf(a.getAliases()),
                     String.valueOf(a.getSeverity()), a.getSummary(), f.getStatus().name(), f.getDetectedBy().name(),
-                    String.valueOf(f.getFirstSeenAt()), f.getResolvedAt() == null ? null : f.getResolvedAt().toString());
+                    String.valueOf(f.getFirstSeenAt()), f.getResolvedAt() == null ? null : f.getResolvedAt().toString(), ref);
         }
     }
 
-    public record ProjectView(String key, Map<String, Long> openBySeverity) {
+    public record AcceptanceRef(long id, String reason, String expiresOn) {
+    }
+
+    /** 열린 발견은 심각도별로, 예외로 수용한 발견은 수만 보여준다. */
+    public record ProjectView(String key, Map<String, Long> openBySeverity, long accepted) {
     }
 
     /** 영향 조회 결과: 프로젝트별로 어떤 구성요소가 걸렸는지. */
@@ -82,7 +90,7 @@ public class ApiController {
             Map<String, Long> bySeverity = new TreeMap<>(Comparator.comparing(Severity::parse).reversed());
             findings.findForProject(p, Finding.Status.OPEN)
                     .forEach(f -> bySeverity.merge(String.valueOf(f.getAdvisory().getSeverity()), 1L, Long::sum));
-            return new ProjectView(p.getKey(), bySeverity);
+            return new ProjectView(p.getKey(), bySeverity, findings.findForProject(p, Finding.Status.ACCEPTED).size());
         }).toList();
     }
 
@@ -130,10 +138,5 @@ public class ApiController {
     @PostMapping("/rescan")
     public RescanLauncher.Summary rescan() {
         return rescan.run("api");
-    }
-
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, String>> badRequest(IllegalArgumentException e) {
-        return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
     }
 }

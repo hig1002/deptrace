@@ -15,7 +15,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import deptrace.server.config.DeptraceProperties;
 
 /**
- * 쓰기 요청(SBOM 업로드, 재검사)은 토큰을 요구한다. CI가 Authorization: Bearer 토큰으로 호출한다.
+ * 쓰기 요청(SBOM 업로드, 재검사, 예외 등록·철회)은 토큰을 요구한다. CI가 Authorization: Bearer 토큰으로 호출한다.
+ * GET·HEAD 외의 모든 메서드가 대상이다. 메서드를 하나씩 나열하면 새 쓰기 API(DELETE 등)가 빠질 수 있다.
  * 토큰을 설정하지 않으면 검사하지 않는다(로컬 개발용).
  */
 @Component
@@ -29,7 +30,8 @@ public class ApiTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return token == null || !request.getMethod().equals("POST") || !request.getRequestURI().startsWith("/api/");
+        boolean readOnly = request.getMethod().equals("GET") || request.getMethod().equals("HEAD");
+        return token == null || readOnly || !request.getRequestURI().startsWith("/api/");
     }
 
     @Override
